@@ -1,0 +1,35 @@
+/* Loading Interface Styles */
+
+.loading-interface {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.eta-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 1rem;
+    font-size: 12px;
+    color: #9ca3af;
+}
+
+.countdown {
+    padding: 0;
+    color: #fbbf24;
+    font-size: 24px;
+    font-weight: 600;
+    border: none;
+    background: transparent;
+}
+
+.steps-display {
+    color: #fbbf24;
+    font-size: 14px;
+    margin: 0;
+    text-align: center;
+    min-height: 20px;
+}
+
+

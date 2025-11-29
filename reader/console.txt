@@ -1,0 +1,1348 @@
+audio-input-data-core.js:30 📄 [PAGE-DATA] Loaded 8 pages
+audio-input-data-core.js:32 🎯 [PAGE-DATA] 7/8 pages have transitionInfo
+audio-input-data-core.js:35 🔄 [PAGE-DATA] Pages with transitionInfo:
+audio-input-data-core.js:38   Page 0 (index 0): gap=[2.380s, 2.589s], midpoint=2.484s
+audio-input-data-core.js:38   Page 1 (index 1): gap=[3.901s, 4.052s], midpoint=3.976s
+audio-input-data-core.js:38   Page 2 (index 2): gap=[5.794s, 6.606s], midpoint=6.200s
+audio-input-data-core.js:38   Page 3 (index 3): gap=[8.162s, 8.232s], midpoint=8.197s
+audio-input-data-core.js:38   Page 4 (index 4): gap=[8.835s, 8.928s], midpoint=8.882s
+audio-input-data-core.js:38   Page 5 (index 5): gap=[10.136s, 10.310s], midpoint=10.223s
+audio-input-data-core.js:38   Page 6 (index 6): gap=[13.537s, 13.816s], midpoint=13.677s
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=0.000s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 1 (index 1): startTime=2.589s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 0 (index 0): startTime=0.000s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 0
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 0 has transitionInfo: midpoint=2.484s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 0.000s < midpoint, showing CURRENT page 0
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 0.000s, current page: 0, target page: 0
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 0
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=0.000s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 1 (index 1): startTime=2.589s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 0 (index 0): startTime=0.000s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 0
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 0 has transitionInfo: midpoint=2.484s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 0.000s < midpoint, showing CURRENT page 0
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 0.000s, current page: 0, target page: 0
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 0
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=0.000s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 1 (index 1): startTime=2.589s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 0 (index 0): startTime=0.000s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 0
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 0 has transitionInfo: midpoint=2.484s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 0.000s < midpoint, showing CURRENT page 0
+audio-input-display.js:271 📊 [FRONTEND] Page 0: displaying 7 words
+page-line-balancer.js:42 📐 [PAGE-LINE-BALANCER] Container: 1240px, Working width: 365px (accounts for 3 highlighted words)
+page-line-balancer.js:69 🔍 [LINE-BALANCER] Starting distribution: 7 words, working width: 365
+page-line-balancer.js:83 🔍 [LINE-BALANCER] Word 0: "Reddit" width: 138.4, space: 28.1, total: 138.4
+page-line-balancer.js:83 🔍 [LINE-BALANCER] Word 1: "is" width: 34.3, space: 28.1, total: 62.3
+page-line-balancer.js:83 🔍 [LINE-BALANCER] Word 2: "home" width: 120.6, space: 28.1, total: 148.7
+page-line-balancer.js:91 📏 [LINE-BALANCER] Line 1: 2 words, width: 62.2% of max line width (322.7px)
+page-line-balancer.js:91 📏 [LINE-BALANCER] Line 2: 2 words, width: 59.0% of max line width (322.7px)
+page-line-balancer.js:91 📏 [LINE-BALANCER] Line 3: 2 words, width: 91.2% of max line width (322.7px)
+page-line-balancer.js:105 📏 [LINE-BALANCER] Final line: 1 words, width: 284.0px (77.8% of 365.0px working width)
+page-line-balancer.js:109 📊 [LINE-BALANCER] Total lines created: 4, working width: 365.0px
+page-line-balancer.js:154 🎨 [LINE-APPLY] Applying 4 optimized lines to container
+page-line-balancer.js:165 🧹 [LINE-APPLY] Clearing 0 existing line containers
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=0.048s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 1 (index 1): startTime=2.589s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 0 (index 0): startTime=0.000s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 0
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 0 has transitionInfo: midpoint=2.484s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 0.048s < midpoint, showing CURRENT page 0
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 0.048s, current page: 0, target page: 0
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 0
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=0.048s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 1 (index 1): startTime=2.589s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 0 (index 0): startTime=0.000s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 0
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 0 has transitionInfo: midpoint=2.484s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 0.048s < midpoint, showing CURRENT page 0
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 0.048s, current page: 0, target page: 0
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 0
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=0.312s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 1 (index 1): startTime=2.589s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 0 (index 0): startTime=0.000s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 0
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 0 has transitionInfo: midpoint=2.484s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 0.312s < midpoint, showing CURRENT page 0
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 0.312s, current page: 0, target page: 0
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 0
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=0.313s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 1 (index 1): startTime=2.589s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 0 (index 0): startTime=0.000s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 0
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 0 has transitionInfo: midpoint=2.484s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 0.313s < midpoint, showing CURRENT page 0
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 0.313s, current page: 0, target page: 0
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 0
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=0.579s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 1 (index 1): startTime=2.589s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 0 (index 0): startTime=0.000s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 0
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 0 has transitionInfo: midpoint=2.484s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 0.579s < midpoint, showing CURRENT page 0
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 0.579s, current page: 0, target page: 0
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 0
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=0.580s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 1 (index 1): startTime=2.589s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 0 (index 0): startTime=0.000s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 0
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 0 has transitionInfo: midpoint=2.484s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 0.580s < midpoint, showing CURRENT page 0
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 0.580s, current page: 0, target page: 0
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 0
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=0.849s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 1 (index 1): startTime=2.589s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 0 (index 0): startTime=0.000s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 0
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 0 has transitionInfo: midpoint=2.484s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 0.849s < midpoint, showing CURRENT page 0
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 0.849s, current page: 0, target page: 0
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 0
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=0.849s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 1 (index 1): startTime=2.589s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 0 (index 0): startTime=0.000s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 0
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 0 has transitionInfo: midpoint=2.484s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 0.849s < midpoint, showing CURRENT page 0
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 0.849s, current page: 0, target page: 0
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 0
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=1.100s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 1 (index 1): startTime=2.589s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 0 (index 0): startTime=0.000s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 0
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 0 has transitionInfo: midpoint=2.484s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 1.100s < midpoint, showing CURRENT page 0
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 1.100s, current page: 0, target page: 0
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 0
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=1.100s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 1 (index 1): startTime=2.589s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 0 (index 0): startTime=0.000s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 0
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 0 has transitionInfo: midpoint=2.484s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 1.100s < midpoint, showing CURRENT page 0
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 1.100s, current page: 0, target page: 0
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 0
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=1.377s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 1 (index 1): startTime=2.589s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 0 (index 0): startTime=0.000s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 0
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 0 has transitionInfo: midpoint=2.484s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 1.377s < midpoint, showing CURRENT page 0
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 1.377s, current page: 0, target page: 0
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 0
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=1.379s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 1 (index 1): startTime=2.589s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 0 (index 0): startTime=0.000s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 0
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 0 has transitionInfo: midpoint=2.484s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 1.379s < midpoint, showing CURRENT page 0
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 1.379s, current page: 0, target page: 0
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 0
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=1.633s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 1 (index 1): startTime=2.589s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 0 (index 0): startTime=0.000s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 0
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 0 has transitionInfo: midpoint=2.484s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 1.633s < midpoint, showing CURRENT page 0
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 1.633s, current page: 0, target page: 0
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 0
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=1.633s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 1 (index 1): startTime=2.589s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 0 (index 0): startTime=0.000s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 0
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 0 has transitionInfo: midpoint=2.484s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 1.633s < midpoint, showing CURRENT page 0
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 1.633s, current page: 0, target page: 0
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 0
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=1.898s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 1 (index 1): startTime=2.589s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 0 (index 0): startTime=0.000s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 0
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 0 has transitionInfo: midpoint=2.484s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 1.898s < midpoint, showing CURRENT page 0
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 1.898s, current page: 0, target page: 0
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 0
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=1.898s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 1 (index 1): startTime=2.589s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 0 (index 0): startTime=0.000s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 0
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 0 has transitionInfo: midpoint=2.484s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 1.898s < midpoint, showing CURRENT page 0
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 1.898s, current page: 0, target page: 0
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 0
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=2.174s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 1 (index 1): startTime=2.589s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 0 (index 0): startTime=0.000s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 0
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 0 has transitionInfo: midpoint=2.484s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 2.174s < midpoint, showing CURRENT page 0
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 2.174s, current page: 0, target page: 0
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 0
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=2.174s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 1 (index 1): startTime=2.589s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 0 (index 0): startTime=0.000s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 0
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 0 has transitionInfo: midpoint=2.484s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 2.174s < midpoint, showing CURRENT page 0
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 2.174s, current page: 0, target page: 0
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 0
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=2.439s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 1 (index 1): startTime=2.589s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 0 (index 0): startTime=0.000s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 0
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 0 has transitionInfo: midpoint=2.484s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 2.439s < midpoint, showing CURRENT page 0
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 2.439s, current page: 0, target page: 0
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 0
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=2.440s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 1 (index 1): startTime=2.589s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 0 (index 0): startTime=0.000s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 0
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 0 has transitionInfo: midpoint=2.484s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 2.440s < midpoint, showing CURRENT page 0
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 2.440s, current page: 0, target page: 0
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 0
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=2.697s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 1 (index 1): startTime=2.589s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 1
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 1 has transitionInfo: midpoint=3.976s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 2.697s < midpoint, showing CURRENT page 1
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 2.697s, current page: 0, target page: 1
+audio-playback.js:78 🔄 [PAGE-DISPLAY] PAGE TRANSITION: 0 → 1 at 2.697s
+audio-input-display.js:271 📊 [FRONTEND] Page 1: displaying 2 words
+page-line-balancer.js:42 📐 [PAGE-LINE-BALANCER] Container: 1240px, Working width: 365px (accounts for 3 highlighted words)
+page-line-balancer.js:69 🔍 [LINE-BALANCER] Starting distribution: 2 words, working width: 365
+page-line-balancer.js:83 🔍 [LINE-BALANCER] Word 0: "endless" width: 164.4, space: 28.1, total: 164.4
+page-line-balancer.js:83 🔍 [LINE-BALANCER] Word 1: "conversation," width: 283.9, space: 28.1, total: 312.0
+page-line-balancer.js:91 📏 [LINE-BALANCER] Line 1: 1 words, width: 50.9% of max line width (322.7px)
+page-line-balancer.js:105 📏 [LINE-BALANCER] Final line: 1 words, width: 283.9px (77.8% of 365.0px working width)
+page-line-balancer.js:109 📊 [LINE-BALANCER] Total lines created: 2, working width: 365.0px
+page-line-balancer.js:154 🎨 [LINE-APPLY] Applying 2 optimized lines to container
+page-line-balancer.js:165 🧹 [LINE-APPLY] Clearing 0 existing line containers
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=2.962s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 1 (index 1): startTime=2.589s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 1
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 1 has transitionInfo: midpoint=3.976s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 2.962s < midpoint, showing CURRENT page 1
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 2.962s, current page: 1, target page: 1
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 1
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=2.962s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 1 (index 1): startTime=2.589s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 1
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 1 has transitionInfo: midpoint=3.976s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 2.962s < midpoint, showing CURRENT page 1
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 2.962s, current page: 1, target page: 1
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 1
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=3.226s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 1 (index 1): startTime=2.589s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 1
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 1 has transitionInfo: midpoint=3.976s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 3.226s < midpoint, showing CURRENT page 1
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 3.226s, current page: 1, target page: 1
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 1
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=3.227s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 1 (index 1): startTime=2.589s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 1
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 1 has transitionInfo: midpoint=3.976s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 3.227s < midpoint, showing CURRENT page 1
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 3.227s, current page: 1, target page: 1
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 1
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=3.491s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 1 (index 1): startTime=2.589s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 1
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 1 has transitionInfo: midpoint=3.976s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 3.491s < midpoint, showing CURRENT page 1
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 3.491s, current page: 1, target page: 1
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 1
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=3.492s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 1 (index 1): startTime=2.589s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 1
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 1 has transitionInfo: midpoint=3.976s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 3.492s < midpoint, showing CURRENT page 1
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 3.492s, current page: 1, target page: 1
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 1
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=3.758s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 1 (index 1): startTime=2.589s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 1
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 1 has transitionInfo: midpoint=3.976s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 3.758s < midpoint, showing CURRENT page 1
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 3.758s, current page: 1, target page: 1
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 1
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=3.759s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 1 (index 1): startTime=2.589s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 1
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 1 has transitionInfo: midpoint=3.976s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 3.759s < midpoint, showing CURRENT page 1
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 3.759s, current page: 1, target page: 1
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 1
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=4.024s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 1 (index 1): startTime=2.589s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 1
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 1 has transitionInfo: midpoint=3.976s
+audio-input-display.js:474 🚀 [PAGE-SELECTOR] Time 4.024s >= midpoint, PRE-EMPTIVELY showing NEXT page 2
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 4.024s, current page: 1, target page: 2
+audio-playback.js:78 🔄 [PAGE-DISPLAY] PAGE TRANSITION: 1 → 2 at 4.024s
+audio-input-display.js:271 📊 [FRONTEND] Page 2: displaying 4 words
+page-line-balancer.js:42 📐 [PAGE-LINE-BALANCER] Container: 1240px, Working width: 365px (accounts for 3 highlighted words)
+page-line-balancer.js:69 🔍 [LINE-BALANCER] Starting distribution: 4 words, working width: 365
+page-line-balancer.js:83 🔍 [LINE-BALANCER] Word 0: "and" width: 80.2, space: 28.1, total: 80.2
+page-line-balancer.js:83 🔍 [LINE-BALANCER] Word 1: "authentic" width: 198.9, space: 28.1, total: 227.0
+page-line-balancer.js:83 🔍 [LINE-BALANCER] Word 2: "human" width: 146.6, space: 28.1, total: 174.7
+page-line-balancer.js:91 📏 [LINE-BALANCER] Line 1: 2 words, width: 95.2% of max line width (322.7px)
+page-line-balancer.js:91 📏 [LINE-BALANCER] Line 2: 1 words, width: 45.4% of max line width (322.7px)
+page-line-balancer.js:105 📏 [LINE-BALANCER] Final line: 1 words, width: 247.7px (67.9% of 365.0px working width)
+page-line-balancer.js:109 📊 [LINE-BALANCER] Total lines created: 3, working width: 365.0px
+page-line-balancer.js:154 🎨 [LINE-APPLY] Applying 3 optimized lines to container
+page-line-balancer.js:165 🧹 [LINE-APPLY] Clearing 0 existing line containers
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=4.292s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 2
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 2 has transitionInfo: midpoint=6.200s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 4.292s < midpoint, showing CURRENT page 2
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 4.292s, current page: 2, target page: 2
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 2
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=4.292s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 2
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 2 has transitionInfo: midpoint=6.200s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 4.292s < midpoint, showing CURRENT page 2
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 4.292s, current page: 2, target page: 2
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 2
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=4.558s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 2
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 2 has transitionInfo: midpoint=6.200s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 4.558s < midpoint, showing CURRENT page 2
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 4.558s, current page: 2, target page: 2
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 2
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=4.558s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 2
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 2 has transitionInfo: midpoint=6.200s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 4.558s < midpoint, showing CURRENT page 2
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 4.558s, current page: 2, target page: 2
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 2
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=4.823s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 2
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 2 has transitionInfo: midpoint=6.200s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 4.823s < midpoint, showing CURRENT page 2
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 4.823s, current page: 2, target page: 2
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 2
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=4.824s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 2
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 2 has transitionInfo: midpoint=6.200s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 4.824s < midpoint, showing CURRENT page 2
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 4.824s, current page: 2, target page: 2
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 2
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=5.088s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 2
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 2 has transitionInfo: midpoint=6.200s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 5.088s < midpoint, showing CURRENT page 2
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 5.088s, current page: 2, target page: 2
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 2
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=5.089s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 2
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 2 has transitionInfo: midpoint=6.200s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 5.089s < midpoint, showing CURRENT page 2
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 5.089s, current page: 2, target page: 2
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 2
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=5.353s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 2
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 2 has transitionInfo: midpoint=6.200s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 5.353s < midpoint, showing CURRENT page 2
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 5.353s, current page: 2, target page: 2
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 2
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=5.353s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 2
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 2 has transitionInfo: midpoint=6.200s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 5.353s < midpoint, showing CURRENT page 2
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 5.353s, current page: 2, target page: 2
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 2
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=5.620s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 2
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 2 has transitionInfo: midpoint=6.200s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 5.620s < midpoint, showing CURRENT page 2
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 5.620s, current page: 2, target page: 2
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 2
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=5.620s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 2
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 2 has transitionInfo: midpoint=6.200s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 5.620s < midpoint, showing CURRENT page 2
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 5.620s, current page: 2, target page: 2
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 2
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=5.887s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 2
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 2 has transitionInfo: midpoint=6.200s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 5.887s < midpoint, showing CURRENT page 2
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 5.887s, current page: 2, target page: 2
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 2
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=5.887s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 2
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 2 has transitionInfo: midpoint=6.200s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 5.887s < midpoint, showing CURRENT page 2
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 5.887s, current page: 2, target page: 2
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 2
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=6.152s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 2
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 2 has transitionInfo: midpoint=6.200s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 6.152s < midpoint, showing CURRENT page 2
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 6.152s, current page: 2, target page: 2
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 2
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=6.152s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 2
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 2 has transitionInfo: midpoint=6.200s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 6.152s < midpoint, showing CURRENT page 2
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 6.152s, current page: 2, target page: 2
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 2
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=6.419s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 2
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 2 has transitionInfo: midpoint=6.200s
+audio-input-display.js:474 🚀 [PAGE-SELECTOR] Time 6.419s >= midpoint, PRE-EMPTIVELY showing NEXT page 3
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 6.419s, current page: 2, target page: 3
+audio-playback.js:78 🔄 [PAGE-DISPLAY] PAGE TRANSITION: 2 → 3 at 6.419s
+audio-input-display.js:271 📊 [FRONTEND] Page 3: displaying 5 words
+page-line-balancer.js:42 📐 [PAGE-LINE-BALANCER] Container: 1240px, Working width: 365px (accounts for 3 highlighted words)
+page-line-balancer.js:69 🔍 [LINE-BALANCER] Starting distribution: 5 words, working width: 365
+page-line-balancer.js:83 🔍 [LINE-BALANCER] Word 0: "Whether" width: 184.2, space: 28.1, total: 184.2
+page-line-balancer.js:83 🔍 [LINE-BALANCER] Word 1: "you're" width: 130.8, space: 28.1, total: 158.8
+page-line-balancer.js:91 📏 [LINE-BALANCER] Line 1: 1 words, width: 57.1% of max line width (322.7px)
+page-line-balancer.js:83 🔍 [LINE-BALANCER] Word 2: "into" width: 78.9, space: 28.1, total: 107.0
+page-line-balancer.js:91 📏 [LINE-BALANCER] Line 2: 2 words, width: 73.7% of max line width (322.7px)
+page-line-balancer.js:91 📏 [LINE-BALANCER] Line 3: 1 words, width: 56.9% of max line width (322.7px)
+page-line-balancer.js:105 📏 [LINE-BALANCER] Final line: 1 words, width: 123.4px (33.8% of 365.0px working width)
+page-line-balancer.js:109 📊 [LINE-BALANCER] Total lines created: 4, working width: 365.0px
+page-line-balancer.js:154 🎨 [LINE-APPLY] Applying 4 optimized lines to container
+page-line-balancer.js:165 🧹 [LINE-APPLY] Clearing 0 existing line containers
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=6.684s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 3
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 3 has transitionInfo: midpoint=8.197s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 6.684s < midpoint, showing CURRENT page 3
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 6.684s, current page: 3, target page: 3
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 3
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=6.684s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 3
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 3 has transitionInfo: midpoint=8.197s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 6.684s < midpoint, showing CURRENT page 3
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 6.684s, current page: 3, target page: 3
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 3
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=6.948s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 3
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 3 has transitionInfo: midpoint=8.197s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 6.948s < midpoint, showing CURRENT page 3
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 6.948s, current page: 3, target page: 3
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 3
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=6.948s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 3
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 3 has transitionInfo: midpoint=8.197s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 6.948s < midpoint, showing CURRENT page 3
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 6.948s, current page: 3, target page: 3
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 3
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=7.214s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 3
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 3 has transitionInfo: midpoint=8.197s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 7.214s < midpoint, showing CURRENT page 3
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 7.214s, current page: 3, target page: 3
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 3
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=7.214s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 3
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 3 has transitionInfo: midpoint=8.197s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 7.214s < midpoint, showing CURRENT page 3
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 7.214s, current page: 3, target page: 3
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 3
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=7.482s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 3
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 3 has transitionInfo: midpoint=8.197s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 7.482s < midpoint, showing CURRENT page 3
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 7.482s, current page: 3, target page: 3
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 3
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=7.483s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 3
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 3 has transitionInfo: midpoint=8.197s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 7.483s < midpoint, showing CURRENT page 3
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 7.483s, current page: 3, target page: 3
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 3
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=7.747s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 3
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 3 has transitionInfo: midpoint=8.197s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 7.747s < midpoint, showing CURRENT page 3
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 7.747s, current page: 3, target page: 3
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 3
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=7.747s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 3
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 3 has transitionInfo: midpoint=8.197s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 7.747s < midpoint, showing CURRENT page 3
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 7.747s, current page: 3, target page: 3
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 3
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=8.013s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 3
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 3 has transitionInfo: midpoint=8.197s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 8.013s < midpoint, showing CURRENT page 3
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 8.013s, current page: 3, target page: 3
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 3
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=8.013s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 3
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 3 has transitionInfo: midpoint=8.197s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 8.013s < midpoint, showing CURRENT page 3
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 8.013s, current page: 3, target page: 3
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 3
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=8.277s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 4
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 4 has transitionInfo: midpoint=8.882s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 8.277s < midpoint, showing CURRENT page 4
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 8.277s, current page: 3, target page: 4
+audio-playback.js:78 🔄 [PAGE-DISPLAY] PAGE TRANSITION: 3 → 4 at 8.277s
+audio-input-display.js:271 📊 [FRONTEND] Page 4: displaying 1 words
+page-line-balancer.js:42 📐 [PAGE-LINE-BALANCER] Container: 1240px, Working width: 365px (accounts for 3 highlighted words)
+page-line-balancer.js:69 🔍 [LINE-BALANCER] Starting distribution: 1 words, working width: 365
+page-line-balancer.js:83 🔍 [LINE-BALANCER] Word 0: "sports," width: 145.4, space: 28.1, total: 145.4
+page-line-balancer.js:105 📏 [LINE-BALANCER] Final line: 1 words, width: 145.4px (39.8% of 365.0px working width)
+page-line-balancer.js:109 📊 [LINE-BALANCER] Total lines created: 1, working width: 365.0px
+page-line-balancer.js:154 🎨 [LINE-APPLY] Applying 1 optimized lines to container
+page-line-balancer.js:165 🧹 [LINE-APPLY] Clearing 0 existing line containers
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=8.544s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 4
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 4 has transitionInfo: midpoint=8.882s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 8.544s < midpoint, showing CURRENT page 4
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 8.544s, current page: 4, target page: 4
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 4
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=8.545s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 4
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 4 has transitionInfo: midpoint=8.882s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 8.545s < midpoint, showing CURRENT page 4
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 8.545s, current page: 4, target page: 4
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 4
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=8.809s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 4
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 4 has transitionInfo: midpoint=8.882s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 8.809s < midpoint, showing CURRENT page 4
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 8.809s, current page: 4, target page: 4
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 4
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=8.810s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 4
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 4 has transitionInfo: midpoint=8.882s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 8.810s < midpoint, showing CURRENT page 4
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 8.810s, current page: 4, target page: 4
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 4
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=9.077s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 5
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 5 has transitionInfo: midpoint=10.223s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 9.077s < midpoint, showing CURRENT page 5
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 9.077s, current page: 4, target page: 5
+audio-playback.js:78 🔄 [PAGE-DISPLAY] PAGE TRANSITION: 4 → 5 at 9.077s
+audio-input-display.js:271 📊 [FRONTEND] Page 5: displaying 3 words
+page-line-balancer.js:42 📐 [PAGE-LINE-BALANCER] Container: 1240px, Working width: 365px (accounts for 3 highlighted words)
+page-line-balancer.js:69 🔍 [LINE-BALANCER] Starting distribution: 3 words, working width: 365
+page-line-balancer.js:83 🔍 [LINE-BALANCER] Word 0: "TV" width: 61.3, space: 28.1, total: 61.3
+page-line-balancer.js:83 🔍 [LINE-BALANCER] Word 1: "fan" width: 66.2, space: 28.1, total: 94.3
+page-line-balancer.js:83 🔍 [LINE-BALANCER] Word 2: "theories," width: 182.6, space: 28.1, total: 210.6
+page-line-balancer.js:91 📏 [LINE-BALANCER] Line 1: 2 words, width: 48.2% of max line width (322.7px)
+page-line-balancer.js:105 📏 [LINE-BALANCER] Final line: 1 words, width: 182.6px (50.0% of 365.0px working width)
+page-line-balancer.js:109 📊 [LINE-BALANCER] Total lines created: 2, working width: 365.0px
+page-line-balancer.js:154 🎨 [LINE-APPLY] Applying 2 optimized lines to container
+page-line-balancer.js:165 🧹 [LINE-APPLY] Clearing 0 existing line containers
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=9.343s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 5
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 5 has transitionInfo: midpoint=10.223s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 9.343s < midpoint, showing CURRENT page 5
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 9.343s, current page: 5, target page: 5
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 5
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=9.343s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 5
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 5 has transitionInfo: midpoint=10.223s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 9.343s < midpoint, showing CURRENT page 5
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 9.343s, current page: 5, target page: 5
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 5
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=9.609s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 5
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 5 has transitionInfo: midpoint=10.223s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 9.609s < midpoint, showing CURRENT page 5
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 9.609s, current page: 5, target page: 5
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 5
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=9.609s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 5
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 5 has transitionInfo: midpoint=10.223s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 9.609s < midpoint, showing CURRENT page 5
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 9.609s, current page: 5, target page: 5
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 5
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=9.873s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 5
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 5 has transitionInfo: midpoint=10.223s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 9.873s < midpoint, showing CURRENT page 5
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 9.873s, current page: 5, target page: 5
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 5
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=9.873s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 5
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 5 has transitionInfo: midpoint=10.223s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 9.873s < midpoint, showing CURRENT page 5
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 9.873s, current page: 5, target page: 5
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 5
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=10.141s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 5
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 5 has transitionInfo: midpoint=10.223s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 10.141s < midpoint, showing CURRENT page 5
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 10.141s, current page: 5, target page: 5
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 5
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=10.142s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 5
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 5 has transitionInfo: midpoint=10.223s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 10.142s < midpoint, showing CURRENT page 5
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 10.142s, current page: 5, target page: 5
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 5
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=10.405s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 6
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 6 has transitionInfo: midpoint=13.677s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 10.405s < midpoint, showing CURRENT page 6
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 10.405s, current page: 5, target page: 6
+audio-playback.js:78 🔄 [PAGE-DISPLAY] PAGE TRANSITION: 5 → 6 at 10.405s
+audio-input-display.js:271 📊 [FRONTEND] Page 6: displaying 9 words
+page-line-balancer.js:42 📐 [PAGE-LINE-BALANCER] Container: 1240px, Working width: 365px (accounts for 3 highlighted words)
+page-line-balancer.js:69 🔍 [LINE-BALANCER] Starting distribution: 9 words, working width: 365
+page-line-balancer.js:83 🔍 [LINE-BALANCER] Word 0: "or" width: 42.6, space: 28.1, total: 42.6
+page-line-balancer.js:83 🔍 [LINE-BALANCER] Word 1: "a" width: 25.4, space: 28.1, total: 53.5
+page-line-balancer.js:83 🔍 [LINE-BALANCER] Word 2: "never-ending" width: 283.4, space: 28.1, total: 311.5
+page-line-balancer.js:91 📏 [LINE-BALANCER] Line 1: 2 words, width: 29.8% of max line width (322.7px)
+page-line-balancer.js:91 📏 [LINE-BALANCER] Line 2: 1 words, width: 87.8% of max line width (322.7px)
+page-line-balancer.js:91 📏 [LINE-BALANCER] Line 3: 3 words, width: 96.9% of max line width (322.7px)
+page-line-balancer.js:91 📏 [LINE-BALANCER] Line 4: 1 words, width: 61.5% of max line width (322.7px)
+page-line-balancer.js:91 📏 [LINE-BALANCER] Line 5: 1 words, width: 40.8% of max line width (322.7px)
+page-line-balancer.js:105 📏 [LINE-BALANCER] Final line: 1 words, width: 174.0px (47.7% of 365.0px working width)
+page-line-balancer.js:109 📊 [LINE-BALANCER] Total lines created: 6, working width: 365.0px
+page-line-balancer.js:154 🎨 [LINE-APPLY] Applying 6 optimized lines to container
+page-line-balancer.js:165 🧹 [LINE-APPLY] Clearing 0 existing line containers
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=10.675s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 6
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 6 has transitionInfo: midpoint=13.677s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 10.675s < midpoint, showing CURRENT page 6
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 10.675s, current page: 6, target page: 6
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 6
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=10.676s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 6
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 6 has transitionInfo: midpoint=13.677s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 10.676s < midpoint, showing CURRENT page 6
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 10.676s, current page: 6, target page: 6
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 6
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=10.938s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 6
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 6 has transitionInfo: midpoint=13.677s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 10.938s < midpoint, showing CURRENT page 6
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 10.938s, current page: 6, target page: 6
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 6
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=10.938s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 6
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 6 has transitionInfo: midpoint=13.677s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 10.938s < midpoint, showing CURRENT page 6
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 10.938s, current page: 6, target page: 6
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 6
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=11.204s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 6
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 6 has transitionInfo: midpoint=13.677s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 11.204s < midpoint, showing CURRENT page 6
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 11.204s, current page: 6, target page: 6
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 6
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=11.205s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 6
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 6 has transitionInfo: midpoint=13.677s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 11.205s < midpoint, showing CURRENT page 6
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 11.205s, current page: 6, target page: 6
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 6
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=11.470s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 6
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 6 has transitionInfo: midpoint=13.677s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 11.470s < midpoint, showing CURRENT page 6
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 11.470s, current page: 6, target page: 6
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 6
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=11.470s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 6
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 6 has transitionInfo: midpoint=13.677s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 11.470s < midpoint, showing CURRENT page 6
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 11.470s, current page: 6, target page: 6
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 6
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=11.735s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 6
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 6 has transitionInfo: midpoint=13.677s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 11.735s < midpoint, showing CURRENT page 6
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 11.735s, current page: 6, target page: 6
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 6
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=11.735s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 6
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 6 has transitionInfo: midpoint=13.677s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 11.735s < midpoint, showing CURRENT page 6
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 11.735s, current page: 6, target page: 6
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 6
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=12.001s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 6
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 6 has transitionInfo: midpoint=13.677s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 12.001s < midpoint, showing CURRENT page 6
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 12.001s, current page: 6, target page: 6
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 6
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=12.001s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 6
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 6 has transitionInfo: midpoint=13.677s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 12.001s < midpoint, showing CURRENT page 6
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 12.001s, current page: 6, target page: 6
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 6
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=12.257s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 6
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 6 has transitionInfo: midpoint=13.677s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 12.257s < midpoint, showing CURRENT page 6
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 12.257s, current page: 6, target page: 6
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 6
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=12.257s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 6
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 6 has transitionInfo: midpoint=13.677s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 12.257s < midpoint, showing CURRENT page 6
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 12.257s, current page: 6, target page: 6
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 6
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=12.533s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 6
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 6 has transitionInfo: midpoint=13.677s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 12.533s < midpoint, showing CURRENT page 6
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 12.533s, current page: 6, target page: 6
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 6
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=12.533s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 6
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 6 has transitionInfo: midpoint=13.677s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 12.533s < midpoint, showing CURRENT page 6
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 12.533s, current page: 6, target page: 6
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 6
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=12.799s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 6
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 6 has transitionInfo: midpoint=13.677s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 12.799s < midpoint, showing CURRENT page 6
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 12.799s, current page: 6, target page: 6
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 6
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=12.800s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 6
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 6 has transitionInfo: midpoint=13.677s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 12.800s < midpoint, showing CURRENT page 6
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 12.800s, current page: 6, target page: 6
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 6
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=13.053s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 6
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 6 has transitionInfo: midpoint=13.677s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 13.053s < midpoint, showing CURRENT page 6
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 13.053s, current page: 6, target page: 6
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 6
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=13.054s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 6
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 6 has transitionInfo: midpoint=13.677s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 13.054s < midpoint, showing CURRENT page 6
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 13.054s, current page: 6, target page: 6
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 6
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=13.331s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 6
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 6 has transitionInfo: midpoint=13.677s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 13.331s < midpoint, showing CURRENT page 6
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 13.331s, current page: 6, target page: 6
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 6
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=13.332s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 6
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 6 has transitionInfo: midpoint=13.677s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 13.332s < midpoint, showing CURRENT page 6
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 13.332s, current page: 6, target page: 6
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 6
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=13.586s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 6
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 6 has transitionInfo: midpoint=13.677s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 13.586s < midpoint, showing CURRENT page 6
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 13.586s, current page: 6, target page: 6
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 6
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=13.586s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 6
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 6 has transitionInfo: midpoint=13.677s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 13.586s < midpoint, showing CURRENT page 6
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 13.586s, current page: 6, target page: 6
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 6
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=13.850s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 7
+audio-input-display.js:482 ✅ [PAGE-SELECTOR] No transitionInfo, returning current page 7
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 13.850s, current page: 6, target page: 7
+audio-playback.js:78 🔄 [PAGE-DISPLAY] PAGE TRANSITION: 6 → 7 at 13.850s
+audio-input-display.js:271 📊 [FRONTEND] Page 7: displaying 7 words
+page-line-balancer.js:42 📐 [PAGE-LINE-BALANCER] Container: 1240px, Working width: 365px (accounts for 3 highlighted words)
+page-line-balancer.js:69 🔍 [LINE-BALANCER] Starting distribution: 7 words, working width: 365
+page-line-balancer.js:83 🔍 [LINE-BALANCER] Word 0: "there's" width: 145.8, space: 28.1, total: 145.8
+page-line-balancer.js:83 🔍 [LINE-BALANCER] Word 1: "a" width: 25.4, space: 28.1, total: 53.5
+page-line-balancer.js:83 🔍 [LINE-BALANCER] Word 2: "community" width: 237.4, space: 28.1, total: 265.4
+page-line-balancer.js:91 📏 [LINE-BALANCER] Line 1: 2 words, width: 61.8% of max line width (322.7px)
+page-line-balancer.js:91 📏 [LINE-BALANCER] Line 2: 2 words, width: 98.9% of max line width (322.7px)
+page-line-balancer.js:91 📏 [LINE-BALANCER] Line 3: 2 words, width: 68.8% of max line width (322.7px)
+page-line-balancer.js:105 📏 [LINE-BALANCER] Final line: 1 words, width: 88.3px (24.2% of 365.0px working width)
+page-line-balancer.js:109 📊 [LINE-BALANCER] Total lines created: 4, working width: 365.0px
+page-line-balancer.js:154 🎨 [LINE-APPLY] Applying 4 optimized lines to container
+page-line-balancer.js:165 🧹 [LINE-APPLY] Clearing 0 existing line containers
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=14.117s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 7
+audio-input-display.js:482 ✅ [PAGE-SELECTOR] No transitionInfo, returning current page 7
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 14.117s, current page: 7, target page: 7
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 7
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=14.117s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 7
+audio-input-display.js:482 ✅ [PAGE-SELECTOR] No transitionInfo, returning current page 7
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 14.117s, current page: 7, target page: 7
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 7
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=14.383s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 7
+audio-input-display.js:482 ✅ [PAGE-SELECTOR] No transitionInfo, returning current page 7
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 14.383s, current page: 7, target page: 7
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 7
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=14.383s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 7
+audio-input-display.js:482 ✅ [PAGE-SELECTOR] No transitionInfo, returning current page 7
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 14.383s, current page: 7, target page: 7
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 7
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=14.648s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 7
+audio-input-display.js:482 ✅ [PAGE-SELECTOR] No transitionInfo, returning current page 7
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 14.648s, current page: 7, target page: 7
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 7
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=14.648s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 7
+audio-input-display.js:482 ✅ [PAGE-SELECTOR] No transitionInfo, returning current page 7
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 14.648s, current page: 7, target page: 7
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 7
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=14.914s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 7
+audio-input-display.js:482 ✅ [PAGE-SELECTOR] No transitionInfo, returning current page 7
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 14.914s, current page: 7, target page: 7
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 7
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=14.915s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 7
+audio-input-display.js:482 ✅ [PAGE-SELECTOR] No transitionInfo, returning current page 7
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 14.915s, current page: 7, target page: 7
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 7
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=15.182s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 7
+audio-input-display.js:482 ✅ [PAGE-SELECTOR] No transitionInfo, returning current page 7
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 15.182s, current page: 7, target page: 7
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 7
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=15.183s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 7
+audio-input-display.js:482 ✅ [PAGE-SELECTOR] No transitionInfo, returning current page 7
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 15.183s, current page: 7, target page: 7
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 7
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=15.447s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 7
+audio-input-display.js:482 ✅ [PAGE-SELECTOR] No transitionInfo, returning current page 7
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 15.447s, current page: 7, target page: 7
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 7
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=15.447s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 7
+audio-input-display.js:482 ✅ [PAGE-SELECTOR] No transitionInfo, returning current page 7
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 15.447s, current page: 7, target page: 7
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 7
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=15.712s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 7
+audio-input-display.js:482 ✅ [PAGE-SELECTOR] No transitionInfo, returning current page 7
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 15.712s, current page: 7, target page: 7
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 7
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=15.712s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 7
+audio-input-display.js:482 ✅ [PAGE-SELECTOR] No transitionInfo, returning current page 7
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 15.712s, current page: 7, target page: 7
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 7
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=15.848s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 7
+audio-input-display.js:482 ✅ [PAGE-SELECTOR] No transitionInfo, returning current page 7
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 15.848s, current page: 7, target page: 7
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 7
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=15.848s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 7
+audio-input-display.js:482 ✅ [PAGE-SELECTOR] No transitionInfo, returning current page 7
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 15.848s, current page: 7, target page: 7
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 7
+audio-input-data-core.js:30 📄 [PAGE-DATA] Loaded 8 pages
+audio-input-data-core.js:32 🎯 [PAGE-DATA] 7/8 pages have transitionInfo
+audio-input-data-core.js:35 🔄 [PAGE-DATA] Pages with transitionInfo:
+audio-input-data-core.js:38   Page 0 (index 0): gap=[2.380s, 2.589s], midpoint=2.484s
+audio-input-data-core.js:38   Page 1 (index 1): gap=[3.901s, 4.052s], midpoint=3.976s
+audio-input-data-core.js:38   Page 2 (index 2): gap=[5.794s, 6.606s], midpoint=6.200s
+audio-input-data-core.js:38   Page 3 (index 3): gap=[8.162s, 8.232s], midpoint=8.197s
+audio-input-data-core.js:38   Page 4 (index 4): gap=[8.835s, 8.928s], midpoint=8.882s
+audio-input-data-core.js:38   Page 5 (index 5): gap=[10.136s, 10.310s], midpoint=10.223s
+audio-input-data-core.js:38   Page 6 (index 6): gap=[13.537s, 13.816s], midpoint=13.677s
+audio-input-display.js:448 🔍 [PAGE-SELECTOR] Finding page for time=0.000s, pages available: 8
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 7 (index 7): startTime=13.816s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 6 (index 6): startTime=10.310s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 5 (index 5): startTime=8.928s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 4 (index 4): startTime=8.232s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 3 (index 3): startTime=6.606s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 2 (index 2): startTime=4.052s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 1 (index 1): startTime=2.589s
+audio-input-display.js:463 🔍 [PAGE-SELECTOR] Checking page 0 (index 0): startTime=0.000s
+audio-input-display.js:466 ✅ [PAGE-SELECTOR] Found current page 0
+audio-input-display.js:470 🔄 [PAGE-SELECTOR] Page 0 has transitionInfo: midpoint=2.484s
+audio-input-display.js:477 📍 [PAGE-SELECTOR] Time 0.000s < midpoint, showing CURRENT page 0
+audio-playback.js:74 📺 [PAGE-DISPLAY] Current time: 0.000s, current page: 0, target page: 0
+audio-playback.js:82 ⏸️ [PAGE-DISPLAY] No page change needed, staying on page 0

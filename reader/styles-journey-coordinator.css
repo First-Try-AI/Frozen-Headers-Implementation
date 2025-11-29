@@ -1,0 +1,24 @@
+/* Journey Coordinator - Modular CSS Architecture */
+/* Coordinates the complete user journey: Input → Loading → Returns */
+
+/* Stage 1: Input Interface */
+@import url('styles-input-interface.css');
+
+/* Stage 2: Loading Interface */
+@import url('styles-loading-interface.css');
+
+/* Stage 3: Returns Interface - Navigation & Controls */
+@import url('styles-returns-interface-navigation.css');
+
+/* Stage 4: Returns Interface - Full Chunk Display (page blocks, no word DOMs) */
+@import url('styles-returns-interface-fullchunk.css');
+
+/* Stage 5: Returns Interface - Page View Display (word-by-word layout) */
+@import url('styles-returns-interface-pageview.css');
+
+/* Stage 6: Word Highlighting System (used only in Page View) */
+@import url('styles-word-highlighting.css');
+
+
+
+

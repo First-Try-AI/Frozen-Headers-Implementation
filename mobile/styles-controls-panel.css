@@ -1,0 +1,424 @@
+/* Controls Panel Styling */
+.controls-panel {
+    position: fixed;
+    top: 20px;
+    left: 340px; /* Position to the right of dev panel (20px + 300px + 20px gap) */
+    width: 320px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: rgba(26, 26, 26, 0.95);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(107, 114, 128, 0.4);
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+    color: #e5e7eb;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif;
+    z-index: 2147483001; /* Middle layer */
+    display: none;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.controls-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #FBBF24;
+    cursor: pointer;
+    line-height: 1;
+    padding: 5px;
+    transition: color 0.2s ease;
+}
+
+.controls-close-btn:hover {
+    color: #FCD34D;
+}
+
+.controls-panel-content {
+    padding-top: 0; /* Removed space for close button */
+}
+
+.controls-panel-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #FFFFFF;
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(107, 114, 128, 0.2);
+}
+
+/* Section Styling */
+.controls-section {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+/* Alternating background colors for visual breakup */
+.controls-section:nth-child(odd) {
+    background: rgba(64, 64, 64, 0.2);
+}
+
+.controls-section:nth-child(even) {
+    background: rgba(107, 114, 128, 0.1);
+}
+
+.controls-section:last-child {
+    margin-bottom: 0;
+}
+
+.section-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #fbbf24;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(107, 114, 128, 0.1);
+    text-transform: none;
+}
+
+/* Control Group Layout */
+.control-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    flex-wrap: nowrap;
+}
+
+.control-group:last-child {
+    margin-bottom: 0;
+}
+
+.control-label {
+    font-size: 12px;
+    color: #9ca3af;
+    min-width: 90px;
+    flex-shrink: 0;
+}
+
+.controls-button-group {
+    display: flex;
+    gap: 7px;
+    flex-grow: 1;
+}
+
+/* Control Wrapper - standardized styling for all control sections */
+.control-wrapper {
+    display: flex;
+    gap: 7px;
+    flex-grow: 1;
+    align-items: center;
+}
+
+/* Add placeholder space for alignment in rows without a checkbox */
+.control-wrapper.no-checkbox > *:first-child {
+    margin-left: 0px; /* Align with voice buttons above */
+}
+
+/* Voice Preset Button Styling with Gold for Selected */
+.voice-preset-btn {
+    padding: 6px 10px;
+    background: rgba(64, 64, 64, 0.5);
+    border: 1px solid rgba(107, 114, 128, 0.3);
+    border-radius: 6px;
+    color: #9ca3af;
+    cursor: pointer;
+    font-size: 11px;
+    transition: all 0.2s ease;
+}
+
+/* Unified button width */
+.voice-preset-btn {
+    width: 60px;
+}
+
+.controls-btn.selected.voice-preset-btn,
+.controls-btn.selected {
+    background: #fbbf24;
+    border-color: #fbbf24;
+    color: #1a1a1a;
+}
+
+.voice-preset-btn:hover {
+    background: rgba(107, 114, 128, 0.2);
+    border-color: #6b7280;
+    color: #ffffff;
+}
+
+/* Hide the second Speech Speed label */
+.speech-speed-hidden {
+    visibility: hidden;
+}
+
+.controls-slider {
+    min-width: 80px;
+    height: 4px;
+    background: rgba(107, 114, 128, 0.3);
+    border-radius: 2px;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 88px;
+}
+
+.controls-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #FFFFE6;
+    cursor: pointer;
+    border: 2px solid #1a1a1a;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.controls-slider::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #FFFFE6;
+    cursor: pointer;
+    border: 2px solid #1a1a1a;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.controls-checkbox {
+    width: 16px;
+    height: 16px;
+    appearance: none;
+    background: rgba(64, 64, 64, 0.3);
+    border: 2px solid rgba(107, 114, 128, 0.3);
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.controls-checkbox:checked {
+    background: #fbbf24;
+    border-color: #fbbf24;
+}
+
+.controls-checkbox:checked::after {
+    content: '✓';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #1a1a1a;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.controls-checkbox:disabled {
+    background: rgba(251, 191, 36, 0.4);
+    border-color: rgba(251, 191, 36, 0.4);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.controls-checkbox:disabled::after {
+    content: '✓';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #1a1a1a;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.controls-number-input {
+    width: 60px;
+    padding: 6px 10px;
+    border: 1px solid rgba(107, 114, 128, 0.3);
+    border-radius: 6px;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif;
+    font-size: 11px;
+    background: rgba(64, 64, 64, 0.5);
+    color: #fbbf24;
+    text-align: center;
+    transition: all 0.2s ease;
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+/* Always show spinner buttons for number inputs */
+.controls-number-input::-webkit-outer-spin-button,
+.controls-number-input::-webkit-inner-spin-button {
+    opacity: 1;
+    height: auto;
+    width: 16px;
+}
+
+/* Firefox spinner buttons */
+.controls-number-input::-moz-number-spin-box {
+    opacity: 1;
+}
+
+.controls-number-input:focus {
+    outline: none;
+    border-color: #fbbf24;
+    box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.2);
+}
+
+/* Enhanced Control Styles */
+.speed-presets {
+    display: flex;
+    gap: 7px;
+}
+
+.preset-btn {
+    padding: 6px 10px;
+    background: rgba(64, 64, 64, 0.5);
+    border: 1px solid rgba(107, 114, 128, 0.3);
+    border-radius: 6px;
+    color: #9ca3af;
+    cursor: pointer;
+    font-size: 11px;
+    transition: all 0.2s ease;
+}
+
+/* Unified preset button width */
+.preset-btn {
+    width: 70px;
+}
+
+.preset-btn.active,
+.preset-btn:hover {
+    background: #fbbf24;
+    border-color: #fbbf24;
+    color: #1a1a1a;
+}
+
+.speed-value,
+.threshold-value,
+.dimmer-value,
+.font-value,
+.opacity-value,
+.offset-value {
+    color: #fbbf24;
+    font-size: 11px;
+    font-weight: 600;
+    min-width: 50px;
+    text-align: center;
+    margin-left: 4px;
+}
+
+/* Preview Text Styles */
+.preview-text {
+    margin-top: 8px;
+    padding: 8px;
+    background: rgba(64, 64, 64, 0.2);
+    border-radius: 4px;
+    border: 1px solid rgba(107, 114, 128, 0.2);
+    font-size: 11px;
+    color: #d1d5db;
+}
+
+.font-preview {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.font-sample {
+    padding: 4px;
+    border-radius: 4px;
+    transition: font-size 0.2s ease;
+}
+
+.active-sample {
+    background: rgba(251, 191, 36, 0.1);
+    color: #fbbf24;
+}
+
+.inactive-sample {
+    background: rgba(107, 114, 128, 0.1);
+    color: #9ca3af;
+}
+
+.opacity-preview {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.opacity-sample {
+    padding: 4px;
+    border-radius: 4px;
+    background: rgba(64, 64, 64, 0.3);
+}
+
+.baseline-sample {
+    color: #fbbf24;
+}
+
+.offset-sample {
+    color: #d1d5db;
+}
+
+.dimmer-preview {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+    color: #ffffff;
+}
+
+.threshold-preview {
+    font-size: 10px;
+    line-height: 1.4;
+}
+
+/* Value Display Styles */
+.speed-value,
+.threshold-value,
+.dimmer-value,
+.font-value,
+.opacity-value,
+.offset-value {
+    color: #fbbf24;
+    font-size: 11px;
+    font-weight: 600;
+    min-width: 50px;
+    text-align: center;
+}
+
+/* Voice Override Section */
+.checkbox-helper-text {
+    font-size: 11px;
+    color: #9ca3af;
+}
+
+.voice-override-section {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-left: 88px; /* Align with other inputs */
+}
+
+.voice-override-input {
+    width: 100%;
+    padding: 6px 10px;
+    border: 1px solid rgba(107, 114, 128, 0.3);
+    border-radius: 6px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 11px;
+    background: rgba(64, 64, 64, 0.5);
+    color: #fbbf24;
+    transition: all 0.2s ease;
+}
+
+.voice-override-input:focus {
+    outline: none;
+    border-color: #fbbf24;
+    box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.2);
+}
+
+.voice-override-input::placeholder {
+    color: #6b7280;
+}

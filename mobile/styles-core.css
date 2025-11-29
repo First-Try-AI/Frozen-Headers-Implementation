@@ -1,0 +1,74 @@
+/* Core Styles - CSS Variables, Reset, and Base Typography */
+
+/* CSS Variables - Overlay positioning and sizing variables - easily adjustable */
+:root {
+    --overlay-width: 42%; /* Width as percentage of screen */
+    --overlay-max-width: 800px; /* Maximum width in pixels */
+    --overlay-height: auto; /* Height - auto for content-based */
+    --overlay-top: 50%; /* Vertical position */
+    --overlay-left: 50%; /* Horizontal position */
+    --overlay-padding: 40px; /* Internal padding */
+    --overlay-border-radius: 20px; /* Corner roundness */
+    --overlay-background: rgba(0, 0, 0, 0.7); /* Background opacity */
+    --overlay-blur: 15px; /* Backdrop blur amount */
+}
+
+/* Reset Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* HTML Element Styles */
+html {
+    height: 100%;
+    overflow-y: auto;
+    overscroll-behavior-y: none;
+}
+
+/* Base Body Styles */
+body {
+    font-family: 'Crimson Text', serif;
+    background: linear-gradient(135deg, #0c1445 0%, #1a1a2e 50%, #16213e 100%);
+    color: #ffffff;
+    overflow-y: auto;
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 0;
+    overscroll-behavior-y: none;
+}
+
+/* Separate overlay anchored to viewport bottom - same positioning as gear icon */
+.play-pause-overlay {
+    position: fixed;
+    bottom: 30px; /* Same as gear icon - 30px from viewport bottom */
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+    width: clamp(12vh, 18vh, 24vh);
+    height: clamp(12vh, 18vh, 24vh);
+    z-index: 2147483000; /* Same as main overlay */
+    pointer-events: none; /* Let clicks through to button */
+    display: none; /* Hidden by default */
+}
+
+/* Show only when overlay is in playback mode */
+.builtin-overlay.playback-mode ~ .play-pause-overlay {
+    display: block;
+}
+
+.play-pause-button {
+    width: 100%;
+    height: 100%;
+    background: center/contain no-repeat url('play-pause.png');
+    pointer-events: auto; /* Button itself is clickable */
+    opacity: 0.8; /* 80% opacity by default */
+    transition: opacity 0.3s ease; /* Smooth transition */
+}
+
+/* Reduce to 30% when playing */
+.play-pause-overlay.playing .play-pause-button {
+    opacity: 0.3;
+}
+
+/* (Reverted) background play area and overlay z-index removed */

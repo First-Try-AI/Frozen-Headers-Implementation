@@ -1,0 +1,411 @@
+/* Input Interface and Form Controls Styles */
+
+/* Status Feedback Section */
+.status-section {
+    margin-bottom: 1rem;
+}
+
+.status-message {
+    text-align: center;
+    color: #9ca3af;
+    font-size: 14px;
+    margin-top: 0.5rem;
+    padding: 8px;
+    background: rgba(26, 26, 26, 0.6);
+    border-radius: 6px;
+    display: none;
+}
+
+.status-message.show {
+    display: block;
+}
+
+.status-message.error {
+    color: #f87171;
+    background: rgba(248, 113, 113, 0.1);
+}
+
+.status-message.success {
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.1);
+}
+
+/* Text Input Section */
+.text-input-section {
+    
+}
+
+.text-input-wrapper {
+    position: relative;
+}
+
+textarea {
+    width: 100%;
+    min-height: 220px;
+    height: auto;
+    padding: 0 0 12px 0;
+    border: none;
+    border-radius: 0;
+    font-family: inherit;
+    font-size: var(--not-playing-font-size);
+    line-height: 1.6;
+    color: #e5e7eb;
+    background: transparent;
+    resize: none;
+    overflow-y: hidden;
+    opacity: 1.0;
+    transition: opacity 0.3s ease;
+}
+
+textarea::placeholder {
+    color: #fbbf24;
+    opacity: 1.0;
+}
+
+textarea:focus {
+    outline: none;
+    opacity: 1.0;
+}
+
+.char-counter {
+    position: absolute;
+    bottom: -24px;
+    right: 0;
+    font-size: 11px;
+    font-weight: 500;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    padding: 4px 8px;
+    background: rgba(26, 26, 26, 0.9);
+    border-radius: 4px;
+    color: #9ca3af;
+}
+
+.char-counter.show {
+    opacity: 0.8;
+}
+
+.char-counter.warning {
+    color: #fbbf24;
+}
+
+.char-counter.danger {
+    color: #f87171;
+}
+
+.controlrow-input,
+.controlrow-playback {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 0;
+    gap: 24px;
+}
+
+.control-flex {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Controls Section */
+.controls-section {
+    margin-bottom: 1.5rem;
+}
+
+.control-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 4px 0;
+    flex-wrap: wrap;
+    font-size: 12px;
+}
+
+.control-row label {
+    color: #9ca3af;
+    margin-right: 8px;
+}
+
+/* Generate Control */
+.generate-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Voice Controls */
+.voice-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.voice-btn {
+    background: transparent;
+    border: 1px solid #4b5563;
+    color: #9ca3af;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.voice-btn.selected {
+    background: #6b7280;
+    border-color: #6b7280;
+    color: #fff;
+}
+
+/* Speed Control */
+.speed-slider {
+    width: 80px;
+    height: 4px;
+    background: rgba(64, 64, 64, 0.3);
+    border-radius: 2px;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.speed-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #6b7280;
+    cursor: pointer;
+}
+
+.speed-value {
+    color: #9ca3af;
+    font-size: 11px;
+    min-width: 40px;
+}
+
+/* Speaker Toggle */
+.speaker-toggle {
+    display: flex;
+    background: rgba(64, 64, 64, 0.3);
+    border-radius: 20px;
+    border: 1px solid rgba(107, 114, 128, 0.3);
+    overflow: hidden;
+    padding: 2px;
+}
+
+.speaker-btn {
+    padding: 6px 12px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #9ca3af;
+    transition: all 0.2s ease;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 16px;
+}
+
+.speaker-btn.selected {
+    background: #6b7280;
+    color: #ffffff;
+}
+
+/* Override Control */
+.override-control {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.checkbox {
+    width: 16px;
+    height: 16px;
+    appearance: none;
+    background: rgba(64, 64, 64, 0.3);
+    border: 2px solid rgba(107, 114, 128, 0.3);
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+    margin-right: 0.5rem;
+}
+
+.checkbox:checked {
+    background: #6b7280;
+    border-color: #6b7280;
+}
+
+.checkbox:checked::after {
+    content: '✓';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.checkbox-label {
+    font-size: 14px;
+    color: #9ca3af;
+    cursor: pointer;
+    user-select: none;
+}
+
+.override-input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid rgba(107, 114, 128, 0.3);
+    border-radius: 6px;
+    font-family: 'SF Mono', Monaco, monospace;
+    font-size: 12px;
+    background: rgba(64, 64, 64, 0.3);
+    color: #e5e7eb;
+}
+
+.override-input:focus {
+    outline: none;
+    border-color: #6b7280;
+}
+
+/* Advanced Controls */
+.advanced-controls {
+    margin-top: 8px;
+    padding: 8px;
+    background: rgba(64, 64, 64, 0.2);
+    border-radius: 8px;
+    border: 1px solid rgba(107, 114, 128, 0.2);
+}
+
+.toggle-controls-btn {
+    background: transparent;
+    border: 1px solid #4b5563;
+    color: #9ca3af;
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 10px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.toggle-controls-btn:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: #6b7280;
+}
+
+.generate-btn {
+    background: linear-gradient(135deg, #6b7280 0%, #9ca3af 100%);
+    border: 2px solid #374151;
+    border-radius: 12px;
+    width: 120px;
+    height: 48px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.generate-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #9ca3af 0%, #d1d5db 100%);
+    border-color: #6b7280;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.generate-btn.ready {
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    border-color: #d97706;
+    color: #1a1a1a;
+}
+
+.generate-btn.ready:hover:not(:disabled) {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    border-color: #b45309;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.generate-btn:disabled {
+    background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
+    border-color: #374151;
+    transform: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Text Content Positioning */
+.text-input-section .text-content {
+    position: relative;
+}
+
+/* Secondary Container - Hidden Until Overlay Exceeds 100% Viewport */
+#secondaryContainer {
+    display: none;
+}
+
+#secondaryContainer.visible {
+    display: flex;
+}
+
+/* Secondary Generate Button - Softer 3rd level hierarchy */
+.generate-btn-secondary {
+    width: 140px;
+    height: 36px;
+    font-size: 14px;
+    font-weight: 500;
+    background: linear-gradient(135deg, #d1a664 0%, #c59849 100%);
+    border-color: #b8883d;
+    border-width: 1px;
+    opacity: 0.5;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.generate-btn-secondary:hover {
+    opacity: 1.0;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Refresh Button */
+.refresh-btn {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    border-radius: 6px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    margin-right: auto;
+}
+
+.refresh-btn:hover {
+    transform: rotate(180deg);
+}
+
+.refresh-btn:active {
+    transform: rotate(180deg) scale(0.95);
+}
+
+/* Text Content */
+.text-content {
+    padding-bottom: 24px;
+}

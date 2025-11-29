@@ -1,0 +1,180 @@
+/* Returns Interface - Full Chunk Display Styles */
+/* Pages displayed as formatted text blocks without word-level DOM elements */
+
+/* Audio Playback Section */
+.audio-playback-section {
+}
+
+.text-display {
+    width: 100%;
+    min-height: 100px;
+    padding-top: 0;
+    padding-right: 12px;
+    padding-bottom: 0;
+    padding-left: 12px;
+    background: none;
+    background-color: transparent;
+    border: none;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: var(--not-playing-font-size, 16px);
+    color: #e5e7eb;
+    word-wrap: break-word;
+    overflow-y: visible;
+    cursor: default;
+    box-sizing: border-box;
+    margin-bottom: 0;
+    transition: opacity 0.15s ease;
+    pointer-events: auto;
+    /* Content-responsive height */
+    height: auto;
+}
+
+.text-display.fullchunk-mode {
+    display: flex;
+    gap: 24px;
+    padding-left: 0;
+    padding-right: 0;      /* Remove green padding */
+    margin-right: 12px;   /* Add purple margin */
+}
+
+.text-title {
+    width: 120px;
+    flex-shrink: 0;
+}
+
+.text-flex {
+    flex: 1;
+}
+
+.text-display .text-content {
+    max-width: 100%;
+    word-wrap: normal;
+}
+
+.text-display .text-line {
+    display: block;
+    margin-bottom: 0.5em;
+    line-height: 1.4;
+}
+
+.text-display .text-line:last-child {
+    margin-bottom: 0;
+}
+
+.paragraph-break {
+    line-height: 0.0;
+    font-size: calc(var(--not-playing-font-size, 30px) / 2);
+    height: calc(var(--not-playing-font-size, 30px) / 2);
+}
+
+br {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+br.line-break {
+    line-height: 0;
+    height: 0;
+}
+
+/* List item spacing control - adjustable via CSS variable */
+:root {
+    --list-item-spacing: 0.1em;
+}
+
+/* Custom list items with pseudo-bullets - no browser defaults */
+.list-item {
+    display: block;
+    margin-left: 1.5em;
+    margin-bottom: var(--list-item-spacing);
+    line-height: 1.3;
+    color: #e5e7eb;
+    font-family: inherit;
+    font-size: inherit;
+    position: relative;
+}
+
+/* Indent levels for nested lists */
+.list-item.indent-0 {
+    margin-left: 1.5em;
+    font-size: 1em;
+    opacity: 1;
+}
+
+.list-item.indent-1 {
+    margin-left: 3em;
+    font-size: 0.95em;
+    opacity: 0.9;
+}
+
+.list-item.indent-2 {
+    margin-left: 4.5em;
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+.list-item.indent-3 {
+    margin-left: 6em;
+    font-size: 0.85em;
+    opacity: 0.7;
+}
+
+/* Bullet items - use original bullet character from backend */
+.list-item.bullet-item::before {
+    content: attr(data-bullet);
+    position: absolute;
+    left: -1.2em;
+    width: 1em;
+    text-align: center;
+}
+
+/* Numbered items - use original number from backend */
+.list-item.numbered-item::before {
+    content: attr(data-number);
+    position: absolute;
+    left: -1.5em;
+    width: 1.2em;
+    text-align: right;
+}
+
+/* Only target page-container in FullChunkDisplay - completely separate from PageViewMode */
+/* Reset counter for each page-container */
+.text-display.fullchunk-mode .page-container {
+    counter-reset: item-counter;
+}
+
+/* Page container for Full Chunk Display */
+/* Invisible wrapper that flows and wraps naturally */
+.text-display.fullchunk-mode .page-container {
+    display: inline;
+    cursor: pointer;
+    transition: background 0.1s ease;
+    background: transparent;
+    padding: 2px 0;
+    border-radius: 4px;
+    opacity: var(--base-text-opacity, 0.5);
+    font-size: var(--not-playing-font-size, 30px);
+}
+
+.text-display.fullchunk-mode .page-container:hover {
+    background: rgba(64, 64, 64, 0.15);
+}
+
+.text-display.fullchunk-mode .page-container.selected {
+    background: #000000;
+    color: #ffffff;
+    opacity: 1.0;
+}
+
+/* Line and paragraph breaks inside page containers should not show background */
+.text-display.fullchunk-mode .page-container br {
+    background: none !important;
+}
+
+/* Play button at full opacity when in play-state - always an invitation to play */
+.play-button.play-state {
+    opacity: 1.0 !important;
+}
+

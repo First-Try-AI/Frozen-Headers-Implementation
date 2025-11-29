@@ -1,0 +1,51 @@
+/* Responsive Design and Media Queries */
+
+/* Tablet and Mobile Responsive Design */
+@media (max-width: 768px) {
+    :root {
+        /* Mobile overlay adjustments */
+        --overlay-width: 80%;
+        --overlay-max-width: none;
+        --overlay-padding: 20px;
+        --overlay-border-radius: 15px;
+    }
+    
+    .builtin-overlay {
+        width: 80%;
+        max-width: none;
+        padding: 15px;
+        border-radius: 15px;
+    }
+    
+    .overlay-title {
+        font-size: 16px;
+    }
+    
+    .overlay-body {
+        font-size: 14px;
+    }
+}
+
+/* Small Mobile Responsive Design */
+@media (max-width: 480px) {
+    :root {
+        /* Small mobile overlay adjustments */
+        --overlay-width: 80%;
+        --overlay-padding: 15px;
+        --overlay-border-radius: 10px;
+    }
+    
+    .builtin-overlay {
+        width: 80%;
+        padding: 12px;
+        border-radius: 12px;
+    }
+    
+    .overlay-title {
+        font-size: 15px;
+    }
+    
+    .overlay-body {
+        font-size: 13px;
+    }
+}

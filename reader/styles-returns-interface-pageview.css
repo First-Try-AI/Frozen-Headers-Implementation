@@ -1,0 +1,106 @@
+/* Returns Interface - Page View Display Styles */
+/* Word-by-word display during active playback */
+
+.text-display {
+    width: 100%;
+    min-height: 100px;
+    padding-top: 0;
+    padding-right: 12px;
+    padding-bottom: 0;
+    padding-left: 12px;
+    background: none;
+    background-color: transparent;
+    border: none;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: var(--not-playing-font-size, 16px);
+    color: #e5e7eb;
+    word-wrap: break-word;
+    overflow-y: visible;
+    cursor: default;
+    box-sizing: border-box;
+    margin-bottom: 0;
+    transition: opacity 0.15s ease;
+    pointer-events: auto;
+    height: auto;
+}
+
+.text-display.pages-mode {
+    display: block;
+    padding-top: 1vh;
+    padding-left: 12px;
+    padding-right: 12px;
+    font-size: var(--playing-font-size, 32px);
+    line-height: 1.15;
+}
+
+.text-display.playing {
+    font-size: var(--playing-font-size, 32px);
+    line-height: 1.15;
+}
+
+.text-display .text-content {
+    max-width: 100%;
+    word-wrap: normal;
+}
+
+.text-display.pages-mode .text-content {
+    max-width: 100%; /* Use 100% width */
+    width: 100%;     /* Ensure it fills the parent */
+    padding: 0;      /* Remove horizontal padding */
+    margin: 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.text-display.playing .text-content {
+    text-align: center;
+}
+
+.text-display .text-line {
+    display: block;
+    margin-bottom: 0.5em;
+    line-height: 1.4;
+}
+
+.text-display .text-line:last-child {
+    margin-bottom: 0;
+}
+
+br {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+br.line-break {
+    line-height: 0;
+    height: 0;
+}
+
+.text-display span {
+    background: transparent;
+    transition: all 0.2s ease;
+    border-radius: 4px;
+    padding: 2px 4px;
+    display: inline;
+    /* Inherit font size from container - no individual sizes */
+}
+
+.text-display.playing span {
+    transition: all 0.2s ease;
+}
+
+.text-display.playing span.active {
+    background: #000000;
+    color: var(--active-word-color, #fbbf24);
+    font-weight: 700;
+    transform: scale(1.13);
+    transform-origin: bottom;
+    opacity: 1;
+    position: relative;
+    z-index: 10;
+    display: inline-block;
+    vertical-align: middle;
+}
+

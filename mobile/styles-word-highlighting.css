@@ -1,0 +1,73 @@
+/* Word Highlighting System */
+/* Used only in Page View Display during active playback */
+
+.word {
+    display: inline;
+    padding: 0;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    white-space: normal;
+    word-wrap: break-word;
+    min-width: 0;
+    box-sizing: border-box;
+    font-weight: 400;
+    vertical-align: baseline;
+    opacity: 0.2;
+    /* Font size inherited from container */
+}
+
+.word.active {
+    background: #000000;
+    color: var(--active-word-color, #fbbf24);
+    font-weight: 700;
+    transform: scale(1.13);
+    transform-origin: bottom;
+    opacity: 1;
+    position: relative;
+    z-index: 10;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.word.lookahead {
+    opacity: calc(var(--base-text-opacity, 0.3) + var(--lookahead-offset, 0.15));
+    font-weight: 500;
+}
+
+.word.lookback {
+    opacity: calc(var(--base-text-opacity, 0.3) + var(--lookahead-offset, 0.15));
+    font-weight: 500;
+}
+
+.word.inactive-read {
+    opacity: var(--base-text-opacity, 0.3);
+    font-weight: 400;
+}
+
+.word.inactive-future {
+    opacity: var(--base-text-opacity, 0.3);
+    font-weight: 400;
+}
+
+.word.paused-word {
+    color: #ffffff !important;
+    font-weight: bold !important;
+    opacity: 1.0 !important;
+    background: rgba(107, 114, 128, 0.3);
+    /* Same font-size as surrounding text for uniform flow */
+}
+
+.word.selected {
+    font-weight: 400;
+    color: #FFFFFe;
+    opacity: 1.0;
+    background: #000000;
+    padding: 4px;
+    border-radius: 4px;
+    /* 100% opacity to override base .word opacity: 0.2 */
+}
+
+
+
+

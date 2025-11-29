@@ -1,0 +1,40 @@
+/* Core Styles - CSS Variables, Reset, and Base Typography */
+
+/* CSS Variables - Overlay positioning and sizing variables - easily adjustable */
+:root {
+    --overlay-width: 42%; /* Width as percentage of screen */
+    --overlay-max-width: 800px; /* Maximum width in pixels */
+    --overlay-height: auto; /* Height - auto for content-based */
+    --overlay-top: 50%; /* Vertical position */
+    --overlay-left: 50%; /* Horizontal position */
+    --overlay-padding: 40px; /* Internal padding */
+    --overlay-border-radius: 20px; /* Corner roundness */
+    --overlay-background: rgba(0, 0, 0, 0.7); /* Background opacity */
+    --overlay-blur: 15px; /* Backdrop blur amount */
+}
+
+/* Reset Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* HTML Element Styles */
+html {
+    height: 100%;
+    overflow-y: auto;
+    overscroll-behavior-y: none;
+}
+
+/* Base Body Styles */
+body {
+    font-family: 'Crimson Text', serif;
+    background: linear-gradient(135deg, #0c1445 0%, #1a1a2e 50%, #16213e 100%);
+    color: #ffffff;
+    overflow-y: auto;
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 0;
+    overscroll-behavior-y: none;
+}

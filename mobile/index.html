@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attention, Retention, and Timing.</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎨</text></svg>">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles-core.css">
+    <link rel="stylesheet" href="styles-slideshow.css">
+    <link rel="stylesheet" href="styles-overlay.css">
+    <link rel="stylesheet" href="styles-journey-coordinator.css">
+    <link rel="stylesheet" href="styles-dev-shared.css">
+    <link rel="stylesheet" href="styles-dev-panel-specific.css">
+    <link rel="stylesheet" href="styles-controls-panel.css">
+    <link rel="stylesheet" href="styles-responsive.css">
+</head>
+<body>
+    <!-- Slideshow Container -->
+    <div id="slideshow" class="slideshow">
+        <div class="slide active" data-index="0" style="background-image: url('https://images.unsplash.com/photo-1557683316-973673baf926?w=1920&h=1080&fit=crop'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+            <!-- No content overlay - just pure background images -->
+        </div>
+        
+        <!-- Additional slides will be dynamically added here -->
+    </div>
+
+    <!-- Built-in Overlay Container -->
+    <div id="builtin-overlay" class="builtin-overlay">
+        <div class="overlay-header">
+            <div class="header-left">
+                <div class="overlay-title">Attention, Retention, and Timing.</div>
+            </div>
+            <div class="header-right">
+                <div class="speed-display" id="speedDisplay" style="display: none;">100%</div>
+            </div>
+        </div>
+
+        <!-- Playback Control Row -->
+        <div class="controlrow-playback" style="display:none">
+            <div class="control-flex">
+                <div class="progress-section">
+                    <div class="progress-container" id="progressBar">
+                        <!-- Progress segments will be created dynamically by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="overlay-content">
+            <div class="overlay-body">
+                <!-- Text Input Section -->
+                <div class="text-input-section">
+                        <div class="text-display fullchunk-mode" id="textInputContainer">
+                            <div class="text-flex">
+                            <div class="text-content">
+                                <textarea
+                                    id="textInput"
+                                    placeholder="Click here to input text and unlock knowledge."
+                                    maxlength="15000"
+                                    onfocus="this.placeholder=''"
+                                    onblur="this.placeholder='Click here to input text and unlock knowledge.'"
+                                ></textarea>
+                                <div class="char-counter" id="charCounter">0 / 3000</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                        <div class="text-display fullchunk-mode" id="secondaryContainer">
+                            <div class="text-flex">
+                            <div class="text-content">
+                                <button type="button" class="generate-btn generate-btn-secondary ready" id="generateBtnSecondary">Generate Audio</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Override voice sequence (Voice 1..6). Shown only when Override is checked. -->
+                <div class="control-row left" id="vlistRow" style="display:none; gap: 0.5rem; flex-direction: column; align-items: stretch; max-height: 220px; overflow-y: auto;">
+                    <input type="text" id="vlist1" class="override-input" placeholder="Voice 1" value="" style="display:block; width:100%;" />
+                    <input type="text" id="vlist2" class="override-input" placeholder="Voice 2" value="" style="display:block; width:100%;" />
+                    <input type="text" id="vlist3" class="override-input" placeholder="Voice 3" value="0wH0jvEaKFYagIQkhqeG" style="display:block; width:100%;" />
+                    <input type="text" id="vlist4" class="override-input" placeholder="Voice 4" value="sgk995upfe3tYLvoGcBN" style="display:block; width:100%;" />
+                    <input type="text" id="vlist5" class="override-input" placeholder="Voice 5" value="okHxMu8VqPJSDzvWl7jh" style="display:block; width:100%;" />
+                    <input type="text" id="vlist6" class="override-input" placeholder="Voice 6" value="wyWA56cQNU2KqUW4eCsI" style="display:block; width:100%;" />
+                </div>
+
+
+                <!-- Status and Progress Section -->
+                <div class="status-section">
+                    <div class="status-message" id="statusMessage"></div>
+                    <div class="perf-indicator" id="perfIndicator" aria-live="polite"></div>
+                </div>
+
+                <!-- Loading Interface (initially hidden) -->
+                <div class="loading-interface" id="loadingInterface" style="display:none">
+                    <div class="eta-container">
+                        <span class="countdown" id="countdown">00:15</span>
+                    </div>
+                    <div class="steps-display" id="stepsDisplay"></div>
+                </div>
+
+                <!-- Audio Playback Section (initially hidden) -->
+                <div class="audio-playback-section" id="audioPlaybackSection" style="display:none">
+                    <div class="text-display" id="textDisplay"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Input Control Row -->
+        <div class="controlrow-input">
+            <div class="control-title">
+                <button type="button" class="generate-btn" id="generateBtn">Generate Audio</button>
+            </div>
+        </div>
+
+        <div class="overlay-status" style="display:none"></div>
+        <div class="audio-controls" id="audioControls"></div>
+        
+        <div class="overlay-resizer" title="Drag to resize"></div>
+    </div>
+
+    <!-- Separate play/pause overlay - anchored to bottom -->
+    <div id="playPauseOverlay" class="play-pause-overlay">
+        <div class="play-pause-button"></div>
+    </div>
+
+    <!-- Dev & Controls Panel Toggle Buttons -->
+    <button id="controlsToggleBtn" class="dev-toggle-base controls-toggle-btn">⚙️</button>
+    <!-- Set v3 endpoint before audio system initializes -->
+    <script>
+        window.defaultEndpoint = 'https://new-synth-service-pyh6ygakfa-uc.a.run.app';
+    </script>
+    
+    <!-- Load slideshow script -->
+    <script src="slideshow.js"></script>
+    
+    <!-- Load modular audio system -->
+    <script src="input-regex.js"></script>
+    <script src="click-to-seek-manager.js"></script>
+    <script src="page-line-balancer.js"></script>
+    <script src="pause-state-handler.js"></script>
+    <script src="caption-original.js"></script>
+    <script src="captioning-manager.js"></script>
+    <script src="audio-controls.js"></script>
+    <script src="audio-input-ui.js"></script>
+    <script src="audio-input-data-core.js"></script>
+    <script src="audio-input-display.js"></script>
+    <script src="audio-input-cloudrun.js"></script>
+    <script src="audio-input-coordinator.js"></script>
+    <script src="audio-loading.js"></script>
+    <script src="dev-panel-controls.js"></script>
+    <script src="audio-navigation.js"></script>
+    <script src="audio-progress.js"></script>
+    <script src="audio-playback.js"></script>
+    <script src="audio-system.js"></script>
+    
+</body>
+</html>

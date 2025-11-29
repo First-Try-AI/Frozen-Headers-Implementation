@@ -1,0 +1,56 @@
+/* Dev Panel Specific Styles */
+
+/* This file now only contains positioning, sizing, and drag functionality.
+   All other styling is inherited from the shared controls-panel classes. */
+
+.dev-panel {
+    position: fixed;
+    top: 70px;
+    left: 20px;
+    width: 350px;
+    z-index: 2147483646; /* High z-index */
+    display: none; /* Initially hidden */
+}
+
+.dev-drag-handle {
+    cursor: ns-resize;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+}
+
+/* Add a specific style for the text input in the dev panel */
+.controls-text-input {
+    width: 100%;
+    padding: 6px 10px;
+    border: 1px solid rgba(107, 114, 128, 0.3);
+    border-radius: 6px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 11px;
+    background: rgba(64, 64, 64, 0.5);
+    color: #fbbf24;
+    transition: all 0.2s ease;
+    flex-grow: 1;
+}
+
+.controls-text-input:focus {
+    outline: none;
+    border-color: #fbbf24;
+    box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.2);
+}
+
+.test-btn {
+    margin-left: 8px;
+    flex-shrink: 0;
+}
+
+.path-display {
+    padding: 6px 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 11px;
+    color: #9ca3af;
+    background: rgba(0,0,0,0.2);
+    border-radius: 4px;
+}

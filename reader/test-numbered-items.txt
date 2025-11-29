@@ -1,0 +1,21 @@
+Test text for numbered item pagination rules:
+
+1. First numbered item with period - this should only protect "1. First" and allow the rest to be split normally at punctuation, conjunctions, or breathing gaps.
+
+2.) Second numbered item with period and closing paren - only "2.) Second" should be protected while the rest gets normal pagination treatment.
+
+3.] Third numbered item with period and closing bracket - "3.] Third" stays together but everything after can be split naturally.
+
+4: Fourth numbered item with colon - "4: Fourth" is protected and the remaining text follows standard pagination rules.
+
+5 - Fifth numbered item with space and dash - "5 - Fifth" stays together while the rest of this long sentence can be broken up at appropriate punctuation marks, conjunctions, or natural speech pauses.
+
+6. Sixth item with a very long description that contains multiple sentences, commas, semicolons, and other punctuation marks that should be processed normally by the pagination system since only the "6. Sixth" portion is protected by the numbered item rule.
+
+7.) Another long item with closing paren that has extensive content including quotes "like this" and parentheses (like these) that should all be processed by the standard pagination hierarchy after the initial "7.) Another" protection.
+
+8.] Yet another numbered item with bracket that goes on and on with various punctuation marks, conjunctions like and, or, but, and other elements that need to be split appropriately by the pagination system.
+
+9: Final numbered item with colon that demonstrates how the rest of the content after "9: Final" gets processed by sentence endings, middle punctuation, conjunction breaks, and breathing gaps as needed.
+
+This is regular text after the numbered items to test that normal pagination still works correctly.

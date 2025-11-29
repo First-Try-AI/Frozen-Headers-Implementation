@@ -1,0 +1,350 @@
+/* Dev Panel Shared Component Library */
+
+/* Base Toggle Button - Shared across all panel toggles */
+.dev-toggle-base {
+    position: fixed;
+    bottom: 30px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.6);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+    z-index: 2147483647;
+}
+
+.dev-toggle-base:hover {
+    background: rgba(0, 0, 0, 0.5);
+    color: rgba(255, 255, 255, 0.8);
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* Fullscreen Button Positioning */
+.fullscreen-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px; /* Rightmost position */
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.6);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+    z-index: 2147483647;
+}
+
+.fullscreen-btn:hover {
+    background: rgba(0, 0, 0, 0.5);
+    color: rgba(255, 255, 255, 0.8);
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* Dev Panel Toggle Button Positioning */
+.dev-toggle-btn {
+    right: 90px; /* Position to the left of the fullscreen button */
+}
+
+/* Controls Panel Toggle Button Positioning */
+.controls-toggle-btn {
+    right: 150px; /* Position to the left of the gear button */
+}
+
+/* Base Panel Structure - Shared across all panels */
+.dev-panel-base {
+    position: fixed;
+    top: 20px;
+    background: rgba(26, 26, 26, 0.95);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(107, 114, 128, 0.4);
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+    color: #e5e7eb;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif;
+    z-index: 2147483000;
+    display: none;
+    padding: 15px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.dev-panel-content {
+    padding-top: 0;
+}
+
+.dev-panel-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #FFFFFF;
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dev-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #FBBF24;
+    cursor: pointer;
+    line-height: 1;
+    padding: 5px;
+    transition: color 0.2s ease;
+}
+
+.dev-close-btn:hover {
+    color: #FCD34D;
+}
+
+/* Section and Control Structure */
+.dev-section {
+    margin-bottom: 20px;
+}
+
+.dev-section-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #FBBF24;
+    margin-bottom: 8px;
+}
+
+.dev-control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 8px;
+    background: rgba(64, 64, 64, 0.3);
+    border-radius: 6px;
+    border: 1px solid rgba(107, 114, 128, 0.2);
+    min-height: 50px;
+}
+
+.dev-control-group:hover {
+    background: rgba(64, 64, 64, 0.5);
+    border-color: rgba(107, 114, 128, 0.4);
+}
+
+.rule-number {
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.rule-number.rule-enabled {
+    color: #FBBF24; /* Gold color for enabled rules */
+}
+
+.rule-number.rule-disabled {
+    color: rgba(229, 231, 235, 0.8); /* White at 80% opacity for disabled rules */
+}
+
+.rule-title {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.4;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    text-align: center;
+    margin-bottom: 6px;
+}
+
+.rule-title.rule-enabled {
+    color: #FBBF24; /* Gold color for enabled rules */
+}
+
+.rule-title.rule-disabled {
+    color: rgba(229, 231, 235, 0.8); /* White at 80% opacity for disabled rules */
+}
+
+/* Button Patterns */
+.dev-btn {
+    padding: 6px 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #555;
+    border-radius: 4px;
+    color: white;
+    font-size: 12px;
+    font-family: 'Crimson Text', serif;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.dev-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #007acc;
+}
+
+.dev-btn:active {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.dev-btn-small {
+    padding: 4px 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #444;
+    border-radius: 3px;
+    color: #ccc;
+    font-size: 10px;
+    font-family: 'Crimson Text', serif;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.dev-btn-small:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #007acc;
+    color: white;
+}
+
+/* Control Buttons (like ON/OFF toggles) */
+.dev-control-btn {
+    padding: 6px 12px;
+    background: rgba(107, 114, 128, 0.2);
+    border: 1px solid rgba(107, 114, 128, 0.4);
+    border-radius: 6px;
+    color: #e5e7eb;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.dev-control-btn:hover {
+    background: rgba(107, 114, 128, 0.3);
+    border-color: rgba(107, 114, 128, 0.6);
+}
+
+.dev-control-btn.selected {
+    background: #fbbf24;
+    border-color: #fbbf24;
+    color: #1a1a1a;
+}
+
+.dev-control-btn-small {
+    align-self: flex-start;
+    padding: 4px 8px;
+    font-size: 10px;
+    min-width: 50px;
+    text-align: center;
+}
+
+/* Form Elements */
+.dev-select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgba(107, 114, 128, 0.3);
+    border-radius: 8px;
+    background: rgba(64, 64, 64, 0.9);
+    color: #e5e7eb;
+    font-family: inherit;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+.dev-select:focus {
+    outline: none;
+    border-color: #FBBF24;
+    box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.2);
+}
+
+.dev-select option {
+    background: #333;
+    color: white;
+}
+
+/* Text Areas */
+.dev-textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 10px;
+    border: 1px solid rgba(107, 114, 128, 0.3);
+    border-radius: 8px;
+    background: rgba(64, 64, 64, 0.9);
+    color: #e5e7eb;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 1.4;
+    resize: vertical;
+    transition: border-color 0.3s ease;
+}
+
+.dev-textarea:focus {
+    outline: none;
+    border-color: #FBBF24;
+    box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.2);
+}
+
+/* Process/Action Buttons */
+.dev-action-btn {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background: #FBBF24;
+    color: #000;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.dev-action-btn:hover {
+    background: #FCD34D;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3);
+}
+
+/* Info/Note Styling */
+.dev-note {
+    margin-top: 8px;
+    padding: 8px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    border-left: 3px solid #007acc;
+}
+
+.dev-note small {
+    color: #999;
+    font-size: 11px;
+    line-height: 1.3;
+    font-style: italic;
+}
+
+/* Layout Helpers */
+.dev-control-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.dev-path-display {
+    font-family: monospace;
+    font-size: 12px;
+    color: #ccc;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 4px 8px;
+    border-radius: 4px;
+}
