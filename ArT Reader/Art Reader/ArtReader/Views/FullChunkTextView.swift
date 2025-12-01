@@ -5,66 +5,86 @@ struct FullChunkTextView: UIViewRepresentable {
     let chunk: AudioChunk
     let width: CGFloat
     @Binding var selectedPageIndex: Int
+    @Binding var dynamicHeight: CGFloat
     let onCueRequest: (Double) -> Void
     
     // MARK: - Internal Subclass
     class DynamicTextView: UITextView {
-        
-        override init(frame: CGRect, textContainer: NSTextContainer?) {
-            super.init(frame: frame, textContainer: textContainer)
+        var onHeightChange: ((CGFloat) -> Void)?
+        var expectedWidth: CGFloat = 0 {
+            didSet {
+                // If width changes, force a container update immediately
+                if expectedWidth > 0 && abs(textContainer.size.width - expectedWidth) > 0.5 {
+                    textContainer.size.width = expectedWidth
+                    invalidateIntrinsicContentSize()
+                }
+            }
         }
         
-        required init?(coder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
+        override var intrinsicContentSize: CGSize {
+            // 1. Force Width Stability
+            if expectedWidth > 0 {
+                textContainer.size.width = expectedWidth
+            }
+            
+            // 2. Calculate Height
+            layoutManager.ensureLayout(for: textContainer)
+            let usedRect = layoutManager.usedRect(for: textContainer)
+            
+            // Add padding (20 top + 25 bottom)
+            let totalHeight = usedRect.height + textContainerInset.top + textContainerInset.bottom
+            
+            return CGSize(width: UIView.noIntrinsicMetric, height: totalHeight)
         }
         
         override func layoutSubviews() {
             super.layoutSubviews()
             
-            // Fallback: If bounds are somehow different from expected width
-            let targetWidth = bounds.width - (textContainerInset.left + textContainerInset.right)
-            if targetWidth > 0 && abs(textContainer.size.width - targetWidth) > 0.5 {
-                textContainer.size.width = targetWidth
-                invalidateIntrinsicContentSize()
+            // Trigger height calculation
+            let size = self.intrinsicContentSize
+            
+            if let onHeightChange = onHeightChange {
+                onHeightChange(size.height)
             }
-        }
-        
-        override var intrinsicContentSize: CGSize {
-            // Calculate height based on content
-            layoutManager.ensureLayout(for: textContainer)
-            let usedRect = layoutManager.usedRect(for: textContainer)
-            let totalHeight = usedRect.height + textContainerInset.top + textContainerInset.bottom
-            return CGSize(width: UIView.noIntrinsicMetric, height: totalHeight)
         }
     }
     
     // MARK: - UIViewRepresentable
     func makeUIView(context: Context) -> UITextView {
-        // 3. THE FIX: Explicitly opt-out of TextKit 2 (usingTextLayoutManager: false)
         let textView = DynamicTextView(usingTextLayoutManager: false)
         
         textView.isEditable = false
         textView.backgroundColor = .clear
-        
-        // DISABLE SCROLLING to allow intrinsic sizing
         textView.isScrollEnabled = false
         textView.showsVerticalScrollIndicator = false
         
-        // CRITICAL FIX: Explicitly tell TextKit it has infinite height to calculate layout immediately.
-        // This prevents the "0 height" initial render bug.
+        // Initial Width Setup
+        textView.expectedWidth = width - 40
+        
         textView.textContainer.heightTracksTextView = false
         textView.textContainer.size.height = .greatestFiniteMagnitude
-        
-        textView.textContainer.widthTracksTextView = true
+        textView.textContainer.widthTracksTextView = false
         textView.textContainer.lineBreakMode = .byWordWrapping
-        // Adjusted bottom inset to ensure last line is visible above corner radius/border if needed
-        textView.textContainerInset = UIEdgeInsets(top: 20, left: 20, bottom: 40, right: 20)
         
-        // Ensure the view resists collapsing
+        // PADDING UPDATE: 20 Top, 25 Bottom
+        textView.textContainerInset = UIEdgeInsets(top: 20, left: 20, bottom: 25, right: 20)
+        
         textView.setContentCompressionResistancePriority(.required, for: .vertical)
+        textView.setContentHuggingPriority(.required, for: .vertical)
+        
+        // Debounced Height Reporting
+        textView.onHeightChange = { newHeight in
+            if newHeight > 30 {
+                DispatchQueue.main.async {
+                    if abs(self.dynamicHeight - newHeight) > 1.0 {
+                        self.dynamicHeight = newHeight
+                    }
+                }
+            }
+        }
         
         let tap = UITapGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handleTap(_:)))
-        tap.cancelsTouchesInView = false // Ensure touches pass through if needed
+        tap.cancelsTouchesInView = false
         textView.addGestureRecognizer(tap)
         
         context.coordinator.textView = textView
@@ -72,29 +92,24 @@ struct FullChunkTextView: UIViewRepresentable {
     }
 
     func updateUIView(_ uiView: UITextView, context: Context) {
+        guard let dynamicView = uiView as? DynamicTextView else { return }
         context.coordinator.parent = self
 
-        // 1. Proactively set width if available to ensure correct calculation immediately
-        let targetWidth = width - (uiView.textContainerInset.left + uiView.textContainerInset.right)
-        if targetWidth > 0 && abs(uiView.textContainer.size.width - targetWidth) > 0.5 {
-             uiView.textContainer.size.width = targetWidth
+        // 1. UPDATE WIDTH
+        let contentWidth = width - (uiView.textContainerInset.left + uiView.textContainerInset.right)
+        
+        if contentWidth > 0 {
+            dynamicView.expectedWidth = contentWidth
         }
 
+        // 2. Update Content
         if context.coordinator.currentChunkID != chunk.chunkIndex {
             uiView.attributedText = buildAttributedText(from: chunk)
             context.coordinator.currentChunkID = chunk.chunkIndex
             
-            // Force layout update when text changes
-            // This order is important: 
-            // 1. setNeedsLayout marks that layoutSubviews should run (which invalidates intrinsic size)
-            // 2. layoutIfNeeded forces that to happen NOW, ensuring width is correct
-            // 3. invalidateIntrinsicContentSize triggers SwiftUI to read the new size
             uiView.setNeedsLayout()
             uiView.layoutIfNeeded()
         }
-        
-        // Always invalidate intrinsic content size to ensure SwiftUI gets the latest height
-        uiView.invalidateIntrinsicContentSize()
         
         context.coordinator.applyPageSelection(in: uiView, selectedPage: selectedPageIndex)
     }
@@ -126,7 +141,9 @@ struct FullChunkTextView: UIViewRepresentable {
             return (0, 0)
         }
         
-        for element in fullDisplay.displayElements {
+        let elements = fullDisplay.displayElements
+        
+        for (index, element) in elements.enumerated() {
             var attrs: [NSAttributedString.Key: Any] = [
                 .font: baseFont,
                 .foregroundColor: baseColor,
@@ -142,9 +159,13 @@ struct FullChunkTextView: UIViewRepresentable {
             if let word = element.word {
                 finalString.append(NSAttributedString(string: word + " ", attributes: attrs))
             } else if element.type == "paragraph-break" {
-                finalString.append(NSAttributedString(string: "\n", attributes: attrs))
+                if index < elements.count - 1 {
+                    finalString.append(NSAttributedString(string: "\n", attributes: attrs))
+                }
             } else if element.type == "line-break" {
-                finalString.append(NSAttributedString(string: "\n", attributes: attrs))
+                if index < elements.count - 1 {
+                    finalString.append(NSAttributedString(string: "\n", attributes: attrs))
+                }
             } else if element.type == "bullet-item" {
                 let bulletStyle = NSMutableParagraphStyle()
                 bulletStyle.lineHeightMultiple = 1.3
@@ -164,21 +185,22 @@ struct FullChunkTextView: UIViewRepresentable {
                 finalString.append(NSAttributedString(string: numStr, attributes: attrs))
             }
         }
+        
+        while finalString.string.last?.isWhitespace == true || finalString.string.last?.isNewline == true {
+            finalString.deleteCharacters(in: NSRange(location: finalString.length - 1, length: 1))
+        }
+        
         return finalString
     }
     
-    func makeCoordinator() -> Coordinator {
-        Coordinator(self)
-    }
-
+    func makeCoordinator() -> Coordinator { Coordinator(self) }
+    
     class Coordinator: NSObject {
         var parent: FullChunkTextView
         weak var textView: UITextView?
         var currentChunkID: Int = -1
         
-        init(_ parent: FullChunkTextView) {
-            self.parent = parent
-        }
+        init(_ parent: FullChunkTextView) { self.parent = parent }
         
         @objc func handleTap(_ gesture: UITapGestureRecognizer) {
             guard let textView = textView else { return }
@@ -188,9 +210,7 @@ struct FullChunkTextView: UIViewRepresentable {
             
             if charIndex < textView.textStorage.length {
                 let attributes = textView.textStorage.attributes(at: charIndex, effectiveRange: nil)
-                
-                if let pageIndex = attributes[.pageIndex] as? Int,
-                   let cueTime = attributes[.pageCueTime] as? Double {
+                if let pageIndex = attributes[.pageIndex] as? Int, let cueTime = attributes[.pageCueTime] as? Double {
                     parent.selectedPageIndex = pageIndex
                     parent.onCueRequest(cueTime)
                 }

@@ -19,7 +19,7 @@ struct AudioControlsView: View {
     var isRightDisabled: Bool = false
     
     var body: some View {
-        HStack(spacing: 20) {
+        HStack(spacing: 40) { // Spacing between controls
             
             // LEFT BUTTON (Previous / Custom)
             Button(action: {
@@ -30,40 +30,32 @@ struct AudioControlsView: View {
                 }
             }) {
                 Image(systemName: leftButtonIcon)
-                    .font(.title2)
+                    .font(.title3) // Slightly smaller icon
                     .foregroundColor(Theme.text.opacity(0.8))
                     .frame(width: 44, height: 44)
+                    // No background for these controls
             }
             .disabled(shouldDisableLeft)
             .opacity(shouldDisableLeft ? 0.3 : 1.0)
             
-            // CENTER PLAY/PAUSE (Gold Gradient)
+            // CENTER PLAY/PAUSE (Gold Link Style)
+            // "Link in gold with black background (analogous to how the Page title starts)"
             Button(action: {
                 sessionManager.togglePlayback()
             }) {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 12)
-                        .fill(
-                            LinearGradient(
-                                gradient: Gradient(colors: [Theme.accent, Theme.accentGoldEnd]),
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            )
-                        )
-                    RoundedRectangle(cornerRadius: 12)
-                        .stroke(Theme.accentBorderGold, lineWidth: 2)
+                HStack(spacing: 6) {
+                    Text(audioService.isPlaying ? "Pause" : "Play")
+                        .font(.headline) // Step down from Title size
+                        .fontWeight(.bold)
                     
-                    HStack(spacing: 8) {
-                        Image(systemName: audioService.isPlaying ? "pause.fill" : "play.fill")
-                            .font(.headline)
-                        Text(audioService.isPlaying ? "Pause" : "Play")
-                            .fontWeight(.bold)
-                    }
-                    .foregroundColor(Theme.buttonText)
+                    Image(systemName: audioService.isPlaying ? "pause.fill" : "play.fill")
+                        .font(.caption)
                 }
-                .frame(height: 50)
-                // Expand horizontally but keep within reason
-                .frame(maxWidth: 160)
+                .foregroundColor(Theme.accent) // Gold Text
+                .padding(.vertical, 8)
+                .padding(.horizontal, 16)
+                .background(Color.black) // Black Background
+                .cornerRadius(8)
             }
             
             // RIGHT BUTTON (Next / Custom)
@@ -75,7 +67,7 @@ struct AudioControlsView: View {
                 }
             }) {
                 Image(systemName: rightButtonIcon)
-                    .font(.title2)
+                    .font(.title3)
                     .foregroundColor(Theme.text.opacity(0.8))
                     .frame(width: 44, height: 44)
             }
@@ -83,10 +75,9 @@ struct AudioControlsView: View {
             .disabled(shouldDisableRight)
             .opacity(shouldDisableRight ? 0.3 : 1.0)
         }
+        // No container background
         .padding(.horizontal, 20)
-        .padding(.bottom, 30) // Safe area padding
-        .padding(.top, 10)
-        .background(Color.black.opacity(0.8).blur(radius: 10)) // Subtle background for controls
+        // Spacing handled by parent (PageViewMode)
     }
     
     private var shouldDisableLeft: Bool {

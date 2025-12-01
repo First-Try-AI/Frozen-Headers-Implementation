@@ -3,43 +3,33 @@ import Combine
 
 struct LoadingView: View {
     @State private var timeRemaining = 15
-    @State private var currentStepText = "Smoothing timing so words land naturally."
+    @State private var currentStepText = "Smoothing timing."
     @State private var stepIndex = 0
     @State private var showExtendedWait = false
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
+    // UPDATED STEPS
     let steps: [(text: String, duration: Double)] = [
-        ("Smoothing timing so words land naturally.", 2.0),
-        ("Leveling gain for calm, even loudness.", 2.0),
-        ("Steadying stress patterns for easier follow.", 2.0),
-        ("Reducing jitter and shimmer artifacts.", 2.0),
-        ("Placing micro‑pauses to reset attention.", 2.0),
-        ("Balancing sibilants and plosives for clarity.", 2.0),
-        ("Aligning breaths and sentence endings.", 2.0),
-        ("Final polish and handoff.", 1.0)
+        ("Smoothing timing.", 2.0),
+        ("Leveling gain.", 2.0),
+        ("Lowering cognitive load.", 2.0),
+        ("Reducing jitter.", 2.0),
+        ("Reseting attention.", 2.0),
+        ("Getting the speakers ready.", 2.0),
     ]
     
     var body: some View {
         VStack(spacing: 0) {
             
-            // 1. HEADER
-            AppHeaderView(isActive: true)
+            // 1. HEADER (Inactive State)
+            AppHeaderView(state: .inactive)
             
             // 2. SCROLLABLE CARD CONTENT
             ScrollView {
                 VStack(spacing: 40) {
                     
-                    // A. LOADING MESSAGE (Moved to Top)
-                    Text(currentStepText)
-                        .font(.body)
-                        .foregroundColor(Theme.accent)
-                        .multilineTextAlignment(.center)
-                        .frame(height: 40)
-                        .transition(.opacity)
-                        .id("stepText\(stepIndex)")
-                    
-                    // B. TIMER BLOCK (Moved Below)
+                    // A. TIMER BLOCK
                     VStack(spacing: 8) {
                         
                         // 1. The Time Digits
@@ -52,15 +42,23 @@ struct LoadingView: View {
                             Image(systemName: "timer")
                             Text("ESTIMATED TIME")
                         }
-                        .font(.caption)
+                        .font(.caption2)
                         .fontWeight(.bold)
                         .foregroundColor(Theme.cardLabel)
                         .tracking(1.0)
                     }
+                    
+                    // B. LOADING MESSAGE
+                    Text(currentStepText)
+                        .font(.body)
+                        .foregroundColor(Theme.accent)
+                        .multilineTextAlignment(.center)
+                        .frame(height: 40)
+                        .transition(.opacity)
+                        .id("stepText\(stepIndex)")
                 }
                 .padding(.vertical, 40)
                 .padding(.horizontal, 20)
-                // FIXED: Force the stack to fill the available width
                 .frame(maxWidth: .infinity)
                 
                 // --- THE "OVERLAY" STYLING ---
@@ -70,7 +68,6 @@ struct LoadingView: View {
                     RoundedRectangle(cornerRadius: 20)
                         .stroke(Theme.overlayBorder, lineWidth: 1)
                 )
-                // -----------------------------
                 .padding(.horizontal, 16)
                 .padding(.top, 10)
             }

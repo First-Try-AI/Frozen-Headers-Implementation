@@ -63,15 +63,11 @@ class AudioService: ObservableObject {
             // 1. Resolve URL (Cache or Remote)
             let fileURL: URL
             if let cached = getCachedURL(for: url), fileManager.fileExists(atPath: cached.path) {
-                // print("📂 [AudioService] Playing from cache: \(cached.lastPathComponent)")
                 fileURL = cached
             } else {
-                // print("⬇️ [AudioService] Downloading: \(url.lastPathComponent)")
                 do {
                     fileURL = try await downloadAndCache(url: url)
                 } catch {
-                    // REMOVED: Streaming fallback.
-                    // If download fails, we stop.
                     print("⚠️ [AudioService] Download failed: \(error)")
                     isLoading = false
                     return
@@ -104,11 +100,6 @@ class AudioService: ObservableObject {
         let interval = CMTime(seconds: 0.05, preferredTimescale: 600)
         timeObserver = player?.addPeriodicTimeObserver(forInterval: interval, queue: .main) { [weak self] time in
             self?.currentTime = time.seconds
-            
-            // Log occasionally (e.g. every second) to avoid spam
-            if Int(time.seconds * 20) % 20 == 0 {
-                print("LOG: Audio Playback Time: \(String(format: "%.2f", time.seconds))s")
-            }
         }
         
         // End Notification
@@ -128,6 +119,7 @@ class AudioService: ObservableObject {
         DispatchQueue.main.async {
             self.isPlaying = false
             self.currentTime = 0
+            // Notify SessionManager to handle logic (Next Chunk or Finish)
             self.didFinishPlaying.send()
         }
     }
@@ -161,18 +153,6 @@ class AudioService: ObservableObject {
         let (tempURL, _) = try await URLSession.shared.download(from: url)
         try fileManager.moveItem(at: tempURL, to: destination)
         return destination
-    }
-    
-    // Helper for Timestamps (if needed)
-    func fetchTimestamps(url: URL) async throws -> Data {
-        // We can cache JSON too
-        if let cached = getCachedURL(for: url), fileManager.fileExists(atPath: cached.path) {
-            return try Data(contentsOf: cached)
-        }
-        let destination = cacheDirectory.appendingPathComponent(url.lastPathComponent)
-        let (tempURL, _) = try await URLSession.shared.download(from: url)
-        try fileManager.moveItem(at: tempURL, to: destination)
-        return try Data(contentsOf: destination)
     }
     
     var progress: Double {

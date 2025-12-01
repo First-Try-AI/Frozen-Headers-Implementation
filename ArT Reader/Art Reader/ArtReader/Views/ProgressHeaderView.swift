@@ -6,8 +6,14 @@ struct ProgressHeaderView: View {
     let isPlaying: Bool
     let progress: Double // 0.0 to 1.0 representing playback within current chunk
     
+    // Controls the visual style of the active border
+    let isInPlaybackMode: Bool
+    
     // New closure to handle tapping the header (nav bar)
     var onHeaderTap: (() -> Void)? = nil
+    
+    // Royal Blue Color Definition
+    let royalBlue = Color(hex: "4169E1")
     
     var body: some View {
         HStack(spacing: 4) {
@@ -25,7 +31,15 @@ struct ProgressHeaderView: View {
                     }
                 }
                 .frame(height: 20) // Thick bars
-                .cornerRadius(2)
+                .cornerRadius(.infinity) // PILL DESIGN
+                // VISUAL POLISH: Active State
+                .overlay(
+                    RoundedRectangle(cornerRadius: .infinity)
+                        .stroke(
+                            borderColor(for: index),
+                            lineWidth: index == currentChunkIndex ? 2 : 0
+                        )
+                )
                 .onTapGesture {
                     // Navigation logic
                     withAnimation {
@@ -38,8 +52,18 @@ struct ProgressHeaderView: View {
         }
         .padding(.horizontal, 20)
         .padding(.top, 10)
-        // Make the whole area tappable if needed, but bars are fine targets.
-        // User said "tapping the nav bar". The bars are the main element.
+    }
+    
+    // Helper for Border Color
+    func borderColor(for index: Int) -> Color {
+        guard index == currentChunkIndex else { return .clear }
+        
+        if isInPlaybackMode {
+            return Color.white.opacity(0.5)
+        } else {
+            // CHANGED: Replaced Gold with Royal Blue at 75% opacity
+            return royalBlue.opacity(0.75)
+        }
     }
     
     // Determine color based on state

@@ -11,7 +11,11 @@ struct Theme {
     static let text = Color.white
     static let accent = Color(hex: "fbbf24") // Primary Gold (#fbbf24)
     
-    // The previous Color.black was changed to the specific hex required by the design spec.
+    // Additional Highlight Colors (Rotated)
+    static let highlightOrange = Color(hex: "FD5A1E")
+    static let highlightBlue = Color(hex: "1E90FF")
+    static let highlightWhite = Color(hex: "FFFFFF")
+    
     static let buttonText = Color(hex: "1a1a1a") // Almost Black Text (#1a1a1a)
     
     // New Web-Parity Tokens migrated from InputView.swift
@@ -19,9 +23,7 @@ struct Theme {
     static let accentBorderGold = Color(hex: "d97706") // 2px Dark Gold Border
     
     // Overlay colors from InputView.swift's local definitions
-    // Dark Overlay: Custom Color(red: 26/255, ...) at ~92% opacity
     static let overlayBackground = Color(red: 26/255, green: 26/255, blue: 26/255, opacity: 0.92)
-    // Border: 1px solid Grey (rgba(107, 114, 128, 0.3))
     static let overlayBorder = Color(red: 107/255, green: 114/255, blue: 128/255, opacity: 0.3)
     
     static let gradient = LinearGradient(
@@ -55,5 +57,43 @@ extension Color {
             blue:  Double(b) / 255,
             opacity: Double(a) / 255
         )
+    }
+}
+
+// MARK: - Component Styles
+
+struct ArTButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        ArTButtonBody(configuration: configuration)
+    }
+    
+    struct ArTButtonBody: View {
+        let configuration: Configuration
+        @Environment(\.isEnabled) private var isEnabled
+        
+        var body: some View {
+            ZStack {
+                // 1. Background
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(
+                        isEnabled
+                        ? Color.black                           // ACTIVE: Black
+                        : Color.white.opacity(0.1)              // INACTIVE: Translucent
+                    )
+                
+                // 2. Border REMOVED per request
+                
+                // 3. Label
+                configuration.label
+                    .fontWeight(.bold)
+                    .foregroundColor(
+                        isEnabled
+                        ? Theme.accent                          // ACTIVE: Gold Text
+                        : Color.black.opacity(0.5)              // INACTIVE: Black Text (50%)
+                    )
+                    .opacity(configuration.isPressed ? 0.9 : 1.0)
+            }
+            .frame(height: 50)
+        }
     }
 }

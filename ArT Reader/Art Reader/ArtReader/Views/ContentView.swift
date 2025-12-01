@@ -34,7 +34,7 @@ struct ContentView: View {
                 // state, audio, response, and playback controls.
                 if sessionManager.currentResponse != nil {
                      ReaderView(sessionManager: sessionManager)
-                        .transition(.move(edge: .trailing))
+                        .transition(.move(edge: .leading)) // Left-to-Right Entry
                 } else {
                     // Fallback should rarely happen if logic is correct
                     LoadingView()

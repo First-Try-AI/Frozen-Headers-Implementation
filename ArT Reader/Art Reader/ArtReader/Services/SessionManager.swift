@@ -1,14 +1,15 @@
 import Foundation
 import Combine
 import SwiftUI
+import UIKit
 
+// MARK: - Session State Enum
 enum SessionState: Equatable {
     case writing
     case processing
-    case reading   // Visual Review (Full Text)
-    case listening // Cinematic Playback (Karaoke/Pages)
+    case reading
+    case listening
     
-    // Helper to check if we are in a "Reader" context (either reading or listening)
     var isReaderContext: Bool {
         switch self {
         case .reading, .listening: return true
@@ -18,45 +19,51 @@ enum SessionState: Equatable {
 }
 
 class SessionManager: ObservableObject {
-    // Shared Instance (Optional, but using @StateObject in ContentView is better pattern)
-    // keeping it simple as a plain ObservableObject owned by ContentView for now unless shared access is needed elsewhere
     
-    // Core State
+    // MARK: - Core State
     @Published var state: SessionState = .writing
     @Published var currentResponse: AudioResponse?
-    @Published var currentChunkIndex: Int = 0
+    @Published var currentChunkIndex: Int = 0 {
+        didSet {
+            updateHeightForCurrentChunk()
+        }
+    }
     @Published var errorMessage: String?
     
-    // Dependencies
-    private let apiService = APIService.shared
-    private let audioService = AudioService.shared
+    // PLAYBACK PERFORMANCE
+    @Published var activeWordIndex: Int = 0
+    
+    // LAYOUT SYNCHRONIZATION
+    @Published var readerTextHeight: CGFloat = 400
+    
+    // MARK: - Dependencies
+    internal let apiService = APIService.shared
+    internal let audioService = AudioService.shared
+    
+    // DYNAMIC HEIGHTS
+    @Published var maxPageHeight: CGFloat = 400
+    private var chunkHeights: [Int: CGFloat] = [:]
     
     private var cancellables = Set<AnyCancellable>()
     
+    // MARK: - Initialization
     init() {
         setupAudioBindings()
+        setupPerformanceOptimization()
     }
     
     private func setupAudioBindings() {
-        // Sync Session State with Audio Playback
         audioService.$isPlaying
             .sink { [weak self] isPlaying in
                 guard let self = self else { return }
-                
-                // Only transition if we are already in a reader context
-                // We don't want to accidentally switch to .listening if we are in .writing (unlikely, but safe)
                 if self.state.isReaderContext {
                     if isPlaying {
                         self.state = .listening
-                    } 
-                    // REMOVED: else { self.state = .reading }
-                    // Goal: Stay in .listening (PageViewMode) when paused.
-                    // User manually returns to reading mode via UI.
+                    }
                 }
             }
             .store(in: &cancellables)
             
-        // Handle Auto-Play next chunk
         audioService.didFinishPlaying
             .sink { [weak self] in
                 self?.nextChunk()
@@ -64,25 +71,71 @@ class SessionManager: ObservableObject {
             .store(in: &cancellables)
     }
     
+    private func setupPerformanceOptimization() {
+        audioService.$currentTime
+            .sink { [weak self] time in
+                guard let self = self else { return }
+                self.calculateActiveWordIndex(for: time)
+            }
+            .store(in: &cancellables)
+    }
+    
+    private func calculateActiveWordIndex(for time: Double) {
+        guard let response = currentResponse,
+              response.chunks.indices.contains(currentChunkIndex) else { return }
+        
+        let chunk = response.chunks[currentChunkIndex]
+        var foundIndex = 0
+        
+        if let pages = chunk.pages {
+            for page in pages {
+                if let words = page.words {
+                    for word in words {
+                        if time >= word.startTime && time <= word.endTime {
+                            foundIndex = word.index
+                            updateActiveWordIndex(foundIndex)
+                            return
+                        }
+                    }
+                }
+            }
+        }
+        
+        if time < 0.1 {
+            updateActiveWordIndex(0)
+        }
+    }
+    
+    private func updateActiveWordIndex(_ newIndex: Int) {
+        if activeWordIndex != newIndex {
+            if Thread.isMainThread {
+                self.activeWordIndex = newIndex
+            } else {
+                DispatchQueue.main.async {
+                    self.activeWordIndex = newIndex
+                }
+            }
+        }
+    }
+    
     // MARK: - Actions
     
     func submit(text: String) {
-        // 1. Update State
         withAnimation {
             state = .processing
             errorMessage = nil
         }
         
-        // 2. API Call
         Task {
             do {
                 let response = try await apiService.generateAudio(text: text)
                 
                 await MainActor.run {
                     self.currentResponse = response
+                    self.precalculateChunkHeights(for: response)
+                    
                     self.currentChunkIndex = 0
-                    // Reset Audio Service just in case
-                    self.audioService.pause() // Ensure we start paused (Reading Mode)
+                    self.audioService.pause()
                     withAnimation {
                         self.state = .reading
                     }
@@ -90,9 +143,6 @@ class SessionManager: ObservableObject {
             } catch {
                 await MainActor.run {
                     self.errorMessage = error.localizedDescription
-                    // Error handling strategy: Stay in processing? Go back to writing? 
-                    // Usually go back to input or show error overlay. 
-                    // For now, let's go back to writing with the error.
                     withAnimation {
                         self.state = .writing
                     }
@@ -106,8 +156,74 @@ class SessionManager: ObservableObject {
         currentResponse = nil
         currentChunkIndex = 0
         errorMessage = nil
+        activeWordIndex = 0
+        readerTextHeight = 400
         withAnimation {
             state = .writing
+        }
+    }
+    
+    // MARK: - Layout Calculation
+    
+    private func precalculateChunkHeights(for response: AudioResponse) {
+        chunkHeights.removeAll()
+        
+        let font = UIFont.systemFont(ofSize: 32, weight: .bold)
+        let screenWidth = UIScreen.main.bounds.width
+        let horizontalPadding: CGFloat = 40
+        let contentWidth = screenWidth - horizontalPadding
+        
+        let wordSpacing: CGFloat = 8
+        let lineSpacing: CGFloat = 8
+        let wordInnerPadding: CGFloat = 8
+        let verticalContainerPadding: CGFloat = 40
+        let screenHeight = UIScreen.main.bounds.height
+        let maxHeightCap = screenHeight * 0.65
+        
+        for chunk in response.chunks {
+            var maxCalculatedHeightForChunk: CGFloat = 0
+            
+            if let pages = chunk.pages {
+                for page in pages {
+                    guard let words = page.words else { continue }
+                    
+                    var currentLineWidth: CGFloat = 0
+                    var numberOfLines: Int = 1
+                    
+                    for wordObj in words {
+                        let attributes: [NSAttributedString.Key: Any] = [.font: font]
+                        let wordSize = (wordObj.word as NSString).size(withAttributes: attributes)
+                        let totalItemWidth = wordSize.width + wordInnerPadding
+                        
+                        if currentLineWidth + totalItemWidth > contentWidth {
+                            numberOfLines += 1
+                            currentLineWidth = totalItemWidth + wordSpacing
+                        } else {
+                            currentLineWidth += totalItemWidth + wordSpacing
+                        }
+                    }
+                    
+                    let textBlockHeight = (CGFloat(numberOfLines) * font.lineHeight) + (CGFloat(max(0, numberOfLines - 1)) * lineSpacing)
+                    let totalPageHeight = textBlockHeight + verticalContainerPadding
+                    
+                    if totalPageHeight > maxCalculatedHeightForChunk {
+                        maxCalculatedHeightForChunk = totalPageHeight
+                    }
+                }
+            }
+            
+            let finalHeight = max(200, min(maxCalculatedHeightForChunk + 20, maxHeightCap))
+            chunkHeights[chunk.chunkIndex] = finalHeight
+        }
+        
+        print("LOG: Calculated Heights per Chunk: \(chunkHeights)")
+    }
+    
+    private func updateHeightForCurrentChunk() {
+        if let height = chunkHeights[currentChunkIndex] {
+            withAnimation(.easeInOut(duration: 0.3)) {
+                self.maxPageHeight = height
+            }
         }
     }
     
@@ -127,10 +243,10 @@ class SessionManager: ObservableObject {
         
         let chunk = response.chunks[currentChunkIndex]
         
-        // REMOVED: Timestamp fetching fallback.
-        // We rely on the API to provide valid `pages` in the response.
+        if audioService.currentTime < 0.1 {
+            activeWordIndex = 0
+        }
         
-        // Now Play Audio
         if let url = URL(string: chunk.audioUrl) {
             audioService.play(url: url)
         }
@@ -138,12 +254,12 @@ class SessionManager: ObservableObject {
     
     func nextChunk() {
         guard let response = currentResponse else { return }
+        
         if currentChunkIndex < response.chunks.count - 1 {
             currentChunkIndex += 1
             playCurrentChunk()
         } else {
-            // End of playlist
-            audioService.pause()
+            finishSession()
         }
     }
     
@@ -164,15 +280,35 @@ class SessionManager: ObservableObject {
         }
     }
     
-    // MARK: - State Management
+    private func finishSession() {
+        print("LOG: [SessionManager] End of playback reached. Pausing for 7 seconds.")
+        
+        // 1. Force highlight to the LAST word of the current chunk
+        // This overrides the '0' that happens when audioService resets.
+        if let response = currentResponse,
+           response.chunks.indices.contains(currentChunkIndex),
+           let lastPage = response.chunks[currentChunkIndex].pages?.last,
+           let lastWord = lastPage.words?.last {
+            self.activeWordIndex = lastWord.index
+        }
+        
+        // 2. 7-Second Delay before returning to Reader Mode
+        DispatchQueue.main.asyncAfter(deadline: .now() + 7.0) {
+            self.audioService.pause()
+            self.audioService.seek(to: 0)
+            
+            withAnimation(.easeInOut(duration: 0.5)) {
+                self.state = .reading
+                self.currentChunkIndex = 0
+                self.activeWordIndex = 0
+            }
+        }
+    }
     
     func resetChunkState() {
-        // "Back to reader view of current chunk"
-        // Stop audio, reset time to 0, ensure we are in Reading Mode (not Listening)
-        // This effectively resets the experience for the current text.
-        print("LOG: Resetting chunk state (Back to Reader View)")
         audioService.pause()
         audioService.seek(to: 0)
+        activeWordIndex = 0
         
         withAnimation {
             state = .reading
