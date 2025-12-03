@@ -31,7 +31,8 @@ struct ProgressHeaderView: View {
                             .frame(width: calculateFillWidth(for: index, totalWidth: geo.size.width))
                     }
                 }
-                .frame(height: 20) // Thick bars
+                // CHANGED: Height reduced to 8pt as per new spec
+                .frame(height: 8)
                 .cornerRadius(.infinity) // PILL DESIGN
                 // VISUAL POLISH: Active State
                 .overlay(
@@ -52,7 +53,8 @@ struct ProgressHeaderView: View {
             }
         }
         .padding(.horizontal, 20)
-        .padding(.top, 10)
+        // CHANGED: Increased top padding to 15 to create the specific spacing between Title and Nav Bar
+        .padding(.top, 15)
     }
     
     // Helper for Border Color
