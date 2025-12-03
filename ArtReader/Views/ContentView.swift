@@ -12,9 +12,10 @@ struct ContentView: View {
     }
     
     var body: some View {
-        ZStack {
-            // Global Background
-            Image("AppBackground")
+        NavigationStack {
+            ZStack {
+                // Global Background
+                Image("AppBackground")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .ignoresSafeArea()
@@ -40,15 +41,15 @@ struct ContentView: View {
                     LoadingView()
                 }
             }
+            .animation(.easeInOut(duration: 0.5), value: sessionManager.state)
+            // ERROR ALERT
+            .alert("Generation Failed", isPresented: isErrorPresented, actions: {
+                Button("OK", role: .cancel) {
+                    sessionManager.reset()
+                }
+            }, message: {
+                Text(sessionManager.errorMessage ?? "An unknown error occurred.")
+            })
         }
-        .animation(.easeInOut(duration: 0.5), value: sessionManager.state)
-        // ERROR ALERT
-        .alert("Generation Failed", isPresented: isErrorPresented, actions: {
-            Button("OK", role: .cancel) {
-                sessionManager.reset()
-            }
-        }, message: {
-            Text(sessionManager.errorMessage ?? "An unknown error occurred.")
-        })
     }
 }
