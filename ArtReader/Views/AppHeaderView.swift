@@ -45,8 +45,9 @@ struct AppHeaderView: View {
         // Standardized Top Padding for Dynamic Island clearance
         .padding(.top, 60)
         
-        // CHANGED: Reduced to 20 per request
-        .padding(.bottom, 20)
+        // CHANGED: Removed bottom padding (was 20) to allow precise 15pt spacing control
+        // via the next element (Nav Bar) or parent container.
+        .padding(.bottom, 0)
     }
 }
 

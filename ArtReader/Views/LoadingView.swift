@@ -22,7 +22,14 @@ struct LoadingView: View {
         // NEW: Use the Frozen Panel Layout
         FrozenPanelView {
             // SLOT 1: Header
-            AppHeaderView(state: .inactive)
+            VStack(spacing: 0) {
+                AppHeaderView(state: .inactive)
+            }
+            // CHANGED: Adjusted padding to match new spec:
+            // 5pt (spacing) + 8pt (bar height) = 13pt total reservation
+            .padding(.bottom, 13)
+            // VISUAL FIX: Add material background to create true "Frozen" effect
+            .background(.ultraThinMaterial)
         } content: {
             // SLOT 2: Scrollable Content
             ScrollView {
