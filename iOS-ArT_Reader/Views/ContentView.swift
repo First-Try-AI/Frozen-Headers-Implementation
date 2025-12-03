@@ -16,32 +16,36 @@ struct ContentView: View {
             ZStack {
                 // Global Background
                 Image("AppBackground")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .ignoresSafeArea()
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .ignoresSafeArea()
             
-            // State Switching
-            switch sessionManager.state {
-            case .writing:
-                InputView(onGenerate: sessionManager.submit)
-                    .transition(.opacity)
-                
-            case .processing:
-                LoadingView()
-                    .transition(.opacity)
-                
-            case .reading, .listening:
-                // We pass the entire manager because ReaderView needs access to 
-                // state, audio, response, and playback controls.
-                if sessionManager.currentResponse != nil {
-                     ReaderView(sessionManager: sessionManager)
-                        .transition(.move(edge: .leading)) // Left-to-Right Entry
-                } else {
-                    // Fallback should rarely happen if logic is correct
-                    LoadingView()
+                // State Switching
+                Group {
+                    switch sessionManager.state {
+                    case .writing:
+                        InputView(onGenerate: sessionManager.submit)
+                            .transition(.opacity)
+                        
+                    case .processing:
+                        LoadingView()
+                            .transition(.opacity)
+                        
+                    case .reading, .listening:
+                        // We pass the entire manager because ReaderView needs access to 
+                        // state, audio, response, and playback controls.
+                        if sessionManager.currentResponse != nil {
+                             ReaderView(sessionManager: sessionManager)
+                                .transition(.move(edge: .leading)) // Left-to-Right Entry
+                        } else {
+                            // Fallback should rarely happen if logic is correct
+                            LoadingView()
+                        }
+                    }
                 }
-            }
-            .animation(.easeInOut(duration: 0.5), value: sessionManager.state)
+                .animation(.easeInOut(duration: 0.5), value: sessionManager.state)
+                
+            } // Close ZStack
             // ERROR ALERT
             .alert("Generation Failed", isPresented: isErrorPresented, actions: {
                 Button("OK", role: .cancel) {
@@ -50,6 +54,6 @@ struct ContentView: View {
             }, message: {
                 Text(sessionManager.errorMessage ?? "An unknown error occurred.")
             })
-        }
+        } // Close NavigationStack
     }
 }

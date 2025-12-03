@@ -22,7 +22,14 @@ struct LoadingView: View {
         // NEW: Use the Frozen Panel Layout
         FrozenPanelView {
             // SLOT 1: Header
-            AppHeaderView(state: .inactive)
+            VStack(spacing: 0) {
+                AppHeaderView(state: .inactive)
+                
+                // CHANGED: Added spacer to reserve space for the "Nav Bar"
+                // matching InputView and ReaderView alignment (40pt total reserved height)
+                Color.clear
+                    .frame(height: 40)
+            }
         } content: {
             // SLOT 2: Scrollable Content
             ScrollView {

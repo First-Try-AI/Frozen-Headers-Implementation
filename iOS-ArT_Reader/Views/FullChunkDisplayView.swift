@@ -26,6 +26,7 @@ struct FullChunkDisplayView: View {
                     chunk: chunk,
                     // CHANGED: Use Infinity width instead of geometry calculation
                     // The internal padding of the view will handle the insets
+                    // Note: UIScreen.main is deprecated in newer iOS but safe for this single-window context
                     width: UIScreen.main.bounds.width - 40, 
                     selectedPageIndex: $selectedPageIndex,
                     dynamicHeight: $textHeight,
@@ -105,10 +106,12 @@ struct FullChunkDisplayView: View {
             // REMOVED: minHeight constraint dependent on geometry
             .padding(.bottom, 100)
         }
-        .onChange(of: chunk.chunkIndex) { _ in
+        // FIXED: Updated for iOS 17+ syntax
+        .onChange(of: chunk.chunkIndex) { _, _ in
             selectedPageIndex = 0
         }
-        .onChange(of: textHeight) { newHeight in
+        // FIXED: Updated for iOS 17+ syntax
+        .onChange(of: textHeight) { _, newHeight in
             if newHeight > 0 {
                 sessionManager.readerTextHeight = max(newHeight, minimumWindowHeight)
             }

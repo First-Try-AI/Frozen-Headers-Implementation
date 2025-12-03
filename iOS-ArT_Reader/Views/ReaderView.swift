@@ -10,17 +10,27 @@ struct ReaderView: View {
             VStack(spacing: 0) {
                 AppHeaderView(state: .inactive)
                 
-                if let response = sessionManager.currentResponse {
-                    ProgressHeaderView(
-                        playbackVM: sessionManager.playbackViewModel,
-                        totalChunks: response.chunks.count,
-                        currentChunkIndex: $sessionManager.currentChunkIndex,
-                        isInPlaybackMode: sessionManager.state == .listening,
-                        onHeaderTap: handleHeaderTap
-                    )
-                    .padding(.top, 0)
-                    .padding(.bottom, 10)
+                // CHANGED: Use ZStack/Opacity instead of 'if let' to keep the view hierarchy stable
+                // This prevents the Header from collapsing to 0 height transiently during state changes
+                ZStack {
+                    if let response = sessionManager.currentResponse {
+                        ProgressHeaderView(
+                            playbackVM: sessionManager.playbackViewModel,
+                            totalChunks: response.chunks.count,
+                            currentChunkIndex: $sessionManager.currentChunkIndex,
+                            isInPlaybackMode: sessionManager.state == .listening,
+                            onHeaderTap: handleHeaderTap
+                        )
+                        .padding(.top, 0)
+                        .padding(.bottom, 10)
+                        .transition(.opacity)
+                    } else {
+                        // Placeholder to maintain some stability if needed, or EmptyView
+                        // We use Color.clear frame to avoid total collapse if we wanted a min height
+                        Color.clear.frame(height: 0)
+                    }
                 }
+                .animation(.easeInOut(duration: 0.3), value: sessionManager.currentResponse != nil)
             }
             .contentShape(Rectangle())
             .onTapGesture { handleHeaderTap() }
@@ -32,8 +42,6 @@ struct ReaderView: View {
             )
         } content: {
             // SLOT 2: CONTENT
-            // CHANGED: Simplified hierarchy. Removed inner ZStack which was ambiguous.
-            // Using VStack directly with Spacer logic similar to InputView.
             VStack(spacing: 0) {
                 if let chunk = currentChunk {
                     if sessionManager.state == .listening {
@@ -53,7 +61,6 @@ struct ReaderView: View {
                     }
                 }
                 
-                // Ensure content pushes up if short (though FullChunkDisplayView scrolls)
                 Spacer(minLength: 0)
             }
         }
@@ -72,19 +79,23 @@ struct ReaderView: View {
                 }
             }
         )
-        // DIAGNOSTICS: Verify Layout Position
+        // DIAGNOSTICS
         .overlay(
             GeometryReader { geo -> Color in
                 let globalY = geo.frame(in: .global).minY
                 let safeArea = geo.safeAreaInsets.top
-                print("📍 [ReaderView] Global Y: \(globalY) | Safe Area Top: \(safeArea)")
+                // Log sparingly to avoid spam
+                if Int(globalY) % 10 == 0 { 
+                    print("📍 [ReaderView] Global Y: \(globalY) | Safe Area Top: \(safeArea)")
+                }
                 return Color.clear
             }
             .allowsHitTesting(false)
         )
         .toolbar(.hidden, for: .navigationBar)
         // GESTURES
-        .onChange(of: sessionManager.currentChunkIndex) { _ in
+        // FIXED: Updated for iOS 17+ syntax
+        .onChange(of: sessionManager.currentChunkIndex) { _, _ in
             if sessionManager.state == .listening {
                sessionManager.playCurrentChunk()
             }
