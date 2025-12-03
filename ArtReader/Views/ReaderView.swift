@@ -4,91 +4,96 @@ struct ReaderView: View {
     @ObservedObject var sessionManager: SessionManager
     
     var body: some View {
-        NavigationStack {
-            // USES THE FROZEN PANEL LAYOUT
-            FrozenPanelView {
-                // SLOT 1: HEADER
-                VStack(spacing: 0) {
-                    AppHeaderView(state: .inactive)
-                    
-                    if let response = sessionManager.currentResponse {
-                        ProgressHeaderView(
-                            playbackVM: sessionManager.playbackViewModel,
-                            totalChunks: response.chunks.count,
-                            currentChunkIndex: $sessionManager.currentChunkIndex,
-                            isInPlaybackMode: sessionManager.state == .listening,
-                            onHeaderTap: handleHeaderTap
-                        )
-                        .padding(.top, 0)
-                        .padding(.bottom, 10)
-                    }
-                }
-                .contentShape(Rectangle())
-                .onTapGesture { handleHeaderTap() }
-                .overlay(
-                    HeaderDimmingOverlay(
+        // USES THE FROZEN PANEL LAYOUT
+        FrozenPanelView {
+            // SLOT 1: HEADER
+            VStack(spacing: 0) {
+                AppHeaderView(state: .inactive)
+
+                if let response = sessionManager.currentResponse {
+                    ProgressHeaderView(
                         playbackVM: sessionManager.playbackViewModel,
-                        sessionState: sessionManager.state
+                        totalChunks: response.chunks.count,
+                        currentChunkIndex: $sessionManager.currentChunkIndex,
+                        isInPlaybackMode: sessionManager.state == .listening,
+                        onHeaderTap: handleHeaderTap
                     )
-                )
-            } content: {
-                // SLOT 2: CONTENT
-                // CHANGED: Use VStack + Spacer to forcefully pin content to the top.
-                // This prevents the ZStack centering behavior from pulling content up.
-                VStack(spacing: 0) {
-                    ZStack(alignment: .top) {
-                        if let chunk = currentChunk {
-                            if sessionManager.state == .listening {
-                                PageViewMode(
-                                    sessionManager: sessionManager,
-                                    playbackVM: sessionManager.playbackViewModel,
-                                    chunk: chunk,
-                                    activeColor: currentHighlightColor
-                                )
-                                .transition(.opacity.animation(.easeInOut))
-                            } else {
-                                FullChunkDisplayView(
-                                    sessionManager: sessionManager,
-                                    chunk: chunk
-                                )
-                                .transition(.opacity.animation(.easeInOut))
-                            }
-                        }
-                    }
-                    // Ensure the inner ZStack takes full width but doesn't force height
-                    .frame(maxWidth: .infinity, alignment: .top)
-                    
-                    // Pushes everything up
-                    Spacer(minLength: 0)
+                    .padding(.top, 0)
+                    .padding(.bottom, 10)
+                    .onAppear { print("🔍 [ReaderView] ProgressHeaderView appeared") }
+                } else {
+                    EmptyView()
+                        .onAppear { print("⚠️ [ReaderView] sessionManager.currentResponse is NIL - Header shrinking") }
                 }
             }
-            // BACKGROUND & DIMMING
-            .background(
-                ZStack {
-                    Image("AppBackground")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .ignoresSafeArea()
-                    
-                    if sessionManager.state == .listening {
-                        Color.black.opacity(0.85)
-                            .ignoresSafeArea()
-                            .transition(.opacity.animation(.easeInOut))
-                    }
-                }
-            )
-            // DIAGNOSTICS: Verify Layout Position
+            .contentShape(Rectangle())
+            .onTapGesture { handleHeaderTap() }
             .overlay(
-                GeometryReader { geo -> Color in
-                    let globalY = geo.frame(in: .global).minY
-                    let safeArea = geo.safeAreaInsets.top
-                    print("📍 [ReaderView] Global Y: \(globalY) | Safe Area Top: \(safeArea)")
-                    return Color.clear
-                }
-                .allowsHitTesting(false)
+                HeaderDimmingOverlay(
+                    playbackVM: sessionManager.playbackViewModel,
+                    sessionState: sessionManager.state
+                )
             )
-            .toolbar(.hidden, for: .navigationBar)
+            .onAppear { print("🔍 [ReaderView] Header VStack appeared") }
+        } content: {
+            // SLOT 2: CONTENT
+            // CHANGED: Simplified hierarchy. Removed inner ZStack which was ambiguous.
+            // Using VStack directly with Spacer logic similar to InputView.
+            VStack(spacing: 0) {
+                if let chunk = currentChunk {
+                    if sessionManager.state == .listening {
+                        PageViewMode(
+                            sessionManager: sessionManager,
+                            playbackVM: sessionManager.playbackViewModel,
+                            chunk: chunk,
+                            activeColor: currentHighlightColor
+                        )
+                        .transition(.opacity.animation(.easeInOut))
+                        .onAppear { print("🔍 [ReaderView] PageViewMode appeared") }
+                    } else {
+                        FullChunkDisplayView(
+                            sessionManager: sessionManager,
+                            chunk: chunk
+                        )
+                        .transition(.opacity.animation(.easeInOut))
+                        .onAppear { print("🔍 [ReaderView] FullChunkDisplayView appeared") }
+                    }
+                } else {
+                     Text("Debug: No Chunk Available")
+                        .onAppear { print("⚠️ [ReaderView] currentChunk is NIL") }
+                }
+
+                // Ensure content pushes up if short (though FullChunkDisplayView scrolls)
+                Spacer(minLength: 0)
+            }
         }
+        // BACKGROUND & DIMMING
+        .background(
+            ZStack {
+                Image("AppBackground")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .ignoresSafeArea()
+
+                if sessionManager.state == .listening {
+                    Color.black.opacity(0.85)
+                        .ignoresSafeArea()
+                        .transition(.opacity.animation(.easeInOut))
+                }
+            }
+        )
+        // DIAGNOSTICS: Verify Layout Position
+        .overlay(
+            GeometryReader { geo -> Color in
+                let globalY = geo.frame(in: .global).minY
+                let safeArea = geo.safeAreaInsets.top
+                let height = geo.size.height
+                print("📍 [ReaderView] Global Y: \(globalY) | Safe Area Top: \(safeArea) | Height: \(height)")
+                return Color.clear
+            }
+            .allowsHitTesting(false)
+        )
+        .toolbar(.hidden, for: .navigationBar)
         // GESTURES
         .onChange(of: sessionManager.currentChunkIndex) { _ in
             if sessionManager.state == .listening {

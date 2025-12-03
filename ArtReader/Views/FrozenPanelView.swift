@@ -30,6 +30,12 @@ struct FrozenPanelView<Header: View, Content: View>: View {
                 .background(
                     GeometryReader { geo in
                         Color.clear.preference(key: FrozenHeaderHeightKey.self, value: geo.size.height)
+                            .onAppear {
+                                print("🔍 [FrozenPanel] Header GeometryReader appeared. Size: \(geo.size)")
+                            }
+                            .onChange(of: geo.size) { newSize in
+                                print("🔍 [FrozenPanel] Header Size Changed: \(newSize)")
+                            }
                     }
                 )
                 .zIndex(10) // Always physically on top
@@ -46,6 +52,8 @@ struct FrozenPanelView<Header: View, Content: View>: View {
             print("📏 [FrozenPanel] Preference Change: \(newHeight)")
             if newHeight > 0 {
                 self.headerHeight = newHeight
+            } else {
+                print("⚠️ [FrozenPanel] Received 0 height! currentHeaderHeight is: \(self.headerHeight)")
             }
         }
         .ignoresSafeArea(edges: .top)

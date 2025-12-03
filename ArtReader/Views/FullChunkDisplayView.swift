@@ -17,92 +17,93 @@ struct FullChunkDisplayView: View {
     }
     
     var body: some View {
-        GeometryReader { geometry in
-            ScrollView {
-                VStack(spacing: 0) {
-                    
-                    // 1. TEXT CONTAINER
-                    FullChunkTextView(
-                        chunk: chunk,
-                        width: geometry.size.width - 40,
-                        selectedPageIndex: $selectedPageIndex,
-                        dynamicHeight: $textHeight,
-                        onCueRequest: { time in
-                            AudioService.shared.seek(to: time)
-                        }
-                    )
-                    .frame(height: max(textHeight, minimumWindowHeight), alignment: .top)
-                    .background(Theme.overlayBackground)
-                    .cornerRadius(20)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 20)
-                            .stroke(Theme.overlayBorder, lineWidth: 1)
-                    )
-                    .padding(.horizontal, 20)
-                    .padding(.top, 10) // Internal spacing (Card vs Scroll Top)
-                    
-                    Spacer().frame(height: 30)
-                    
-                    // 2. PLAY BUTTON
-                    Button(action: {
-                        sessionManager.state = .listening
-                        sessionManager.playCurrentChunk()
-                    }) {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 12)
-                                .fill(
-                                    LinearGradient(
-                                        gradient: Gradient(colors: [Theme.accent, Theme.accentGoldEnd]),
-                                        startPoint: .topLeading,
-                                        endPoint: .bottomTrailing
-                                    )
+        // REMOVED: Root GeometryReader which caused layout conflicts in FrozenPanelView
+        ScrollView {
+            VStack(spacing: 0) {
+
+                // 1. TEXT CONTAINER
+                FullChunkTextView(
+                    chunk: chunk,
+                    // CHANGED: Use Infinity width instead of geometry calculation
+                    // The internal padding of the view will handle the insets
+                    width: UIScreen.main.bounds.width - 40,
+                    selectedPageIndex: $selectedPageIndex,
+                    dynamicHeight: $textHeight,
+                    onCueRequest: { time in
+                        AudioService.shared.seek(to: time)
+                    }
+                )
+                .frame(height: max(textHeight, minimumWindowHeight), alignment: .top)
+                .background(Theme.overlayBackground)
+                .cornerRadius(20)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(Theme.overlayBorder, lineWidth: 1)
+                )
+                .padding(.horizontal, 20)
+                .padding(.top, 10) // Internal spacing (Card vs Scroll Top)
+
+                Spacer().frame(height: 30)
+
+                // 2. PLAY BUTTON
+                Button(action: {
+                    sessionManager.state = .listening
+                    sessionManager.playCurrentChunk()
+                }) {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 12)
+                            .fill(
+                                LinearGradient(
+                                    gradient: Gradient(colors: [Theme.accent, Theme.accentGoldEnd]),
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
                                 )
-                            RoundedRectangle(cornerRadius: 12)
-                                .stroke(Theme.accentBorderGold, lineWidth: 2)
+                            )
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(Theme.accentBorderGold, lineWidth: 2)
+
+                        HStack(spacing: 6) {
+                            Text("Play Audio")
+                                .fontWeight(.bold)
+                                .foregroundColor(Theme.buttonText)
                             
-                            HStack(spacing: 6) {
-                                Text("Play Audio")
-                                    .fontWeight(.bold)
-                                    .foregroundColor(Theme.buttonText)
-                                
-                                Image(systemName: "play.fill")
-                                    .font(.caption)
-                                    .foregroundColor(Theme.buttonText)
-                            }
+                            Image(systemName: "play.fill")
+                                .font(.caption)
+                                .foregroundColor(Theme.buttonText)
                         }
-                        .frame(height: 50)
-                        .frame(width: geometry.size.width * 0.75)
                     }
-                    
-                    // 3. RESET BUTTON
-                    HStack {
-                        Button(action: {
-                            let impact = UIImpactFeedbackGenerator(style: .medium)
-                            impact.impactOccurred()
-                            sessionManager.reset()
-                        }) {
-                            Image(systemName: "arrow.counterclockwise")
-                                .font(.system(size: 16, weight: .bold))
-                                .foregroundColor(.white)
-                                .padding(10)
-                                .background(Color.white.opacity(0.15))
-                                .clipShape(Circle())
-                                .overlay(
-                                    Circle()
-                                        .stroke(Color.white.opacity(0.5), lineWidth: 1)
-                                )
-                        }
-                        Spacer()
-                    }
-                    .padding(.top, 30)
-                    .padding(.leading, 20)
-                    .padding(.bottom, 20)
-                    
+                    .frame(height: 50)
+                    .padding(.horizontal, 40) // Approximate 0.75 width visually
                 }
-                .frame(maxWidth: .infinity)
-                .frame(minHeight: geometry.size.height, alignment: .top)
-                .padding(.bottom, 100)
+
+                // 3. RESET BUTTON
+                HStack {
+                    Button(action: {
+                        let impact = UIImpactFeedbackGenerator(style: .medium)
+                        impact.impactOccurred()
+                        sessionManager.reset()
+                    }) {
+                        Image(systemName: "arrow.counterclockwise")
+                            .font(.system(size: 16, weight: .bold))
+                            .foregroundColor(.white)
+                            .padding(10)
+                            .background(Color.white.opacity(0.15))
+                            .clipShape(Circle())
+                            .overlay(
+                                Circle()
+                                    .stroke(Color.white.opacity(0.5), lineWidth: 1)
+                            )
+                    }
+                    Spacer()
+                }
+                .padding(.top, 30)
+                .padding(.leading, 20)
+                .padding(.bottom, 20)
+
             }
+            .frame(maxWidth: .infinity)
+            // REMOVED: minHeight constraint dependent on geometry
+            .padding(.bottom, 100)
         }
         .onChange(of: chunk.chunkIndex) { _ in
             selectedPageIndex = 0
