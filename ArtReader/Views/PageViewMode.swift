@@ -29,78 +29,78 @@ struct PageViewMode: View {
     }
     
     var body: some View {
-        GeometryReader { geometry in
-            VStack(spacing: 0) {
-                
-                // IMMERSIVE TEXT WINDOW
-                VStack {
-                    ScrollViewReader { proxy in
-                        ScrollView(showsIndicators: false) {
-                            if let pageWords = activePage?.words {
-                                if #available(iOS 16.0, *) {
-                                    FlowLayout(alignment: .center, spacing: 8) {
-                                        ForEach(pageWords, id: \.index) { wordObj in
-                                            wordView(for: wordObj)
-                                        }
+        // REMOVED: Root GeometryReader
+        VStack(spacing: 0) {
+
+            // IMMERSIVE TEXT WINDOW
+            VStack {
+                ScrollViewReader { proxy in
+                    ScrollView(showsIndicators: false) {
+                        if let pageWords = activePage?.words {
+                            if #available(iOS 16.0, *) {
+                                FlowLayout(alignment: .center, spacing: 8) {
+                                    ForEach(pageWords, id: \.index) { wordObj in
+                                        wordView(for: wordObj)
                                     }
-                                    .padding(.horizontal, 20)
-                                    .padding(.vertical, 50)
-                                    .id("MainFlowField")
-                                } else {
-                                    Text("Upgrade to iOS 16 for best experience")
-                                        .foregroundColor(.white)
                                 }
-                            }
-                        }
-                        .onChange(of: activePage?.pageIndex) {
-                            withAnimation {
-                                proxy.scrollTo("MainFlowField", anchor: .top)
+                                .padding(.horizontal, 20)
+                                .padding(.vertical, 50)
+                                .id("MainFlowField")
+                            } else {
+                                Text("Upgrade to iOS 16 for best experience")
+                                    .foregroundColor(.white)
                             }
                         }
                     }
-                }
-                // Use the shared reader height from sessionManager
-                .frame(height: sessionManager.readerTextHeight)
-                .animation(.easeInOut, value: sessionManager.readerTextHeight)
-                .padding(.horizontal, 20)
-                
-                Spacer().frame(height: 30)
-                
-                // AUDIO CONTROL
-                Button(action: {
-                    sessionManager.togglePlayback()
-                }) {
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 12)
-                            .fill(
-                                LinearGradient(
-                                    gradient: Gradient(colors: [Theme.accent, Theme.accentGoldEnd]),
-                                    startPoint: .topLeading,
-                                    endPoint: .bottomTrailing
-                                )
-                            )
-                        RoundedRectangle(cornerRadius: 12)
-                            .stroke(Theme.accentBorderGold, lineWidth: 2)
-                        
-                        HStack(spacing: 6) {
-                            Text(audioService.isPlaying ? "Pause Audio" : "Play Audio")
-                                .fontWeight(.bold)
-                                .foregroundColor(Theme.buttonText)
-                            
-                            Image(systemName: audioService.isPlaying ? "pause.fill" : "play.fill")
-                                .font(.caption)
-                                .foregroundColor(Theme.buttonText)
+                    .onChange(of: activePage?.pageIndex) {
+                        withAnimation {
+                            proxy.scrollTo("MainFlowField", anchor: .top)
                         }
                     }
-                    .frame(height: 50)
-                    .frame(width: geometry.size.width * 0.75)
                 }
-                .padding(.bottom, 0)
-                
-                Spacer()
             }
-            .frame(width: geometry.size.width)
+            // Use the shared reader height from sessionManager
+            .frame(height: sessionManager.readerTextHeight)
+            .animation(.easeInOut, value: sessionManager.readerTextHeight)
+            .padding(.horizontal, 20)
+
+            Spacer().frame(height: 30)
+
+            // AUDIO CONTROL
+            Button(action: {
+                sessionManager.togglePlayback()
+            }) {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 12)
+                        .fill(
+                            LinearGradient(
+                                gradient: Gradient(colors: [Theme.accent, Theme.accentGoldEnd]),
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
+                        )
+                    RoundedRectangle(cornerRadius: 12)
+                        .stroke(Theme.accentBorderGold, lineWidth: 2)
+
+                    HStack(spacing: 6) {
+                        Text(audioService.isPlaying ? "Pause Audio" : "Play Audio")
+                            .fontWeight(.bold)
+                            .foregroundColor(Theme.buttonText)
+                        
+                        Image(systemName: audioService.isPlaying ? "pause.fill" : "play.fill")
+                            .font(.caption)
+                            .foregroundColor(Theme.buttonText)
+                    }
+                }
+                .frame(height: 50)
+                // CHANGED: Use padding instead of fixed frame ratio
+                .padding(.horizontal, 40)
+            }
+            .padding(.bottom, 0)
+
+            Spacer()
         }
+        .frame(maxWidth: .infinity)
     }
     
     @ViewBuilder

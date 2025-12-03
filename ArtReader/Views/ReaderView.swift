@@ -4,13 +4,15 @@ struct ReaderView: View {
     @ObservedObject var sessionManager: SessionManager
     
     var body: some View {
-        NavigationStack {
-            // USES THE FROZEN PANEL LAYOUT
-            FrozenPanelView {
-                // SLOT 1: HEADER
-                VStack(spacing: 0) {
-                    AppHeaderView(state: .inactive)
-                    
+        // USES THE FROZEN PANEL LAYOUT
+        FrozenPanelView {
+            // SLOT 1: HEADER
+            VStack(spacing: 0) {
+                AppHeaderView(state: .inactive)
+
+                // CHANGED: Use ZStack/Opacity instead of 'if let' to keep the view hierarchy stable
+                // This prevents the Header from collapsing to 0 height transiently during state changes
+                ZStack {
                     if let response = sessionManager.currentResponse {
                         ProgressHeaderView(
                             playbackVM: sessionManager.playbackViewModel,
@@ -21,76 +23,79 @@ struct ReaderView: View {
                         )
                         .padding(.top, 0)
                         .padding(.bottom, 10)
+                        .transition(.opacity)
+                    } else {
+                        // Placeholder to maintain some stability if needed, or EmptyView
+                        // We use Color.clear frame to avoid total collapse if we wanted a min height
+                        Color.clear.frame(height: 0)
                     }
                 }
-                .contentShape(Rectangle())
-                .onTapGesture { handleHeaderTap() }
-                .overlay(
-                    HeaderDimmingOverlay(
-                        playbackVM: sessionManager.playbackViewModel,
-                        sessionState: sessionManager.state
-                    )
+                .animation(.easeInOut(duration: 0.3), value: sessionManager.currentResponse != nil)
+            }
+            .contentShape(Rectangle())
+            .onTapGesture { handleHeaderTap() }
+            .overlay(
+                HeaderDimmingOverlay(
+                    playbackVM: sessionManager.playbackViewModel,
+                    sessionState: sessionManager.state
                 )
-            } content: {
-                // SLOT 2: CONTENT
-                // CHANGED: Use VStack + Spacer to forcefully pin content to the top.
-                // This prevents the ZStack centering behavior from pulling content up.
-                VStack(spacing: 0) {
-                    ZStack(alignment: .top) {
-                        if let chunk = currentChunk {
-                            if sessionManager.state == .listening {
-                                PageViewMode(
-                                    sessionManager: sessionManager,
-                                    playbackVM: sessionManager.playbackViewModel,
-                                    chunk: chunk,
-                                    activeColor: currentHighlightColor
-                                )
-                                .transition(.opacity.animation(.easeInOut))
-                            } else {
-                                FullChunkDisplayView(
-                                    sessionManager: sessionManager,
-                                    chunk: chunk
-                                )
-                                .transition(.opacity.animation(.easeInOut))
-                            }
-                        }
+            )
+        } content: {
+            // SLOT 2: CONTENT
+            VStack(spacing: 0) {
+                if let chunk = currentChunk {
+                    if sessionManager.state == .listening {
+                        PageViewMode(
+                            sessionManager: sessionManager,
+                            playbackVM: sessionManager.playbackViewModel,
+                            chunk: chunk,
+                            activeColor: currentHighlightColor
+                        )
+                        .transition(.opacity.animation(.easeInOut))
+                    } else {
+                        FullChunkDisplayView(
+                            sessionManager: sessionManager,
+                            chunk: chunk
+                        )
+                        .transition(.opacity.animation(.easeInOut))
                     }
-                    // Ensure the inner ZStack takes full width but doesn't force height
-                    .frame(maxWidth: .infinity, alignment: .top)
-                    
-                    // Pushes everything up
-                    Spacer(minLength: 0)
+                }
+
+                Spacer(minLength: 0)
+            }
+        }
+        // BACKGROUND & DIMMING
+        .background(
+            ZStack {
+                Image("AppBackground")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .ignoresSafeArea()
+
+                if sessionManager.state == .listening {
+                    Color.black.opacity(0.85)
+                        .ignoresSafeArea()
+                        .transition(.opacity.animation(.easeInOut))
                 }
             }
-            // BACKGROUND & DIMMING
-            .background(
-                ZStack {
-                    Image("AppBackground")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .ignoresSafeArea()
-                    
-                    if sessionManager.state == .listening {
-                        Color.black.opacity(0.85)
-                            .ignoresSafeArea()
-                            .transition(.opacity.animation(.easeInOut))
-                    }
-                }
-            )
-            // DIAGNOSTICS: Verify Layout Position
-            .overlay(
-                GeometryReader { geo -> Color in
-                    let globalY = geo.frame(in: .global).minY
-                    let safeArea = geo.safeAreaInsets.top
+        )
+        // DIAGNOSTICS
+        .overlay(
+            GeometryReader { geo -> Color in
+                let globalY = geo.frame(in: .global).minY
+                let safeArea = geo.safeAreaInsets.top
+                // Log sparingly to avoid spam
+                if Int(globalY) % 10 == 0 {
                     print("📍 [ReaderView] Global Y: \(globalY) | Safe Area Top: \(safeArea)")
-                    return Color.clear
                 }
-                .allowsHitTesting(false)
-            )
-            .toolbar(.hidden, for: .navigationBar)
-        }
+                return Color.clear
+            }
+            .allowsHitTesting(false)
+        )
+        .toolbar(.hidden, for: .navigationBar)
         // GESTURES
-        .onChange(of: sessionManager.currentChunkIndex) { _ in
+        // FIXED: Updated for iOS 17+ syntax
+        .onChange(of: sessionManager.currentChunkIndex) { _, _ in
             if sessionManager.state == .listening {
                sessionManager.playCurrentChunk()
             }

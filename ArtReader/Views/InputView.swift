@@ -22,14 +22,21 @@ struct InputView: View {
     }
     
     var body: some View {
-        NavigationStack {
-            // USES THE NEW FROZEN PANEL LAYOUT
-            FrozenPanelView {
-                // SLOT 1: Header (Frozen)
+        // USES THE NEW FROZEN PANEL LAYOUT
+        FrozenPanelView {
+            // SLOT 1: Header (Frozen)
+            VStack(spacing: 0) {
                 AppHeaderView(state: inputText.isEmpty ? .active : .inactive)
                     .animation(.easeInOut(duration: 0.5), value: inputText.isEmpty)
-            } content: {
-                // SLOT 2: Content (Scrollable)
+
+                // CHANGED: Added spacer to reserve space for the "Nav Bar" (ProgressHeaderView)
+                // matching the height in ReaderView (10 top + 20 height + 10 bottom = 40pt)
+                Color.clear
+                    .frame(height: 40)
+            }
+        } content: {
+            // SLOT 2: Content (Scrollable)
+            VStack(spacing: 0) {
                 VStack(spacing: 30) {
                     
                     // INPUT SECTION
@@ -64,17 +71,16 @@ struct InputView: View {
                                         .multilineTextAlignment(.leading)
                                         .padding(.horizontal, 10)
                                         .padding(.top, 8)
-                                        // FIXED: Replaced "return Color.clear" with standard onChange
                                         .background(
                                             GeometryReader { geo in
                                                 Color.clear
                                                     .onAppear { self.contentHeight = geo.size.height }
-                                                    .onChange(of: geo.size.height) { newHeight in
+                                                    .onChange(of: geo.size.height) { _, newHeight in
                                                         self.contentHeight = newHeight
                                                     }
                                             }
                                         )
-                                        .onChange(of: inputText) { newValue in
+                                        .onChange(of: inputText) { _, newValue in
                                             if newValue.count > functionalLimit {
                                                 inputText = String(newValue.prefix(functionalLimit))
                                             }
@@ -107,10 +113,10 @@ struct InputView: View {
                                 let thumbOffset = max(0, min(trackHeight - thumbHeight, (trackHeight - thumbHeight) * scrollRatio))
                                 
                                 RoundedRectangle(cornerRadius: 2)
-                                    .fill(Theme.accent)
-                                    .frame(width: 2, height: thumbHeight)
-                                    .offset(y: thumbOffset)
-                                    .padding(.leading, 2)
+                                .fill(Theme.accent)
+                                .frame(width: 2, height: thumbHeight)
+                                .offset(y: thumbOffset)
+                                .padding(.leading, 2)
                             }
                         }
                         .padding(15)
@@ -146,18 +152,18 @@ struct InputView: View {
                 
                 Spacer()
             }
-            .contentShape(Rectangle())
-            .onTapGesture { isInputFocused = false }
-            .background(
-                Image("AppBackground")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .ignoresSafeArea()
-            )
-            .preferredColorScheme(.dark)
-            .tint(Theme.accent)
-            .toolbar(.hidden, for: .navigationBar)
         }
+        .contentShape(Rectangle())
+        .onTapGesture { isInputFocused = false }
+        .background(
+            Image("AppBackground")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .ignoresSafeArea()
+        )
+        .preferredColorScheme(.dark)
+        .tint(Theme.accent)
+        .toolbar(.hidden, for: .navigationBar)
     }
 }
 
