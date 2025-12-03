@@ -4,7 +4,9 @@ import SwiftUI
 struct FrozenHeaderHeightKey: PreferenceKey {
     static var defaultValue: CGFloat = 0
     static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
-        value = nextValue()
+        let next = nextValue()
+        // If we have a non-zero value, favor it (max) to prevent collapse during transitions
+        value = max(value, next)
     }
 }
 
@@ -22,32 +24,42 @@ struct FrozenPanelView<Header: View, Content: View>: View {
     }
     
     var body: some View {
-        ZStack(alignment: .top) {
-            
-            // LAYER 1: The Header (Floating on top)
-            header
-                // Measure the height of the header
-                .background(
-                    GeometryReader { geo in
-                        Color.clear.preference(key: FrozenHeaderHeightKey.self, value: geo.size.height)
-                    }
-                )
-                .zIndex(10) // Always physically on top
-            
-            // LAYER 2: The Content
-            content
-                // Push content down by the header's EXACT height
-                .padding(.top, headerHeight)
-                .zIndex(1)
-        }
-        // Update height instantly
-        .onPreferenceChange(FrozenHeaderHeightKey.self) { newHeight in
-            // LOGGING ENABLED
-            print("📏 [FrozenPanel] Preference Change: \(newHeight)")
-            if newHeight > 0 {
-                self.headerHeight = newHeight
+        // CHANGED: Use Overlay instead of ZStack for the header.
+        // This ensures the content establishes the base frame, and the header floats on top.
+        content
+            .padding(.top, headerHeight)
+            .overlay(alignment: .top) {
+                header
+                    .background(
+                        GeometryReader { geo in
+                            Color.clear
+                                .preference(key: FrozenHeaderHeightKey.self, value: geo.size.height)
+                                // BACKUP MEASUREMENT: Direct change listener
+                                // FIXED: Updated for iOS 17+ syntax (2 parameters)
+                                .onChange(of: geo.size) { _, newSize in
+                                    if newSize.height > 0 {
+                                        // Update state asynchronously to avoid "modifying state during view update"
+                                        DispatchQueue.main.async {
+                                            if abs(self.headerHeight - newSize.height) > 0.5 {
+                                                print("📏 [FrozenPanel] Direct Size Update: \(newSize.height)")
+                                                self.headerHeight = newSize.height
+                                            }
+                                        }
+                                    }
+                                }
+                        }
+                    )
+                    // Ensure the header sits physically on top
+                    .zIndex(10)
             }
-        }
-        .ignoresSafeArea(edges: .top)
+            // Update height from PreferenceKey (Primary Mechanism)
+            .onPreferenceChange(FrozenHeaderHeightKey.self) { newHeight in
+                print("📏 [FrozenPanel] Preference Change: \(newHeight)")
+                if newHeight > 0 {
+                    self.headerHeight = newHeight
+                }
+            }
+            // CRITICAL: Ignore Safe Area so header can position itself at absolute top
+            .ignoresSafeArea(edges: .top)
     }
 }
