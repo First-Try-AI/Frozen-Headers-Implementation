@@ -22,14 +22,16 @@ struct InputView: View {
     }
     
     var body: some View {
-        NavigationStack {
-            // USES THE NEW FROZEN PANEL LAYOUT
-            FrozenPanelView {
-                // SLOT 1: Header (Frozen)
-                AppHeaderView(state: inputText.isEmpty ? .active : .inactive)
-                    .animation(.easeInOut(duration: 0.5), value: inputText.isEmpty)
-            } content: {
-                // SLOT 2: Content (Scrollable)
+        // USES THE NEW FROZEN PANEL LAYOUT
+        FrozenPanelView {
+            // SLOT 1: Header (Frozen)
+            AppHeaderView(state: inputText.isEmpty ? .active : .inactive)
+                .animation(.easeInOut(duration: 0.5), value: inputText.isEmpty)
+        } content: {
+            // SLOT 2: Content (Scrollable)
+            // CHANGED: Wrapped in VStack to ensure a single View is returned to FrozenPanelView,
+            // preventing TupleView layout issues with modifiers.
+            VStack(spacing: 0) {
                 VStack(spacing: 30) {
                     
                     // INPUT SECTION
@@ -107,10 +109,10 @@ struct InputView: View {
                                 let thumbOffset = max(0, min(trackHeight - thumbHeight, (trackHeight - thumbHeight) * scrollRatio))
                                 
                                 RoundedRectangle(cornerRadius: 2)
-                                    .fill(Theme.accent)
-                                    .frame(width: 2, height: thumbHeight)
-                                    .offset(y: thumbOffset)
-                                    .padding(.leading, 2)
+                                .fill(Theme.accent)
+                                .frame(width: 2, height: thumbHeight)
+                                .offset(y: thumbOffset)
+                                .padding(.leading, 2)
                             }
                         }
                         .padding(15)
@@ -146,18 +148,18 @@ struct InputView: View {
                 
                 Spacer()
             }
-            .contentShape(Rectangle())
-            .onTapGesture { isInputFocused = false }
-            .background(
-                Image("AppBackground")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .ignoresSafeArea()
-            )
-            .preferredColorScheme(.dark)
-            .tint(Theme.accent)
-            .toolbar(.hidden, for: .navigationBar)
         }
+        .contentShape(Rectangle())
+        .onTapGesture { isInputFocused = false }
+        .background(
+            Image("AppBackground")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .ignoresSafeArea()
+        )
+        .preferredColorScheme(.dark)
+        .tint(Theme.accent)
+        .toolbar(.hidden, for: .navigationBar)
     }
 }
 
