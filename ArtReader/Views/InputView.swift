@@ -23,43 +23,55 @@ struct InputView: View {
     
     var body: some View {
         NavigationStack {
-            VStack(alignment: .leading, spacing: 0) {
-                
-                // 1. DYNAMIC HEADER
-                // Logic: Active (Gold) when empty, Inactive (White) when user is working
+            // USES THE NEW FROZEN PANEL LAYOUT
+            FrozenPanelView {
+                // SLOT 1: Header (Frozen)
                 AppHeaderView(state: inputText.isEmpty ? .active : .inactive)
-                    .animation(.easeInOut(duration: 0.5), value: inputText.isEmpty) // Smooth Transition
-                
-                // 2. STATIC CONTENT STACK
+                    .animation(.easeInOut(duration: 0.5), value: inputText.isEmpty)
+            } content: {
+                // SLOT 2: Content (Scrollable)
                 VStack(spacing: 30) {
                     
                     // INPUT SECTION
-                    VStack(alignment: .leading, spacing: 8) {
-                        
-                        Text("Paste text.")
-                            .foregroundColor(.white)
-                            .opacity(inputText.isEmpty ? 1.0 : 0.2)
-                            .animation(.easeInOut(duration: 0.3), value: inputText.isEmpty)
+                    VStack(alignment: .leading, spacing: 0) {
                         
                         // Input Container
                         ZStack(alignment: .topLeading) {
                             ScrollView(showsIndicators: false) {
-                                ZStack(alignment: .leading) {
+                                // Content ZStack
+                                ZStack(alignment: .topLeading) {
                                     Color.clear
                                         .contentShape(Rectangle())
                                         .onTapGesture { isInputFocused = true }
                                     
-                                    TextField("Enter text to unlock knowledge...", text: $inputText, axis: .vertical)
+                                    // 1. CUSTOM PLACEHOLDER
+                                    if inputText.isEmpty && !isInputFocused {
+                                        Text("Enter text to unlock knowledge...")
+                                            .foregroundColor(.white)
+                                            .opacity(1.0)
+                                            .multilineTextAlignment(.center)
+                                            .frame(maxWidth: .infinity, minHeight: minWindowHeight, alignment: .center)
+                                            .padding(.horizontal, 20)
+                                            .allowsHitTesting(false)
+                                    }
+                                    
+                                    // 2. THE INPUT FIELD
+                                    TextField("", text: $inputText, axis: .vertical)
                                         .font(.body)
+                                        .foregroundColor(Theme.text)
                                         .focused($isInputFocused)
+                                        .tint(Theme.accent)
                                         .multilineTextAlignment(.leading)
                                         .padding(.horizontal, 10)
+                                        .padding(.top, 8)
+                                        // FIXED: Replaced "return Color.clear" with standard onChange
                                         .background(
-                                            GeometryReader { geo -> Color in
-                                                DispatchQueue.main.async {
-                                                    self.contentHeight = geo.size.height
-                                                }
-                                                return Color.clear
+                                            GeometryReader { geo in
+                                                Color.clear
+                                                    .onAppear { self.contentHeight = geo.size.height }
+                                                    .onChange(of: geo.size.height) { newHeight in
+                                                        self.contentHeight = newHeight
+                                                    }
                                             }
                                         )
                                         .onChange(of: inputText) { newValue in
@@ -68,6 +80,7 @@ struct InputView: View {
                                             }
                                         }
                                     
+                                    // Scroll offset reader
                                     GeometryReader { geo in
                                         Color.clear
                                             .preference(
@@ -85,6 +98,7 @@ struct InputView: View {
                             }
                             .scrollDismissesKeyboard(.interactively)
                             
+                            // SCROLL BAR LOGIC
                             if contentHeight > maxWindowHeight {
                                 let trackHeight = currentWindowHeight
                                 let visibleRatio = maxWindowHeight / contentHeight
@@ -100,8 +114,10 @@ struct InputView: View {
                             }
                         }
                         .padding(15)
-                        .background(Color.black.opacity(0.2))
+                        .background(Color.black.opacity(isInputFocused ? 0.3 : 0.2))
+                        .animation(.easeInOut(duration: 0.2), value: isInputFocused)
                         .cornerRadius(12)
+                        .padding(.top, 10) // Space for the frozen header
                         
                         HStack {
                             Spacer()
@@ -118,9 +134,9 @@ struct InputView: View {
                         }) {
                             Text("Generate Audio")
                         }
-                        .buttonStyle(ArTButtonStyle()) // Uses Theme.swift logic
-                        .disabled(inputText.isEmpty) // Triggers Inactive State in Theme
-                        .animation(.easeInOut(duration: 0.5), value: inputText.isEmpty) // Smooth Transition for Button
+                        .buttonStyle(ArTButtonStyle())
+                        .disabled(inputText.isEmpty)
+                        .animation(.easeInOut(duration: 0.5), value: inputText.isEmpty)
                         .frame(width: geometry.size.width * 0.75)
                         .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
                     }
@@ -130,7 +146,6 @@ struct InputView: View {
                 
                 Spacer()
             }
-            .ignoresSafeArea(edges: .top)
             .contentShape(Rectangle())
             .onTapGesture { isInputFocused = false }
             .background(
@@ -146,6 +161,7 @@ struct InputView: View {
     }
 }
 
+// FIXED: Added the missing Key struct
 struct ScrollOffsetKey: PreferenceKey {
     static var defaultValue: CGFloat = 0
     static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {

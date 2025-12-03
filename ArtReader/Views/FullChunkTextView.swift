@@ -31,7 +31,8 @@ struct FullChunkTextView: UIViewRepresentable {
             layoutManager.ensureLayout(for: textContainer)
             let usedRect = layoutManager.usedRect(for: textContainer)
             
-            // Add padding (20 top + 25 bottom)
+            // 3. CONSOLIDATED HEIGHT CALCULATION
+            // The extra space is now fully handled by textContainerInset.bottom
             let totalHeight = usedRect.height + textContainerInset.top + textContainerInset.bottom
             
             return CGSize(width: UIView.noIntrinsicMetric, height: totalHeight)
@@ -51,6 +52,7 @@ struct FullChunkTextView: UIViewRepresentable {
     
     // MARK: - UIViewRepresentable
     func makeUIView(context: Context) -> UITextView {
+        // NOTE: usingTextLayoutManager: false ensures compatibility with TextKit 1
         let textView = DynamicTextView(usingTextLayoutManager: false)
         
         textView.isEditable = false
@@ -66,8 +68,10 @@ struct FullChunkTextView: UIViewRepresentable {
         textView.textContainer.widthTracksTextView = false
         textView.textContainer.lineBreakMode = .byWordWrapping
         
-        // PADDING UPDATE: 20 Top, 25 Bottom
-        textView.textContainerInset = UIEdgeInsets(top: 20, left: 20, bottom: 25, right: 20)
+        // CONSOLIDATED PADDING:
+        // Top: 20
+        // Bottom: 20 (Reduced from 35 per request)
+        textView.textContainerInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
         
         textView.setContentCompressionResistancePriority(.required, for: .vertical)
         textView.setContentHuggingPriority(.required, for: .vertical)
@@ -186,6 +190,7 @@ struct FullChunkTextView: UIViewRepresentable {
             }
         }
         
+        // Remove trailing whitespace/newlines
         while finalString.string.last?.isWhitespace == true || finalString.string.last?.isNewline == true {
             finalString.deleteCharacters(in: NSRange(location: finalString.length - 1, length: 1))
         }

@@ -9,7 +9,6 @@ struct LoadingView: View {
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
-    // UPDATED STEPS
     let steps: [(text: String, duration: Double)] = [
         ("Smoothing timing.", 2.0),
         ("Leveling gain.", 2.0),
@@ -20,24 +19,21 @@ struct LoadingView: View {
     ]
     
     var body: some View {
-        VStack(spacing: 0) {
-            
-            // 1. HEADER (Inactive State)
+        // NEW: Use the Frozen Panel Layout
+        FrozenPanelView {
+            // SLOT 1: Header
             AppHeaderView(state: .inactive)
-            
-            // 2. SCROLLABLE CARD CONTENT
+        } content: {
+            // SLOT 2: Scrollable Content
             ScrollView {
                 VStack(spacing: 40) {
                     
                     // A. TIMER BLOCK
                     VStack(spacing: 8) {
-                        
-                        // 1. The Time Digits
                         Text(timerString)
                             .font(.system(size: 48, weight: .semibold))
                             .foregroundColor(Theme.accent)
                         
-                        // 2. The Label
                         HStack(spacing: 6) {
                             Image(systemName: "timer")
                             Text("ESTIMATED TIME")
@@ -61,7 +57,7 @@ struct LoadingView: View {
                 .padding(.horizontal, 20)
                 .frame(maxWidth: .infinity)
                 
-                // --- THE "OVERLAY" STYLING ---
+                // CARD STYLING
                 .background(Theme.overlayBackground)
                 .cornerRadius(20)
                 .overlay(
@@ -69,10 +65,9 @@ struct LoadingView: View {
                         .stroke(Theme.overlayBorder, lineWidth: 1)
                 )
                 .padding(.horizontal, 16)
-                .padding(.top, 10)
+                .padding(.top, 10) // Consistent top spacing
             }
         }
-        .ignoresSafeArea(edges: .top)
         .onAppear {
             runScriptedSteps()
         }

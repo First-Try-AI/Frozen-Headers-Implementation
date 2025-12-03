@@ -2,32 +2,34 @@ import SwiftUI
 
 struct PageViewMode: View {
     @ObservedObject var sessionManager: SessionManager
+    @ObservedObject var playbackVM: ArtPlaybackViewModel
+    
     let chunk: AudioChunk
-    let currentWordIndex: Int
     let activeColor: Color
     
     // Observe AudioService for dynamic button text
     @ObservedObject private var audioService = AudioService.shared
     
-    init(sessionManager: SessionManager, chunk: AudioChunk, currentWordIndex: Int, activeColor: Color = Theme.accent) {
+    init(sessionManager: SessionManager, playbackVM: ArtPlaybackViewModel, chunk: AudioChunk, activeColor: Color = Theme.accent) {
         self.sessionManager = sessionManager
+        self.playbackVM = playbackVM
         self.chunk = chunk
-        self.currentWordIndex = currentWordIndex
         self.activeColor = activeColor
     }
     
     var activePage: ChunkPage? {
         let pages = chunk.computedPages
+        let idx = playbackVM.activeWordIndex
         return pages.first { page in
             if let first = page.words?.first?.index, let last = page.words?.last?.index {
-                return currentWordIndex >= first && currentWordIndex <= last
+                return idx >= first && idx <= last
             }
             return false
         }
     }
     
     var body: some View {
-        GeometryReader { geometry in // Need geometry for width calculation
+        GeometryReader { geometry in
             VStack(spacing: 0) {
                 
                 // IMMERSIVE TEXT WINDOW
@@ -57,15 +59,14 @@ struct PageViewMode: View {
                         }
                     }
                 }
+                // Use the shared reader height from sessionManager
                 .frame(height: sessionManager.readerTextHeight)
                 .animation(.easeInOut, value: sessionManager.readerTextHeight)
                 .padding(.horizontal, 20)
                 
-                // CONTROLS SPACING
                 Spacer().frame(height: 30)
                 
-                // AUDIO CONTROL (Single Gold Button)
-                // Replaced AudioControlsView with the specific Play/Pause button style
+                // AUDIO CONTROL
                 Button(action: {
                     sessionManager.togglePlayback()
                 }) {
@@ -92,21 +93,19 @@ struct PageViewMode: View {
                         }
                     }
                     .frame(height: 50)
-                    // Match FullChunkDisplayView: 75% Width
                     .frame(width: geometry.size.width * 0.75)
                 }
                 .padding(.bottom, 0)
                 
                 Spacer()
             }
+            .frame(width: geometry.size.width)
         }
     }
     
-    // ... [Rest of file remains unchanged] ...
-    
     @ViewBuilder
     private func wordView(for wordObj: PageWord) -> some View {
-        let state = getWordState(wordIndex: wordObj.index, currentIndex: currentWordIndex)
+        let state = getWordState(wordIndex: wordObj.index, currentIndex: playbackVM.activeWordIndex)
         
         Text(wordObj.word)
             .font(.system(size: 32, weight: .bold))
@@ -121,11 +120,7 @@ struct PageViewMode: View {
     }
     
     enum WordState: Equatable {
-        case active
-        case lookahead
-        case lookback
-        case inactive
-        
+        case active, lookahead, lookback, inactive
         var opacity: Double {
             switch self {
             case .active: return 1.0
@@ -136,15 +131,9 @@ struct PageViewMode: View {
     }
     
     private func getWordState(wordIndex: Int, currentIndex: Int) -> WordState {
-        if wordIndex == currentIndex {
-            return .active
-        }
-        if wordIndex > currentIndex && wordIndex <= currentIndex + 2 {
-            return .lookahead
-        }
-        if wordIndex < currentIndex && wordIndex >= currentIndex - 1 {
-            return .lookback
-        }
+        if wordIndex == currentIndex { return .active }
+        if wordIndex > currentIndex && wordIndex <= currentIndex + 2 { return .lookahead }
+        if wordIndex < currentIndex && wordIndex >= currentIndex - 1 { return .lookback }
         return .inactive
     }
 }

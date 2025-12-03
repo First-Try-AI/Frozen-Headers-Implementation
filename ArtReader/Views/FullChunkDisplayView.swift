@@ -6,14 +6,13 @@ struct FullChunkDisplayView: View {
     let chunk: AudioChunk
     
     @State private var selectedPageIndex: Int = 0
-    @State private var textHeight: CGFloat = 200 // Default start
+    @State private var textHeight: CGFloat = 200
     
-    // CALCULATED MINIMUM: 3 Lines of Text
     private var minimumWindowHeight: CGFloat {
         let font = UIFont.systemFont(ofSize: 32, weight: .bold)
         let threeLines = font.lineHeight * 3
-        let spacing = CGFloat(8 * 2) // 2 spaces for 3 lines
-        let padding = CGFloat(40)    // Standard vertical padding
+        let spacing = CGFloat(8 * 2)
+        let padding = CGFloat(40)
         return threeLines + spacing + padding
     }
     
@@ -22,19 +21,17 @@ struct FullChunkDisplayView: View {
             ScrollView {
                 VStack(spacing: 0) {
                     
-                    // 1. TEXT CONTAINER (Self-Sizing with Floor)
+                    // 1. TEXT CONTAINER
                     FullChunkTextView(
                         chunk: chunk,
-                        width: geometry.size.width - 40, // Padding 20*2
+                        width: geometry.size.width - 40,
                         selectedPageIndex: $selectedPageIndex,
-                        dynamicHeight: $textHeight, // BINDING
+                        dynamicHeight: $textHeight,
                         onCueRequest: { time in
                             AudioService.shared.seek(to: time)
                         }
                     )
-                    .frame(height: max(textHeight, minimumWindowHeight))
-                    
-                    // Apply the Card Styling
+                    .frame(height: max(textHeight, minimumWindowHeight), alignment: .top)
                     .background(Theme.overlayBackground)
                     .cornerRadius(20)
                     .overlay(
@@ -42,12 +39,11 @@ struct FullChunkDisplayView: View {
                             .stroke(Theme.overlayBorder, lineWidth: 1)
                     )
                     .padding(.horizontal, 20)
-                    .padding(.top, 10)
+                    .padding(.top, 10) // Internal spacing (Card vs Scroll Top)
                     
-                    // 2. CONTROLS SPACING
                     Spacer().frame(height: 30)
                     
-                    // 3. PLAY AUDIO BUTTON (Styled like InputView)
+                    // 2. PLAY BUTTON
                     Button(action: {
                         sessionManager.state = .listening
                         sessionManager.playCurrentChunk()
@@ -67,28 +63,22 @@ struct FullChunkDisplayView: View {
                             HStack(spacing: 6) {
                                 Text("Play Audio")
                                     .fontWeight(.bold)
-                                    .foregroundColor(Theme.buttonText) // Dark Text
+                                    .foregroundColor(Theme.buttonText)
                                 
                                 Image(systemName: "play.fill")
                                     .font(.caption)
-                                    .foregroundColor(Theme.buttonText) // Dark Icon
+                                    .foregroundColor(Theme.buttonText)
                             }
                         }
                         .frame(height: 50)
-                        // CHANGED: Fixed width to 75% of screen width
                         .frame(width: geometry.size.width * 0.75)
                     }
-                    // Centered by default behavior of VStack
                     
-                    // 4. RESET BUTTON (New Position)
-                    // "Bottom Left"
+                    // 3. RESET BUTTON
                     HStack {
                         Button(action: {
-                            // Haptic Feedback
                             let impact = UIImpactFeedbackGenerator(style: .medium)
                             impact.impactOccurred()
-                            
-                            // Reset
                             sessionManager.reset()
                         }) {
                             Image(systemName: "arrow.counterclockwise")
@@ -102,16 +92,16 @@ struct FullChunkDisplayView: View {
                                         .stroke(Color.white.opacity(0.5), lineWidth: 1)
                                 )
                         }
-                        
-                        Spacer() // Pushes button to the left
+                        Spacer()
                     }
-                    // CHANGED: Increased top padding to 30 to give space
                     .padding(.top, 30)
-                    .padding(.leading, 20) // Align with card edge
-                    .padding(.bottom, 20)  // Extra bottom padding for scroll space
+                    .padding(.leading, 20)
+                    .padding(.bottom, 20)
+                    
                 }
                 .frame(maxWidth: .infinity)
                 .frame(minHeight: geometry.size.height, alignment: .top)
+                .padding(.bottom, 100)
             }
         }
         .onChange(of: chunk.chunkIndex) { _ in
@@ -119,13 +109,8 @@ struct FullChunkDisplayView: View {
         }
         .onChange(of: textHeight) { newHeight in
             if newHeight > 0 {
-                let effectiveHeight = max(newHeight, minimumWindowHeight)
-                print("LOG: [Layout] Syncing Reader Height (Clamped): \(effectiveHeight)")
-                sessionManager.readerTextHeight = effectiveHeight
+                sessionManager.readerTextHeight = max(newHeight, minimumWindowHeight)
             }
-        }
-        .onAppear {
-            print("LOG: FullChunkDisplayView appeared")
         }
     }
 }

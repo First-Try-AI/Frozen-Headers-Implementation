@@ -130,9 +130,31 @@ class AudioService: ObservableObject {
     }
     
     func seek(to time: Double) {
+        guard !time.isNaN, !time.isInfinite, time >= 0 else {
+            print("⚠️ [AudioService] Ignored invalid seek time: \(time)")
+            return
+        }
         let cmTime = CMTime(seconds: time, preferredTimescale: 600)
         player?.seek(to: cmTime, toleranceBefore: .zero, toleranceAfter: .zero)
         currentTime = time
+    }
+
+    func reset() {
+        pause()
+        if let observer = timeObserver {
+            player?.removeTimeObserver(observer)
+            timeObserver = nil
+        }
+        NotificationCenter.default.removeObserver(self)
+        player = nil
+        currentURL = nil
+        currentTime = 0
+        duration = 0
+        isPlaying = false
+    }
+    
+    deinit {
+        reset()
     }
     
     // MARK: - Caching Logic

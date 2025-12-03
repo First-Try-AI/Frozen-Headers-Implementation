@@ -1,10 +1,11 @@
 import SwiftUI
 
 struct ProgressHeaderView: View {
+    // Observe the VM specifically for progress updates and playback state
+    @ObservedObject var playbackVM: ArtPlaybackViewModel
+    
     let totalChunks: Int
     @Binding var currentChunkIndex: Int
-    let isPlaying: Bool
-    let progress: Double // 0.0 to 1.0 representing playback within current chunk
     
     // Controls the visual style of the active border
     let isInPlaybackMode: Bool
@@ -12,7 +13,7 @@ struct ProgressHeaderView: View {
     // New closure to handle tapping the header (nav bar)
     var onHeaderTap: (() -> Void)? = nil
     
-    // Royal Blue Color Definition
+    // Royal Blue Color Definition (No longer used for border, but kept if needed later)
     let royalBlue = Color(hex: "4169E1")
     
     var body: some View {
@@ -61,8 +62,9 @@ struct ProgressHeaderView: View {
         if isInPlaybackMode {
             return Color.white.opacity(0.5)
         } else {
-            // CHANGED: Replaced Gold with Royal Blue at 75% opacity
-            return royalBlue.opacity(0.75)
+            // CHANGED: Removed the "Royal Blue" border for Reader Mode.
+            // Returning .clear removes the border entirely.
+            return Color.clear
         }
     }
     
@@ -82,7 +84,7 @@ struct ProgressHeaderView: View {
         if index < currentChunkIndex {
             return totalWidth // 100% full
         } else if index == currentChunkIndex {
-            return totalWidth * CGFloat(progress) // Partial fill
+            return totalWidth * CGFloat(playbackVM.progress) // Partial fill
         } else {
             return 0 // 0% full
         }

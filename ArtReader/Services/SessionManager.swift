@@ -30,8 +30,9 @@ class SessionManager: ObservableObject {
     }
     @Published var errorMessage: String?
     
-    // PLAYBACK PERFORMANCE
-    @Published var activeWordIndex: Int = 0
+    // PLAYBACK PERFORMANCE (DELEGATED TO PLAYBACKVIEWMODEL)
+    // Removed @Published var activeWordIndex: Int = 0
+    let playbackViewModel = ArtPlaybackViewModel()
     
     // LAYOUT SYNCHRONIZATION
     @Published var readerTextHeight: CGFloat = 400
@@ -42,14 +43,14 @@ class SessionManager: ObservableObject {
     
     // DYNAMIC HEIGHTS
     @Published var maxPageHeight: CGFloat = 400
-    private var chunkHeights: [Int: CGFloat] = [:]
+    // Removed chunkHeights dictionary
     
     private var cancellables = Set<AnyCancellable>()
     
     // MARK: - Initialization
     init() {
         setupAudioBindings()
-        setupPerformanceOptimization()
+        // Removed setupPerformanceOptimization()
     }
     
     private func setupAudioBindings() {
@@ -71,53 +72,6 @@ class SessionManager: ObservableObject {
             .store(in: &cancellables)
     }
     
-    private func setupPerformanceOptimization() {
-        audioService.$currentTime
-            .sink { [weak self] time in
-                guard let self = self else { return }
-                self.calculateActiveWordIndex(for: time)
-            }
-            .store(in: &cancellables)
-    }
-    
-    private func calculateActiveWordIndex(for time: Double) {
-        guard let response = currentResponse,
-              response.chunks.indices.contains(currentChunkIndex) else { return }
-        
-        let chunk = response.chunks[currentChunkIndex]
-        var foundIndex = 0
-        
-        if let pages = chunk.pages {
-            for page in pages {
-                if let words = page.words {
-                    for word in words {
-                        if time >= word.startTime && time <= word.endTime {
-                            foundIndex = word.index
-                            updateActiveWordIndex(foundIndex)
-                            return
-                        }
-                    }
-                }
-            }
-        }
-        
-        if time < 0.1 {
-            updateActiveWordIndex(0)
-        }
-    }
-    
-    private func updateActiveWordIndex(_ newIndex: Int) {
-        if activeWordIndex != newIndex {
-            if Thread.isMainThread {
-                self.activeWordIndex = newIndex
-            } else {
-                DispatchQueue.main.async {
-                    self.activeWordIndex = newIndex
-                }
-            }
-        }
-    }
-    
     // MARK: - Actions
     
     func submit(text: String) {
@@ -136,6 +90,12 @@ class SessionManager: ObservableObject {
                     
                     self.currentChunkIndex = 0
                     self.audioService.pause()
+                    
+                    // Update VM
+                    if let firstChunk = response.chunks.first {
+                        self.playbackViewModel.setContext(chunk: firstChunk)
+                    }
+                    
                     withAnimation {
                         self.state = .reading
                     }
@@ -152,11 +112,13 @@ class SessionManager: ObservableObject {
     }
     
     func reset() {
-        audioService.pause()
+        audioService.reset() // CHANGED: Explicit reset
         currentResponse = nil
         currentChunkIndex = 0
         errorMessage = nil
-        activeWordIndex = 0
+        // activeWordIndex = 0 (Removed)
+        playbackViewModel.setContext(chunk: nil)
+        
         readerTextHeight = 400
         withAnimation {
             state = .writing
@@ -166,65 +128,28 @@ class SessionManager: ObservableObject {
     // MARK: - Layout Calculation
     
     private func precalculateChunkHeights(for response: AudioResponse) {
-        chunkHeights.removeAll()
-        
-        let font = UIFont.systemFont(ofSize: 32, weight: .bold)
-        let screenWidth = UIScreen.main.bounds.width
-        let horizontalPadding: CGFloat = 40
-        let contentWidth = screenWidth - horizontalPadding
-        
-        let wordSpacing: CGFloat = 8
-        let lineSpacing: CGFloat = 8
-        let wordInnerPadding: CGFloat = 8
-        let verticalContainerPadding: CGFloat = 40
+        // SIMPLIFIED LOGIC: Constant Height Cap
+        // This eliminates "NaN" errors and instability from complex text measurement.
         let screenHeight = UIScreen.main.bounds.height
-        let maxHeightCap = screenHeight * 0.65
         
-        for chunk in response.chunks {
-            var maxCalculatedHeightForChunk: CGFloat = 0
-            
-            if let pages = chunk.pages {
-                for page in pages {
-                    guard let words = page.words else { continue }
-                    
-                    var currentLineWidth: CGFloat = 0
-                    var numberOfLines: Int = 1
-                    
-                    for wordObj in words {
-                        let attributes: [NSAttributedString.Key: Any] = [.font: font]
-                        let wordSize = (wordObj.word as NSString).size(withAttributes: attributes)
-                        let totalItemWidth = wordSize.width + wordInnerPadding
-                        
-                        if currentLineWidth + totalItemWidth > contentWidth {
-                            numberOfLines += 1
-                            currentLineWidth = totalItemWidth + wordSpacing
-                        } else {
-                            currentLineWidth += totalItemWidth + wordSpacing
-                        }
-                    }
-                    
-                    let textBlockHeight = (CGFloat(numberOfLines) * font.lineHeight) + (CGFloat(max(0, numberOfLines - 1)) * lineSpacing)
-                    let totalPageHeight = textBlockHeight + verticalContainerPadding
-                    
-                    if totalPageHeight > maxCalculatedHeightForChunk {
-                        maxCalculatedHeightForChunk = totalPageHeight
-                    }
-                }
-            }
-            
-            let finalHeight = max(200, min(maxCalculatedHeightForChunk + 20, maxHeightCap))
-            chunkHeights[chunk.chunkIndex] = finalHeight
+        // Safety check
+        guard screenHeight > 0, !screenHeight.isNaN else {
+             // Fallback default
+             self.readerTextHeight = 400
+             self.maxPageHeight = 400
+             return
         }
         
-        print("LOG: Calculated Heights per Chunk: \(chunkHeights)")
+        let fixedHeight = screenHeight * 0.65
+        
+        self.readerTextHeight = fixedHeight
+        self.maxPageHeight = fixedHeight
+        
+        print("LOG: Set Fixed Reader Height to: \(fixedHeight)")
     }
     
     private func updateHeightForCurrentChunk() {
-        if let height = chunkHeights[currentChunkIndex] {
-            withAnimation(.easeInOut(duration: 0.3)) {
-                self.maxPageHeight = height
-            }
-        }
+        // No-op: Height is now constant.
     }
     
     // MARK: - Playback Controls
@@ -243,8 +168,11 @@ class SessionManager: ObservableObject {
         
         let chunk = response.chunks[currentChunkIndex]
         
+        // Update VM Context
+        playbackViewModel.setContext(chunk: chunk)
+        
         if audioService.currentTime < 0.1 {
-            activeWordIndex = 0
+            playbackViewModel.activeWordIndex = 0
         }
         
         if let url = URL(string: chunk.audioUrl) {
@@ -284,12 +212,11 @@ class SessionManager: ObservableObject {
         print("LOG: [SessionManager] End of playback reached. Pausing for 7 seconds.")
         
         // 1. Force highlight to the LAST word of the current chunk
-        // This overrides the '0' that happens when audioService resets.
         if let response = currentResponse,
            response.chunks.indices.contains(currentChunkIndex),
            let lastPage = response.chunks[currentChunkIndex].pages?.last,
            let lastWord = lastPage.words?.last {
-            self.activeWordIndex = lastWord.index
+            self.playbackViewModel.forceIndex(lastWord.index)
         }
         
         // 2. 7-Second Delay before returning to Reader Mode
@@ -300,7 +227,7 @@ class SessionManager: ObservableObject {
             withAnimation(.easeInOut(duration: 0.5)) {
                 self.state = .reading
                 self.currentChunkIndex = 0
-                self.activeWordIndex = 0
+                self.playbackViewModel.activeWordIndex = 0
             }
         }
     }
@@ -308,7 +235,7 @@ class SessionManager: ObservableObject {
     func resetChunkState() {
         audioService.pause()
         audioService.seek(to: 0)
-        activeWordIndex = 0
+        playbackViewModel.activeWordIndex = 0
         
         withAnimation {
             state = .reading
