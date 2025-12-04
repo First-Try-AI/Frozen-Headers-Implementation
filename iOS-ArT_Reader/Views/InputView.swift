@@ -25,15 +25,16 @@ struct InputView: View {
         // USES THE NEW FROZEN PANEL LAYOUT
         FrozenPanelView {
             // SLOT 1: Header (Frozen)
-            VStack(spacing: 0) {
-                AppHeaderView(state: inputText.isEmpty ? .active : .inactive)
-                    .animation(.easeInOut(duration: 0.5), value: inputText.isEmpty)
-                
-                // CHANGED: Added spacer to reserve space for the "Nav Bar" (ProgressHeaderView)
-                // matching the height in ReaderView (10 top + 20 height + 10 bottom = 40pt)
+            StandardFrozenHeader(
+                state: inputText.isEmpty ? .active : .inactive
+            ) {
+                // Bottom Content: Spacer for Nav Bar
+                // Header adds 10pt top + 10pt bottom padding.
+                // We provide 20pt content to reach the target 40pt total height.
                 Color.clear
-                    .frame(height: 40)
+                    .frame(height: 20)
             }
+            .animation(.easeInOut(duration: 0.5), value: inputText.isEmpty)
         } content: {
             // SLOT 2: Content (Scrollable)
             VStack(spacing: 0) {
