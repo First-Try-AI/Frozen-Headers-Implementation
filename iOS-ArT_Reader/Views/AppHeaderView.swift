@@ -43,10 +43,10 @@ struct AppHeaderView: View {
         }
         .padding(.horizontal, 20)
         // Standardized Top Padding for Dynamic Island clearance
-        .padding(.top, 60)
+        // .padding(.top, 60) <--- MOVED TO StandardFrozenHeader
         
         // CHANGED: Reduced to 20 per request
-        .padding(.bottom, 20)
+        // .padding(.bottom, 20) <--- REMOVED (Layout handled by StandardFrozenHeader)
     }
 }
 
