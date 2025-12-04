@@ -7,6 +7,7 @@ const { chunkText, structureChunk } = require('./textProcessor');
 const { generateAudio, processAudioOptimized } = require('./audioProcessor');
 const { generateTimestamps, createPageBreaks, uploadPaginationData, uploadToGCS, uploadWordTimestamps, uploadLetterTimestamps } = require('./outputProcessor');
 const { generateLetterTimestamps, calculateTrimMarkers, filterLetterTimestamps } = require('./letter-timestamps');
+const { generateArticleReview } = require('./geminiProcessor');
 
 
 const app = express();
@@ -172,81 +173,137 @@ app.get('/health', (req, res) => {
   });
 });
 
+// Internal function: Execute synthesis workflow
+// Separated to be reusable by other endpoints
+async function executeSynthesisWorkflow(userText, originalParams, sessionId, customVoices, thresholds) {
+  if (!userText || typeof userText !== 'string') {
+    throw new Error('Invalid userText: text is required and must be a string');
+  }
+
+  if (!sessionId) {
+    throw new Error('Invalid input: sessionId is required');
+  }
+
+  console.log(`🎯 [SYNTH-WORKFLOW] Starting processing for session: ${sessionId}`);
+  console.log(`📝 [SYNTH-WORKFLOW] Input length: ${userText.length} characters`);
+
+  // Step 1: Always chunk the text first
+  const chunkResult = chunkText(userText);
+  const chunks = chunkResult.chunks;
+
+  // Enhanced logging for marker usage
+  if (chunkResult.markerUsed) {
+    console.log(`📦 [SYNTH-WORKFLOW] Created ${chunks.length} chunks using ${chunkResult.markerUsed} marker`);
+    console.log(`📦 [SYNTH-WORKFLOW] Primary chunks: ${chunkResult.primaryChunks}, Secondary chunks: ${chunkResult.secondaryChunks}`);
+  } else {
+    console.log(`📦 [SYNTH-WORKFLOW] Created ${chunks.length} chunks (traditional chunking)`);
+  }
+
+  // Pre-select a single voice if in 'oneVoice' mode to ensure consistency across chunks
+  let singleVoiceForSession = null;
+  if (originalParams && originalParams.speakerMode === 'oneVoice') {
+      // Use a temporary structure to select a voice based on the provided gender
+      const tempChunk = { inputText: chunks[0] || '' }; // Use first chunk's text for context if needed
+      const voiceSelectionParams = { ...originalParams };
+      // Ensure no override is accidentally used for this selection process
+      delete voiceSelectionParams.vovr;
+
+      const structuredForVoice = await structureChunk(tempChunk.inputText, voiceSelectionParams, 0, 1, customVoices);
+      singleVoiceForSession = structuredForVoice.voiceId;
+      console.log(`[SYNTH-WORKFLOW] 'oneVoice' mode active. Using single voice ID for all chunks: ${singleVoiceForSession}`);
+  }
+
+  // Step 2: Process all chunks with voice selection and structuring
+  const structuredChunks = [];
+  for (let i = 0; i < chunks.length; i++) {
+    const chunk = chunks[i];
+    const paramsForThisChunk = { ...originalParams };
+    if (singleVoiceForSession) {
+        paramsForThisChunk.oneVoiceId = singleVoiceForSession;
+    }
+    const structuredChunk = await structureChunk(chunk, paramsForThisChunk, i, chunks.length, customVoices);
+    structuredChunks.push(structuredChunk);
+  }
+
+  console.log(`🎭 [SYNTH-WORKFLOW] Structured ${structuredChunks.length} chunks`);
+
+  // Step 3: Route based on actual chunk count
+  if (structuredChunks.length === 1) {
+    console.log(`🔄 [SYNTH-WORKFLOW] Routing to single chunk processing`);
+    return await processSingleChunk(structuredChunks[0], sessionId, thresholds, userText);
+  } else {
+    console.log(`🔄 [SYNTH-WORKFLOW] Routing to multi-chunk processing`);
+    return await processAllChunks(structuredChunks, sessionId, thresholds, userText);
+  }
+}
+
 // Main processing endpoint - handles all text input and routing
 app.post('/process-input', async (req, res) => {
   try {
     const { userText, originalParams, sessionId, customVoices, thresholds } = req.body;
     
-    if (!userText || typeof userText !== 'string') {
-      return res.status(400).json({ 
-        error: 'Invalid userText: text is required and must be a string' 
-      });
-    }
-
-    if (!sessionId) {
-      return res.status(400).json({ 
-        error: 'Invalid input: sessionId is required' 
-      });
-    }
-
-    console.log(`🎯 [PROCESS-INPUT] Starting processing for session: ${sessionId}`);
-    console.log(`📝 [PROCESS-INPUT] Input length: ${userText.length} characters`);
-
-    // Step 1: Always chunk the text first
-    const chunkResult = chunkText(userText);
-    const chunks = chunkResult.chunks;
-
-    // Enhanced logging for marker usage
-    if (chunkResult.markerUsed) {
-      console.log(`📦 [PROCESS-INPUT] Created ${chunks.length} chunks using ${chunkResult.markerUsed} marker`);
-      console.log(`📦 [PROCESS-INPUT] Primary chunks: ${chunkResult.primaryChunks}, Secondary chunks: ${chunkResult.secondaryChunks}`);
-    } else {
-      console.log(`📦 [PROCESS-INPUT] Created ${chunks.length} chunks (traditional chunking)`);
-    }
-
-    // Pre-select a single voice if in 'oneVoice' mode to ensure consistency across chunks
-    let singleVoiceForSession = null;
-    if (originalParams && originalParams.speakerMode === 'oneVoice') {
-        // Use a temporary structure to select a voice based on the provided gender
-        const tempChunk = { inputText: chunks[0] || '' }; // Use first chunk's text for context if needed
-        const voiceSelectionParams = { ...originalParams };
-        // Ensure no override is accidentally used for this selection process
-        delete voiceSelectionParams.vovr;
-
-        const structuredForVoice = await structureChunk(tempChunk.inputText, voiceSelectionParams, 0, 1, customVoices);
-        singleVoiceForSession = structuredForVoice.voiceId;
-        console.log(`[PROCESS-INPUT] 'oneVoice' mode active. Using single voice ID for all chunks: ${singleVoiceForSession}`);
-    }
-
-    // Step 2: Process all chunks with voice selection and structuring
-    const structuredChunks = [];
-    for (let i = 0; i < chunks.length; i++) {
-      const chunk = chunks[i];
-      const paramsForThisChunk = { ...originalParams };
-      if (singleVoiceForSession) {
-          paramsForThisChunk.oneVoiceId = singleVoiceForSession;
-      }
-      const structuredChunk = await structureChunk(chunk, paramsForThisChunk, i, chunks.length, customVoices);
-      structuredChunks.push(structuredChunk);
-    }
-
-    console.log(`🎭 [PROCESS-INPUT] Structured ${structuredChunks.length} chunks`);
-
-    // Step 3: Route based on actual chunk count
-    if (structuredChunks.length === 1) {
-      console.log(`🔄 [PROCESS-INPUT] Routing to single chunk processing`);
-      const result = await processSingleChunk(structuredChunks[0], sessionId, thresholds, userText);
-      return res.json(result);
-    } else {
-      console.log(`🔄 [PROCESS-INPUT] Routing to multi-chunk processing`);
-      const result = await processAllChunks(structuredChunks, sessionId, thresholds, userText);
-      return res.json(result);
-    }
+    const result = await executeSynthesisWorkflow(userText, originalParams, sessionId, customVoices, thresholds);
+    return res.json(result);
 
   } catch (error) {
     console.error('❌ [PROCESS-INPUT] Error:', error);
-    res.status(500).json({ 
+
+    // Handle specific errors
+    if (error.message.includes('Invalid userText') || error.message.includes('Invalid input')) {
+      return res.status(400).json({ error: error.message });
+    }
+
+    res.status(500).json({
       error: 'Internal server error during processing',
+      details: error.message
+    });
+  }
+});
+
+// New endpoint: Generate article review via Gemini, then process audio
+app.post('/process-article-review', async (req, res) => {
+  try {
+    const { headline, source, originalParams, sessionId, customVoices, thresholds } = req.body;
+    const apiKey = process.env.GEMINI_API_KEY;
+
+    if (!headline || !source) {
+      return res.status(400).json({
+        error: 'Invalid input: headline and source are required'
+      });
+    }
+
+    if (!apiKey) {
+      console.error('❌ [PROCESS-ARTICLE] Missing GEMINI_API_KEY');
+      return res.status(500).json({
+        error: 'Server configuration error: Gemini API key not configured'
+      });
+    }
+
+    console.log(`🚀 [PROCESS-ARTICLE] Starting article review workflow for session: ${sessionId}`);
+
+    // Step 1: Generate content using Gemini
+    const generatedText = await generateArticleReview(headline, source, apiKey);
+
+    // Log the generated text for debugging/review
+    console.log('📝 [PROCESS-ARTICLE] Generated Text:', generatedText);
+
+    // Step 2: Process the generated text using the existing synthesis workflow
+    // We pass the generated text as 'userText'
+    const result = await executeSynthesisWorkflow(generatedText, originalParams, sessionId, customVoices, thresholds);
+
+    // Add metadata about the generation source
+    result.metadata = {
+      sourceType: 'gemini-article-review',
+      originalHeadline: headline,
+      originalSource: source
+    };
+
+    return res.json(result);
+
+  } catch (error) {
+    console.error('❌ [PROCESS-ARTICLE] Error:', error);
+    res.status(500).json({ 
+      error: 'Internal server error during article processing',
       details: error.message 
     });
   }
