@@ -52,7 +52,7 @@ struct ProgressHeaderView: View {
             }
         }
         .padding(.horizontal, 20)
-        .padding(.top, 10)
+        // .padding(.top, 10) <--- REMOVED (Layout handled by StandardFrozenHeader)
     }
     
     // Helper for Border Color

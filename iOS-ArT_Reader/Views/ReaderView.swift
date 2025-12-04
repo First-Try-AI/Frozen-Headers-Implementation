@@ -7,39 +7,37 @@ struct ReaderView: View {
         // USES THE FROZEN PANEL LAYOUT
         FrozenPanelView {
             // SLOT 1: HEADER
-            VStack(spacing: 0) {
-                AppHeaderView(state: .inactive)
-                
-                // CHANGED: Use ZStack/Opacity instead of 'if let' to keep the view hierarchy stable
-                // This prevents the Header from collapsing to 0 height transiently during state changes
-                ZStack {
-                    if let response = sessionManager.currentResponse {
-                        ProgressHeaderView(
-                            playbackVM: sessionManager.playbackViewModel,
-                            totalChunks: response.chunks.count,
-                            currentChunkIndex: $sessionManager.currentChunkIndex,
-                            isInPlaybackMode: sessionManager.state == .listening,
-                            onHeaderTap: handleHeaderTap
-                        )
-                        .padding(.top, 0)
-                        .padding(.bottom, 10)
-                        .transition(.opacity)
-                    } else {
-                        // Placeholder to maintain some stability if needed, or EmptyView
-                        // We use Color.clear frame to avoid total collapse if we wanted a min height
-                        Color.clear.frame(height: 0)
+            StandardFrozenHeader(
+                state: .inactive,
+                bottomContent: {
+                    // CHANGED: Use ZStack/Opacity instead of 'if let' to keep the view hierarchy stable
+                    ZStack {
+                        if let response = sessionManager.currentResponse {
+                            ProgressHeaderView(
+                                playbackVM: sessionManager.playbackViewModel,
+                                totalChunks: response.chunks.count,
+                                currentChunkIndex: $sessionManager.currentChunkIndex,
+                                isInPlaybackMode: sessionManager.state == .listening,
+                                onHeaderTap: handleHeaderTap
+                            )
+                            // StandardFrozenHeader handles top/bottom padding now
+                            .transition(.opacity)
+                        } else {
+                            // Placeholder to maintain some stability
+                            Color.clear.frame(height: 0)
+                        }
                     }
+                    .animation(.easeInOut(duration: 0.3), value: sessionManager.currentResponse != nil)
+                },
+                headerOverlay: {
+                    HeaderDimmingOverlay(
+                        playbackVM: sessionManager.playbackViewModel,
+                        sessionState: sessionManager.state
+                    )
                 }
-                .animation(.easeInOut(duration: 0.3), value: sessionManager.currentResponse != nil)
-            }
+            )
             .contentShape(Rectangle())
             .onTapGesture { handleHeaderTap() }
-            .overlay(
-                HeaderDimmingOverlay(
-                    playbackVM: sessionManager.playbackViewModel,
-                    sessionState: sessionManager.state
-                )
-            )
         } content: {
             // SLOT 2: CONTENT
             VStack(spacing: 0) {
